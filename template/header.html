@@ -1,0 +1,106 @@
+<!--preloader-->
+<div class="ui__preloader">
+    <img class="ui__preloader-graphic ui__preloader-points" src="svg/preloader-points.svg" loading="lazy" alt="gráfico formado por pontos" width="372" height="218,99">
+    <img class="ui__preloader-graphic ui__preloader-circle-dark" src="svg/preloader-circle-dark.svg" loading="lazy" alt="círculo escuro" width="76,61" height="76,61">
+    <img class="ui__preloader-graphic ui__preloader-circle-light" src="svg/preloader-circle-light.svg" loading="lazy" alt="círculo claro" width="76,61" height="76,61">
+    <img class="ui__preloader-graphic ui__preloader-plus-dark" src="svg/preloader-plus-dark.svg" loading="lazy" alt="símbolo de mais escuro" width="86,17" height="86,18">
+    <img class="ui__preloader-graphic ui__preloader-plus-light" src="svg/preloader-plus-light.svg" loading="lazy" alt="símbolo de mais claro" width="58,48" height="58,49">
+    <img class="ui__preloader-graphic ui__preloader-lines" src="svg/preloader-lines.svg" loading="lazy" alt="gráfico formado por linhas" width="177,71" height="296,17">
+    <div class="ui__preloader-box">
+        <svg class="ui__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="#fff"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="#fff"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="#fff"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="#fff"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="#fff"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="#fff"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="#fff"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="#fff"/></g></g></svg>
+        <div class="ui__preloader-text">Carregando...</div>
+    </div>
+</div>
+
+<!-- header -->
+<header class="jetgrid header">
+    <div class="jetgrid__col--24">
+        <div class="jetgrid jetgrid--justify-end jetgrid--align-center">
+            <a class="header__logo" href="{{$config['pageHome']}}">
+                <img class="header__logo-img" src="svg/logo.svg" loading="lazy" alt="{{$client['nomeFantasia']}} logo" width="199.4" height="47.06">
+            </a>
+            <input class="jetwindow__input nav__input" id="jetwindow-nav" type="checkbox" autocomplete="off">
+            <section class="jetwindow nav__window" data-jetwindow="off" data-jetwindow-md="on">
+                <div class="jetwindow__box nav__box" data-jetwindow-align-md="top right" data-jetwindow-effect-md="slide-right">
+                    <div class="jetwindow__content nav__content">
+                        <nav class="jetnav nav" jetnav-direction-md="vertical">
+                            <label class="jetwindow__close nav__close" for="jetwindow-nav">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+                            </label>
+                            <div class="jetnav__menu nav__menu">
+                                <ul class="jetnav__list nav__list">
+                                    <li class="jetnav__item nav__item">
+                                        <a class="jetnav__btn ui__btn ui__btn--transparent-line nav__btn" href="{{$config['pageImoveis']}}/comprar">
+                                            <span class="ui__btn--transparent-line-text">Comprar</span>
+                                        </a>
+                                    </li>
+                                    <li class="jetnav__item nav__item">
+                                        <a class="jetnav__btn ui__btn ui__btn--transparent-line nav__btn" href="{{$config['pageImoveis']}}/alugar">
+                                            <span class="ui__btn--transparent-line-text">Alugar</span>
+                                        </a>
+                                    </li>
+                                    <li class="jetnav__item nav__item">
+                                        <a class="jetnav__btn ui__btn ui__btn--transparent-line nav__btn" href="{{$config['pageContato']}}">
+                                            <span class="ui__btn--transparent-line-text">Contato</span>
+                                        </a>
+                                    </li>
+                                    <li class="jetnav__item nav__item">
+                                        <a class="jetnav__btn ui__btn ui__btn--transparent-line nav__btn" href="{{$config['pageHome']}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15.352" height="9.317" viewBox="0 0 15.352 9.317"><path d="M-.6-11.661a.844.844,0,0,1,1.193,0L7.429-4.829a.844.844,0,0,1,0,1.193l-.8.8a.844.844,0,0,1-1.192,0L0-8.252-5.44-2.837a.844.844,0,0,1-1.192,0l-.8-.8a.844.844,0,0,1,0-1.193Z" transform="translate(7.676 11.908)" fill="#003865"/></svg>
+                                        </a>
+                                    </li>
+                                
+                                </ul>
+                                <a class="header__client ui__display--xs-none" href="{{$config['pageContato']}}">
+                                    <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                                        <svg class="ui__icon" xmlns="http://www.w3.org/2000/svg" width="15.75" height="18" viewBox="0 0 15.75 18"><path d="M3.15-5.062C2.141-5.062,1.656-4.5,0-4.5s-2.137-.562-3.15-.562A4.726,4.726,0,0,0-7.875-.337v.9A1.688,1.688,0,0,0-6.187,2.25H6.188A1.688,1.688,0,0,0,7.875.563v-.9A4.726,4.726,0,0,0,3.15-5.062ZM6.188.563H-6.187v-.9A3.043,3.043,0,0,1-3.15-3.375,13.764,13.764,0,0,0,0-2.812a13.632,13.632,0,0,0,3.15-.562A3.043,3.043,0,0,1,6.188-.337ZM0-5.625a5.064,5.064,0,0,0,5.063-5.062A5.064,5.064,0,0,0,0-15.75a5.064,5.064,0,0,0-5.062,5.063A5.064,5.064,0,0,0,0-5.625Zm0-8.437a3.38,3.38,0,0,1,3.375,3.375A3.38,3.38,0,0,1,0-7.312a3.38,3.38,0,0,1-3.375-3.375A3.38,3.38,0,0,1,0-14.062Z" transform="translate(7.875 15.75)" fill="#003865"/></svg>
+                                        <span class="">Área do Cliente</span>
+                                    </div>
+                                </a>
+                                
+                                 
+                                    <!-- <li class="jetnav__item nav__item ui__display--md-none ui__display--sm-block">
+                                        <a class="ui__btn ui__btn--fit ui__btn--white nav__btn--pill" href="{{$config['pageSouCliente']}}">
+                                            <div class="ui__btn-label">
+                                                Sou Cliente<br>Sou Cliente
+                                            </div>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <label class="jetwindow__close-bg" for="jetwindow-nav"></label>
+            </section>
+            <div class="jetwindow__overlay nav__overlay" data-jetwindow="off" data-jetwindow-md="on" data-jetwindow-effect-md="fade"></div>
+            <ul class="nav__mobile">
+                <li class="jetnav__item nav__item">
+                    <a class="ui__btn ui__btn--transparent favorite__link nav__btn ui__display--xs-none" href="{{$config['pageFavoritos']}}">
+                        <span class="favorite__counter">0</span>
+                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="26.493" viewBox="0 0 32 26.493"><g transform="translate(0 -35.514)"><g transform="translate(0 35.514)"><path d="M22.927,35.515h0A8.993,8.993,0,0,0,16,38.715a8.871,8.871,0,0,0-6.927-3.2A9.073,9.073,0,0,0,0,44.588c0,8.587,14.987,16.972,15.595,17.3a.729.729,0,0,0,.81,0C17.013,61.56,32,53.3,32,44.588A9.073,9.073,0,0,0,22.927,35.515ZM16,60.264C13.651,58.887,1.62,51.555,1.62,44.588a7.453,7.453,0,0,1,7.453-7.453A7.291,7.291,0,0,1,15.311,40.5a.851.851,0,0,0,1.377,0A7.453,7.453,0,0,1,30.38,44.588C30.38,51.636,18.349,58.927,16,60.264Z" transform="translate(0 -35.514)" fill="#fff"/></g></g></svg>
+                    </a>
+                </li>
+                <li class="jetnav__item nav__item">
+                    <a class="ui__btn ui__btn--transparent nav__btn ui__display--xs-none" href="{{$config['pageContato']}}">
+                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><g transform="translate(0)"><path d="M21.449,3.551A12.043,12.043,0,0,0,12.876,0h0A12.126,12.126,0,0,0,2.1,17.684L.064,23.505A1.124,1.124,0,0,0,1.12,25a1.132,1.132,0,0,0,.374-.064L7.316,22.9A12.124,12.124,0,0,0,21.449,3.551ZM20.412,19.659A10.661,10.661,0,0,1,7.873,21.535a1.129,1.129,0,0,0-.9-.07L1.684,23.316l1.851-5.289a1.13,1.13,0,0,0-.07-.9,10.658,10.658,0,0,1,9.41-15.66h0A10.657,10.657,0,0,1,20.412,19.66Zm0,0" transform="translate(0 0)" fill="#fff"/><path d="M138.511,121.436a1.432,1.432,0,0,0-2.023,0l-.61.61a8.879,8.879,0,0,1-3.566-3.566l.61-.61a1.432,1.432,0,0,0,0-2.023l-1.644-1.644a1.432,1.432,0,0,0-2.023,0l-1.315,1.315c-.753.753-.791,2.048-.106,3.646a16,16,0,0,0,7.359,7.359,5.308,5.308,0,0,0,2.047.488,2.18,2.18,0,0,0,1.6-.594l1.315-1.315h0a1.43,1.43,0,0,0,0-2.023Zm-.708,3.945c-.215.215-.876.29-2.032-.2a14.577,14.577,0,0,1-6.589-6.589c-.5-1.156-.42-1.817-.205-2.032l1.29-1.29,1.593,1.593-.764.764a1.119,1.119,0,0,0-.207,1.3,10.344,10.344,0,0,0,4.543,4.543,1.119,1.119,0,0,0,1.3-.207l.764-.764,1.593,1.593Zm0,0" transform="translate(-121.129 -108.229)" fill="#fff"/></g></svg>
+                    </a>
+                </li>
+                <li class="jetnav__item nav__item ui__display--sm-none">
+                    <a class="ui__btn ui__btn--fit ui__btn--white" href="{{$config['pageSouCliente']}}">
+                        <div class="ui__btn-label">
+                            Sou Cliente<br>Sou Cliente
+                        </div>
+                    </a>
+                </li>
+                <label class="nav__open" for="jetwindow-nav">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="22.389" viewBox="0 0 31 22.389"><path d="M29.708,125.251H1.292a1.292,1.292,0,0,1,0-2.583H29.708a1.292,1.292,0,1,1,0,2.583Zm0,0" transform="translate(0 -112.765)" fill="currentColor"/><path d="M29.708,2.583H1.292A1.292,1.292,0,0,1,1.292,0H29.708a1.292,1.292,0,1,1,0,2.583Zm0,0" fill="currentColor"/><path d="M29.708,247.915H1.292a1.292,1.292,0,1,1,0-2.583H29.708a1.292,1.292,0,1,1,0,2.583Zm0,0" transform="translate(0 -225.527)" fill="currentColor"/></svg>
+                </label>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- main -->
+<main class="main">
+    <div class="container">

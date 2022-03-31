@@ -1,0 +1,266 @@
+/**
+ * @name * JetInput
+ * @file * jetinput.css
+ * @author * Paper Plane Design Studio® <http://www.paperplane.com.br>
+ * @description * css styles for JetInput
+ * @version * 1.0
+ * @license * Todos os direitos reservados - Paper Plane Design Studio®
+ */
+
+
+
+/* ==========================================================================
+   = jetinput
+   ========================================================================== */
+
+   
+.jetinput {
+    position: relative;
+}
+
+.jetinput--disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.jetinput__btn {
+    /* white-space: nowrap; */
+    overflow: hidden;
+}
+
+.jetinput__icon {
+    content: '';
+    width: 45px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.jetinput__icon::after {
+    content: '';
+    position: absolute;
+    top: calc(50% + 1px);
+    right: 20px;
+    border-top: 6px solid;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    transform: translateY(-50%);
+    transition: transform .2s;
+    z-index: 2;
+}
+
+.jetinput--opened .jetinput__icon::after {
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+.jetinput__btn,
+.jetinput__item,
+.jetinput__default,
+.jetinput__not-found {
+    height: 40px;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    border: 1px solid;
+    box-sizing: border-box;
+    line-height: 38px;
+    -webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+    cursor: pointer;
+}
+
+.jetinput__not-found {
+    cursor: default;
+}
+
+.jetinput__list {
+    width: 100%;
+    max-height: 202px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 39px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid;
+    opacity: 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    overflow: auto;
+}
+
+.jetinput__list--opened {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 3;
+}
+
+.jetinput__list--opened-top {
+    top: auto;
+    bottom: 40px;
+}
+
+.jetinput__filter {
+    position: relative;
+}
+
+.jetinput__input {
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    border: 1px solid;
+    outline: none;
+    line-height: 40px;
+}
+
+.jetinput__input::-ms-clear {
+    display: none;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.jetinput__empty-btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: none;
+    -webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+            user-select: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.jetinput__empty-btn::before,
+.jetinput__empty-btn::after {
+    width: 1px;
+    height: 12px;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background-color: #000;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.jetinput__empty-btn::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.jetinput__group {
+    padding-left: 0;
+}
+
+.jetinput__title {
+    padding: 9px 20px 11px;
+    display: flex;
+    border-top: 1px solid #000;
+    font-weight: bold;
+}
+
+.jetinput__option {
+    list-style: none;
+}
+
+.jetinput__item,
+.jetinput__not-found {
+    height: auto;
+    padding: 9px 20px 11px;
+    display: flex;
+    border: none;
+    border-top: 1px solid;
+    line-height: inherit;
+    transition: background-color .3s, color .3s;
+}
+
+.no-touchevents .jetinput__item:hover,
+.jetinput__item--active {
+    background-color: #000;
+    color: #fff;
+}
+
+.jetinput__option--hidden {
+    display: none;
+}
+
+.jetinput__tag {
+    height: 26px;
+    margin-right: 10px;
+    padding: 0 10px;
+    position: relative;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    border-radius: 13px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.jetinput__delete-btn {
+    width: 5px;
+    height: 9px;
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.jetinput__delete-btn::before,
+.jetinput__delete-btn::after {
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    content: '';
+    display: inline-block;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+
+.jetinput__delete-btn::before {
+    transform: rotate(-45deg);
+}
+
+.jetinput__name,
+.jetinput__text {
+    flex: 1 0 0px;
+}
+
+.jetinput__reduce-btn,
+.jetinput__sum-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+}
+
+.jetinput__reduce-btn {
+    border-right: none;
+}
+
+.jetinput__sum-btn {
+    border-left: none;
+}

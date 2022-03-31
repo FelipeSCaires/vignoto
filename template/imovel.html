@@ -1,0 +1,790 @@
+<section class="card" data-template>
+    {if}$card['success']{/if}
+        {php}$card = $card['data'];{/php}
+        <nav class="ui__breadcrumb">
+            <div class="jetgrid jetgrid--1200">
+                <div class="jetgrid__col--24">
+                    <div class="jetgrid jetgrid--align-center">
+                        <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                        </a>
+                        Detalhes do imóvel
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+            <div class="jetgrid jetgrid--align-center">
+                <div class="jetgrid__col--auto">
+                    <div class="card__reference">{{$card['imovelReferencia']}}</div>
+                    <h1 class="card__type">{{$card['tipoImovelDescricao']}}</h1>
+                    <p class="card__address">
+                        {if}$card['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $card['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                            {if}$card['imovelEndereco']{/if}{if}$card['imovelTipoEndereco']{/if}{{$card['imovelTipoEndereco']}}. {/endif}{if}$card['imovelEndereco']{/if}{{$card['imovelEndereco']}}{/endif}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}}{/endif}{if}$card['imovelEnderecoComplemento']{/if} {{$card['imovelEnderecoComplemento']}}{/endif}<br>
+                        {/endif}
+                        {if}$card['imovelEnderecoBairro']{/if}{{$card['imovelEnderecoBairro']}}{/endif}{else}{if}$card['imovelEnderecoBairro']{/if}{{$card['imovelEnderecoBairro']}}{/endif}{/endif}{if}$card['imovelEnderecoCidade']{/if} - {{$card['imovelEnderecoCidade']}}{/endif}{if}$card['imovelEnderecoEstado']{/if}/{{$card['imovelEnderecoEstado']}}{/endif}
+                    </p>
+                </div>
+                <div class="jetgrid__col--7 jetgrid__col--md-9 jetgrid__col--sm-12 jetgrid__col--xs-24">
+                    {if}$card['imovelVenda']{/if}
+                        <a class="ui__btn ui__btn--green card__whatsapp" href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{$client['ddd']}}{{$client['whatsAppVenda']}}&text=Estou interessado neste imóvel: {{$card['tipoImovelDescricao']}} - Ref: {{$card['imovelReferencia']}}, no bairro {{$card['imovelEnderecoBairro']}} em {{$card['imovelEnderecoCidade']}}, acesse: {php}echo rawurlencode($global['url']){/php}" rel="noopener" target="_blank">
+                    {else}
+                        <a class="ui__btn ui__btn--green card__whatsapp" href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{$client['ddd']}}{{$client['whatsAppLocacao']}}&text=Estou interessado neste imóvel: {{$card['tipoImovelDescricao']}} - Ref: {{$card['imovelReferencia']}}, no bairro {{$card['imovelEnderecoBairro']}} em {{$card['imovelEnderecoCidade']}}, acesse: {php}echo rawurlencode($global['url']){/php}" rel="noopener" target="_blank">
+                    {/endif}
+                        <div class="ui__btn-label">
+                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><g transform="translate(0)"><path d="M21.449,3.551A12.043,12.043,0,0,0,12.876,0h0A12.126,12.126,0,0,0,2.1,17.684L.064,23.505A1.124,1.124,0,0,0,1.12,25a1.132,1.132,0,0,0,.374-.064L7.316,22.9A12.124,12.124,0,0,0,21.449,3.551ZM20.412,19.659A10.661,10.661,0,0,1,7.873,21.535a1.129,1.129,0,0,0-.9-.07L1.684,23.316l1.851-5.289a1.13,1.13,0,0,0-.07-.9,10.658,10.658,0,0,1,9.41-15.66h0A10.657,10.657,0,0,1,20.412,19.66Zm0,0" transform="translate(0 0)" fill="#fff"/><path d="M138.511,121.436a1.432,1.432,0,0,0-2.023,0l-.61.61a8.879,8.879,0,0,1-3.566-3.566l.61-.61a1.432,1.432,0,0,0,0-2.023l-1.644-1.644a1.432,1.432,0,0,0-2.023,0l-1.315,1.315c-.753.753-.791,2.048-.106,3.646a16,16,0,0,0,7.359,7.359,5.308,5.308,0,0,0,2.047.488,2.18,2.18,0,0,0,1.6-.594l1.315-1.315h0a1.43,1.43,0,0,0,0-2.023Zm-.708,3.945c-.215.215-.876.29-2.032-.2a14.577,14.577,0,0,1-6.589-6.589c-.5-1.156-.42-1.817-.205-2.032l1.29-1.29,1.593,1.593-.764.764a1.119,1.119,0,0,0-.207,1.3,10.344,10.344,0,0,0,4.543,4.543,1.119,1.119,0,0,0,1.3-.207l.764-.764,1.593,1.593Zm0,0" transform="translate(-121.129 -108.229)" fill="#fff"/></g></svg>
+                            Fale pelo WhatsApp<br>
+                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><g transform="translate(0)"><path d="M21.449,3.551A12.043,12.043,0,0,0,12.876,0h0A12.126,12.126,0,0,0,2.1,17.684L.064,23.505A1.124,1.124,0,0,0,1.12,25a1.132,1.132,0,0,0,.374-.064L7.316,22.9A12.124,12.124,0,0,0,21.449,3.551ZM20.412,19.659A10.661,10.661,0,0,1,7.873,21.535a1.129,1.129,0,0,0-.9-.07L1.684,23.316l1.851-5.289a1.13,1.13,0,0,0-.07-.9,10.658,10.658,0,0,1,9.41-15.66h0A10.657,10.657,0,0,1,20.412,19.66Zm0,0" transform="translate(0 0)" fill="#fff"/><path d="M138.511,121.436a1.432,1.432,0,0,0-2.023,0l-.61.61a8.879,8.879,0,0,1-3.566-3.566l.61-.61a1.432,1.432,0,0,0,0-2.023l-1.644-1.644a1.432,1.432,0,0,0-2.023,0l-1.315,1.315c-.753.753-.791,2.048-.106,3.646a16,16,0,0,0,7.359,7.359,5.308,5.308,0,0,0,2.047.488,2.18,2.18,0,0,0,1.6-.594l1.315-1.315h0a1.43,1.43,0,0,0,0-2.023Zm-.708,3.945c-.215.215-.876.29-2.032-.2a14.577,14.577,0,0,1-6.589-6.589c-.5-1.156-.42-1.817-.205-2.032l1.29-1.29,1.593,1.593-.764.764a1.119,1.119,0,0,0-.207,1.3,10.344,10.344,0,0,0,4.543,4.543,1.119,1.119,0,0,0,1.3-.207l.764-.764,1.593,1.593Zm0,0" transform="translate(-121.129 -108.229)" fill="#fff"/></g></svg>
+                            Fale pelo WhatsApp
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="jetgrid jetgrid--justify-center card__gallery-wrapper">
+            <div class="jetgrid__col--10 jetgrid__col--xl-12 jetgrid__col--lg-15 jetgrid__col--md-17 jetgrid__col--sm-20 jetgrid__col--xs-24">
+                <div class="card__gallery-container photo">
+                    {if}$card['fotos'] || $card['videos']{/if}
+                        <li class="card__gallery-close-item">
+                            <button class="card__gallery-close-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+                            </button>
+                        </li>
+                    {/endif}
+                    <div class="card__gallery-box">
+                        <div class="gallery gallery--photo">
+                            {if}$card['fotos']{/if}
+                                <div class="card__gallery-slider-container">
+                                    {if}count($card['fotos']) > 1{/if}
+                                        <div class="card__gallery-slider card__gallery-slider--photo">
+                                            {foreach}$card['fotos'] as $foto{/foreach}
+                                                {if}$foto['principal']{/if}
+                                                    <img class="card__gallery-photo" src="{{$foto['fullPath']}}" loading="lazy" alt="{{$foto['complemento']}}" width="739" height="508">
+                                                {/endif}
+                                            {/endforeach}
+                                            {foreach}$card['fotos'] as $index=>$foto{/foreach}
+                                                {if}!$foto['principal']{/if}
+                                                    <img class="card__gallery-photo" src="{{$foto['fullPath']}}" loading="lazy" alt="{{$foto['complemento']}}" width="739" height="508">
+                                                {/endif}
+                                            {/endforeach}
+                                        </div>
+                                        <button class="card__gallery-prev card__gallery-prev--photo">
+                                            <span class="card__gallery-prev-box">
+                                                <svg class="card__gallery-prev-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg><br>
+                                                <svg class="card__gallery-prev-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                            </span>
+                                        </button>
+                                        <button class="card__gallery-next card__gallery-next--photo">
+                                            <span class="card__gallery-next-box">
+                                                <svg class="card__gallery-next-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="currentColor"/></g></svg><br>
+                                                <svg class="card__gallery-next-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="currentColor"/></g></svg>
+                                            </span>
+                                        </button>
+                                        <button class="card__gallery-options-btn card__gallery-options-btn--expand">
+                                            <span class="card__gallery-options-btn-box">
+                                                <svg class="card__gallery-options-icon" xmlns="http://www.w3.org/2000/svg" width="20.5" height="20.5" viewBox="0 0 20.5 20.5"><path d="M5.125,1.281V0H.641A.641.641,0,0,0,0,.641V5.125H1.281V2.185L7.233,8.136l.9-.9L2.185,1.281Z" fill="currentColor"/><path d="M316.3,0h-4.484V1.281h2.94L308.8,7.233l.9.9,5.951-5.951v2.94h1.281V.641A.641.641,0,0,0,316.3,0Z" transform="translate(-296.436)" fill="currentColor"/><path d="M315.655,314.751,309.7,308.8l-.9.9,5.951,5.951h-2.94v1.281H316.3a.641.641,0,0,0,.641-.641v-4.484h-1.281Z" transform="translate(-296.436 -296.436)" fill="currentColor"/><path d="M7.233,308.64,1.281,314.6v-2.94H0v4.484a.641.641,0,0,0,.641.641H5.125V315.5H2.185l5.951-5.951Z" transform="translate(0 -296.282)" fill="currentColor"/></svg><br>
+                                                <svg class="card__gallery-options-icon" xmlns="http://www.w3.org/2000/svg" width="20.5" height="20.5" viewBox="0 0 20.5 20.5"><path d="M5.125,1.281V0H.641A.641.641,0,0,0,0,.641V5.125H1.281V2.185L7.233,8.136l.9-.9L2.185,1.281Z" fill="currentColor"/><path d="M316.3,0h-4.484V1.281h2.94L308.8,7.233l.9.9,5.951-5.951v2.94h1.281V.641A.641.641,0,0,0,316.3,0Z" transform="translate(-296.436)" fill="currentColor"/><path d="M315.655,314.751,309.7,308.8l-.9.9,5.951,5.951h-2.94v1.281H316.3a.641.641,0,0,0,.641-.641v-4.484h-1.281Z" transform="translate(-296.436 -296.436)" fill="currentColor"/><path d="M7.233,308.64,1.281,314.6v-2.94H0v4.484a.641.641,0,0,0,.641.641H5.125V315.5H2.185l5.951-5.951Z" transform="translate(0 -296.282)" fill="currentColor"/></svg>
+                                            </span>
+                                        </button>
+                                    {else}
+                                        <img class="card__gallery-photo" src="{{$card['fotos'][0]['fullPath']}}" alt="{{$card['fotos'][0]['complemento']}}" loading="lazy" width="739" height="508">
+                                    {/endif}
+                                </div>
+                                <div class="card__gallery-options">
+                                    <div class="card__gallery-counter card__gallery-counter--photo">
+                                        <span class="card__gallery-number card__gallery-number--photo">0</span> de {{count($card['fotos'])}}
+                                    </div>
+                                </div>
+                            {else}
+                                <div class="card__gallery-slider-container">
+                                    <div class="card__gallery-no-photo-box">
+                                        <span class="card__gallery-no-photo-text">Imóvel sem fotos</span>
+                                    </div>
+                                </div>
+                            {/endif}
+                        </div>
+                        {if}$card['videos']{/if}
+                            <div class="gallery gallery--video">
+                                <div class="card__gallery-slider-container">
+                                    {if}count($card['videos']) > 1{/if}
+                                        <div class="card__gallery-slider card__gallery-slider--video">
+                                            {foreach}$card['videos'] as $video{/foreach}
+                                                <iframe class="card__gallery-video" src="https://www.youtube.com/embed/{{explode('v=',$video['fullPath'])[1]}}" frameborder="0" allow="accelerometer;" allowfullscreen="true"></iframe>
+                                            {/endforeach}
+                                        </div>
+                                        <button class="card__gallery-prev card__gallery-prev--video">
+                                            <span class="card__gallery-prev-box">
+                                                <svg class="card__gallery-prev-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg><br>
+                                                <svg class="card__gallery-prev-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                            </span>
+                                        </button>
+                                        <button class="card__gallery-next card__gallery-next--video">
+                                            <span class="card__gallery-next-box">
+                                                <svg class="card__gallery-next-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="currentColor"/></g></svg><br>
+                                                <svg class="card__gallery-next-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="currentColor"/></g></svg>
+                                            </span>
+                                        </button>
+                                        <button class="card__gallery-options-btn card__gallery-options-btn--expand">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.5" height="20.5" viewBox="0 0 20.5 20.5"><path d="M5.125,1.281V0H.641A.641.641,0,0,0,0,.641V5.125H1.281V2.185L7.233,8.136l.9-.9L2.185,1.281Z" fill="currentColor"/><path d="M316.3,0h-4.484V1.281h2.94L308.8,7.233l.9.9,5.951-5.951v2.94h1.281V.641A.641.641,0,0,0,316.3,0Z" transform="translate(-296.436)" fill="currentColor"/><path d="M315.655,314.751,309.7,308.8l-.9.9,5.951,5.951h-2.94v1.281H316.3a.641.641,0,0,0,.641-.641v-4.484h-1.281Z" transform="translate(-296.436 -296.436)" fill="currentColor"/><path d="M7.233,308.64,1.281,314.6v-2.94H0v4.484a.641.641,0,0,0,.641.641H5.125V315.5H2.185l5.951-5.951Z" transform="translate(0 -296.282)" fill="currentColor"/></svg>
+                                        </button>
+                                    {else}
+                                        <iframe class="card__gallery-video" src="https://www.youtube.com/embed/{{explode('v=',$card['videos'][0]['fullPath'])[1]}}" frameborder="0" allow="accelerometer;" allowfullscreen="true"></iframe>
+                                    {/endif}
+                                </div>
+                                <div class="card__gallery-options">
+                                    <div class="card__gallery-counter card__gallery-counter--video">
+                                        <span class="card__gallery-number card__gallery-number--photo">0</span> de {{count($card['videos'])}}
+                                    </div>
+                                </div>
+                            </div>
+                        {/endif}
+                        {if}$card['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $card['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                            <div class="gallery gallery--map">
+                                <div class="card__map" id="map" data-latitude="{{$card['imovelEnderecoLatitude']}}" data-longitude="{{$card['imovelEnderecoLongitude']}}"></div>
+                            </div>
+                        {/endif}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+            <div>
+                <div class="card__col card__col-1">
+                    <div class="jetgrid jetgrid--align-content-top">
+                        <ul class="jetgrid card__gallery-change-btn-list">
+                            <div class="jetgrid__col--6">
+                                <li class="card__gallery-change-btn-item">
+                                    <button class="ui__btn ui__btn--white-line card__gallery-change-btn card__gallery-change-btn--photo card__gallery-change-btn--active">
+                                        <div class="ui__btn-label">
+                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g transform="translate(0)"><path d="M17.444,0H2.556A2.559,2.559,0,0,0,0,2.556V17.444A2.559,2.559,0,0,0,2.556,20H17.444A2.559,2.559,0,0,0,20,17.444V2.556A2.559,2.559,0,0,0,17.444,0Zm1.378,17.444a1.379,1.379,0,0,1-1.378,1.378H2.556a1.379,1.379,0,0,1-1.378-1.378V15.3L5.055,12a.381.381,0,0,1,.491,0l2.429,2.017a.589.589,0,0,0,.793-.037l5.771-5.779a.381.381,0,0,1,.566.029L18.822,12.8v4.643Zm0-6.512-2.8-3.452A1.559,1.559,0,0,0,13.7,7.362l-5.391,5.4L6.3,11.088a1.557,1.557,0,0,0-2.007.012L1.178,13.749V2.556A1.379,1.379,0,0,1,2.556,1.178H17.444a1.379,1.379,0,0,1,1.378,1.378Z" transform="translate(0)" fill="currentColor"/></g><g transform="translate(3.456 2.461)"><path d="M91.3,63a2.84,2.84,0,1,0,2.84,2.84A2.844,2.844,0,0,0,91.3,63Zm0,4.5a1.662,1.662,0,1,1,1.662-1.662A1.664,1.664,0,0,1,91.3,67.5Z" transform="translate(-88.461 -62.995)" fill="currentColor"/></g></svg>
+                                            <span class="card__gallery-change-text">Fotos</span><br>
+                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g transform="translate(0)"><path d="M17.444,0H2.556A2.559,2.559,0,0,0,0,2.556V17.444A2.559,2.559,0,0,0,2.556,20H17.444A2.559,2.559,0,0,0,20,17.444V2.556A2.559,2.559,0,0,0,17.444,0Zm1.378,17.444a1.379,1.379,0,0,1-1.378,1.378H2.556a1.379,1.379,0,0,1-1.378-1.378V15.3L5.055,12a.381.381,0,0,1,.491,0l2.429,2.017a.589.589,0,0,0,.793-.037l5.771-5.779a.381.381,0,0,1,.566.029L18.822,12.8v4.643Zm0-6.512-2.8-3.452A1.559,1.559,0,0,0,13.7,7.362l-5.391,5.4L6.3,11.088a1.557,1.557,0,0,0-2.007.012L1.178,13.749V2.556A1.379,1.379,0,0,1,2.556,1.178H17.444a1.379,1.379,0,0,1,1.378,1.378Z" transform="translate(0)" fill="currentColor"/></g><g transform="translate(3.456 2.461)"><path d="M91.3,63a2.84,2.84,0,1,0,2.84,2.84A2.844,2.844,0,0,0,91.3,63Zm0,4.5a1.662,1.662,0,1,1,1.662-1.662A1.664,1.664,0,0,1,91.3,67.5Z" transform="translate(-88.461 -62.995)" fill="currentColor"/></g></svg>
+                                            <span class="card__gallery-change-text">Fotos</span>
+                                        </div>
+                                    </button>
+                                </li>
+                            </div>
+                            {if}$card['videos']{/if}
+                                <div class="jetgrid__col--6">
+                                    <li class="card__gallery-change-btn-item">
+                                        <button class="ui__btn ui__btn--white-line card__gallery-change-btn card__gallery-change-btn--video">
+                                            <div class="ui__btn-label">
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="19.333" height="19.333" viewBox="0 0 19.333 19.333"><path d="M16.5,2.831a9.668,9.668,0,1,0,2.831,6.836A9.636,9.636,0,0,0,16.5,2.831Zm-.829,12.843a8.5,8.5,0,0,1-12.014,0A8.549,8.549,0,0,1,1.174,9.667a8.493,8.493,0,1,1,16.985,0A8.549,8.549,0,0,1,15.674,15.674Z" fill="currentColor"/><g transform="translate(5.777 4.406)"><path d="M109.652,81.148a2.643,2.643,0,0,1-.184-.23l-.046-.046a.827.827,0,0,0-.23-.161l-3.406-1.956a.023.023,0,0,1-.023-.023l-3.429-1.979a1.3,1.3,0,0,0-.967-.138,1.349,1.349,0,0,0-.783.6,1.736,1.736,0,0,0-.138.3c-.023.069-.023.161-.046.253V85.8a1.257,1.257,0,0,0,1.266,1.266,1.042,1.042,0,0,0,.368-.069,1.406,1.406,0,0,0,.322-.161l3.383-1.956.046-.023,3.406-1.956c.023,0,.023-.023.046-.023a1.293,1.293,0,0,0,.552-.76A1.2,1.2,0,0,0,109.652,81.148Zm-.99.713a.05.05,0,0,1-.046.046h-.023l-3.383,1.979-.023.023L101.8,85.866c-.023,0-.023.023-.046.023a.023.023,0,0,0-.023.023h-.023c-.023,0-.046-.023-.069-.023a.085.085,0,0,1-.023-.069V77.833c.023-.023.046-.046.069-.046h.069l3.406,1.956.023.023,3.429,1.979.023.023.023.023Z" transform="translate(-100.4 -76.578)" fill="currentColor"/></g></svg>
+                                                <span class="card__gallery-change-text">Videos</span><br>
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="19.333" height="19.333" viewBox="0 0 19.333 19.333"><path d="M16.5,2.831a9.668,9.668,0,1,0,2.831,6.836A9.636,9.636,0,0,0,16.5,2.831Zm-.829,12.843a8.5,8.5,0,0,1-12.014,0A8.549,8.549,0,0,1,1.174,9.667a8.493,8.493,0,1,1,16.985,0A8.549,8.549,0,0,1,15.674,15.674Z" fill="currentColor"/><g transform="translate(5.777 4.406)"><path d="M109.652,81.148a2.643,2.643,0,0,1-.184-.23l-.046-.046a.827.827,0,0,0-.23-.161l-3.406-1.956a.023.023,0,0,1-.023-.023l-3.429-1.979a1.3,1.3,0,0,0-.967-.138,1.349,1.349,0,0,0-.783.6,1.736,1.736,0,0,0-.138.3c-.023.069-.023.161-.046.253V85.8a1.257,1.257,0,0,0,1.266,1.266,1.042,1.042,0,0,0,.368-.069,1.406,1.406,0,0,0,.322-.161l3.383-1.956.046-.023,3.406-1.956c.023,0,.023-.023.046-.023a1.293,1.293,0,0,0,.552-.76A1.2,1.2,0,0,0,109.652,81.148Zm-.99.713a.05.05,0,0,1-.046.046h-.023l-3.383,1.979-.023.023L101.8,85.866c-.023,0-.023.023-.046.023a.023.023,0,0,0-.023.023h-.023c-.023,0-.046-.023-.069-.023a.085.085,0,0,1-.023-.069V77.833c.023-.023.046-.046.069-.046h.069l3.406,1.956.023.023,3.429,1.979.023.023.023.023Z" transform="translate(-100.4 -76.578)" fill="currentColor"/></g></svg>
+                                                <span class="card__gallery-change-text">Videos</span>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </div>
+                            {/endif}
+                            {if}$card['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $card['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                                <div class="jetgrid__col--6">
+                                    <li class="card__gallery-change-btn-item">
+                                        <button class="ui__btn ui__btn--white-line card__gallery-change-btn card__gallery-change-btn--map">
+                                            <div class="ui__btn-label">
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="17.362" height="22.954" viewBox="0 0 17.362 22.954"><g transform="translate(0 0)"><g transform="translate(0 0)"><g transform="translate(0)"><path d="M56.761,0A8.592,8.592,0,0,0,48.08,8.479a9.6,9.6,0,0,0,.736,3.265,13.572,13.572,0,0,0,1,1.833l5.952,8.809a1.145,1.145,0,0,0,1.978,0l5.953-8.81a13.516,13.516,0,0,0,1-1.833,9.594,9.594,0,0,0,.736-3.265A8.592,8.592,0,0,0,56.761,0Zm7,11.357a12.435,12.435,0,0,1-.915,1.671L56.9,21.837c-.117.174-.155.174-.272,0l-5.953-8.81a12.442,12.442,0,0,1-.915-1.671A8.711,8.711,0,0,1,49.1,8.479a7.662,7.662,0,0,1,15.32,0A8.718,8.718,0,0,1,63.765,11.357Z" transform="translate(-48.08)" fill="currentColor"/><path d="M116.676,64.008a4.49,4.49,0,1,0,4.6,4.489A4.549,4.549,0,0,0,116.676,64.008Zm0,7.981A3.492,3.492,0,1,1,120.25,68.5,3.538,3.538,0,0,1,116.676,71.989Z" transform="translate(-107.995 -60.017)" fill="currentColor"/></g></g></g></svg>
+                                                <span class="card__gallery-change-text">Mapa</span><br>
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="17.362" height="22.954" viewBox="0 0 17.362 22.954"><g transform="translate(0 0)"><g transform="translate(0 0)"><g transform="translate(0)"><path d="M56.761,0A8.592,8.592,0,0,0,48.08,8.479a9.6,9.6,0,0,0,.736,3.265,13.572,13.572,0,0,0,1,1.833l5.952,8.809a1.145,1.145,0,0,0,1.978,0l5.953-8.81a13.516,13.516,0,0,0,1-1.833,9.594,9.594,0,0,0,.736-3.265A8.592,8.592,0,0,0,56.761,0Zm7,11.357a12.435,12.435,0,0,1-.915,1.671L56.9,21.837c-.117.174-.155.174-.272,0l-5.953-8.81a12.442,12.442,0,0,1-.915-1.671A8.711,8.711,0,0,1,49.1,8.479a7.662,7.662,0,0,1,15.32,0A8.718,8.718,0,0,1,63.765,11.357Z" transform="translate(-48.08)" fill="currentColor"/><path d="M116.676,64.008a4.49,4.49,0,1,0,4.6,4.489A4.549,4.549,0,0,0,116.676,64.008Zm0,7.981A3.492,3.492,0,1,1,120.25,68.5,3.538,3.538,0,0,1,116.676,71.989Z" transform="translate(-107.995 -60.017)" fill="currentColor"/></g></g></g></svg>
+                                                <span class="card__gallery-change-text">Mapa</span>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </div>
+                            {/endif}
+                            {if}!empty($card['links']) && $card['links'][0]['fullPath']{/if}
+                                <div class="jetgrid__col--6">
+                                    <li class="card__gallery-change-btn-item">
+                                        <a class="ui__btn ui__btn--white-line card__gallery-change-btn card__gallery-change-btn--360" href="{{$card['links'][0]['fullPath']}}" rel="noopener" target="_blank">
+                                            <div class="ui__btn-label">
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="23.653" height="20.063" viewBox="0 0 23.653 20.063"><g transform="translate(0 -38.863)"><path d="M18.521,47.36V43a.693.693,0,0,0-.56-.68l-5.825-3.363a.693.693,0,0,0-.693,0L5.479,42.4a.693.693,0,0,0-.346.6V47.36C2.835,48.083,0,49.576,0,51.983c0,2.066,2.19,3.861,5.881,4.84l-.275,1.261a.693.693,0,0,0,.934.791l3.465-1.386a.693.693,0,0,0,.237-1.129L7.655,53.727a.693.693,0,0,0-1.171.338l-.306,1.4c-2.925-.788-4.791-2.136-4.791-3.484,0-1.171,1.418-2.354,3.746-3.163v1.065a.693.693,0,0,0,.346.6l6,3.465a.693.693,0,0,0,.693,0l6-3.465a.693.693,0,0,0,.346-.6V48.82c2.329.809,3.746,1.992,3.746,3.163,0,2.566-5.636,3.869-8.4,4.1a.693.693,0,1,0,.114,1.381c3.608-.3,9.676-1.857,9.676-5.478C23.653,49.575,20.818,48.083,18.521,47.36ZM7.564,55.612l.96.977L7.239,57.1Zm4.225-15.256L16.4,43.021l-4.578,2.643L7.211,43ZM6.518,44.2l4.615,2.665V52.15L6.518,49.486Zm10.617,5.286L12.52,52.15V46.864L17.135,44.2Z" transform="translate(0 0)" fill="currentColor"/></g></svg>
+                                                <span class="card__gallery-change-text">360º</span><br>
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="23.653" height="20.063" viewBox="0 0 23.653 20.063"><g transform="translate(0 -38.863)"><path d="M18.521,47.36V43a.693.693,0,0,0-.56-.68l-5.825-3.363a.693.693,0,0,0-.693,0L5.479,42.4a.693.693,0,0,0-.346.6V47.36C2.835,48.083,0,49.576,0,51.983c0,2.066,2.19,3.861,5.881,4.84l-.275,1.261a.693.693,0,0,0,.934.791l3.465-1.386a.693.693,0,0,0,.237-1.129L7.655,53.727a.693.693,0,0,0-1.171.338l-.306,1.4c-2.925-.788-4.791-2.136-4.791-3.484,0-1.171,1.418-2.354,3.746-3.163v1.065a.693.693,0,0,0,.346.6l6,3.465a.693.693,0,0,0,.693,0l6-3.465a.693.693,0,0,0,.346-.6V48.82c2.329.809,3.746,1.992,3.746,3.163,0,2.566-5.636,3.869-8.4,4.1a.693.693,0,1,0,.114,1.381c3.608-.3,9.676-1.857,9.676-5.478C23.653,49.575,20.818,48.083,18.521,47.36ZM7.564,55.612l.96.977L7.239,57.1Zm4.225-15.256L16.4,43.021l-4.578,2.643L7.211,43ZM6.518,44.2l4.615,2.665V52.15L6.518,49.486Zm10.617,5.286L12.52,52.15V46.864L17.135,44.2Z" transform="translate(0 0)" fill="currentColor"/></g></svg>
+                                                <span class="card__gallery-change-text">360º</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </div>
+                            {/endif}
+                        </ul>
+                        <div class="jetgrid__col--24">
+                            <hr class="card__line">
+                            {if}$card['imovelAreaTotal'] || $card['imovelAreaUtil'] || isset($card['imovelBanheiros']) || $card['imovelVagas'] || $card['imovelQuartos']{/if}
+                                <div class="jetgrid jetgrid--justify-left jetgrid--align-center card__feature">
+                                    {if}$card['imovelAreaTotal']{/if}
+                                        <div class="card__feature-item">
+                                            <div class="jetgrid jetgrid--justify-left jetgrid--align-center">
+                                                <svg class="card__feature-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                                {n}($card['imovelAreaTotal']){/n}m² total
+                                            </div>
+                                        </div>
+                                    {/endif}
+                                    {if}$card['imovelAreaUtil']{/if}
+                                        <div class="card__feature-item">
+                                            <div class="jetgrid jetgrid--justify-left jetgrid--align-center">
+                                                <svg class="card__feature-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                                {n}($card['imovelAreaUtil']){/n}m² útil
+                                            </div>
+                                        </div>
+                                    {/endif}
+                                    {if}isset($card['imovelBanheiros']){/if}
+                                        <div class="card__feature-item">
+                                            <div class="jetgrid jetgrid--justify-left jetgrid--align-center">
+                                                <svg class="card__feature-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="17.086" viewBox="0 0 18 17.086"><path d="M18,20.559a1.619,1.619,0,0,0-.509-1.176,1.7,1.7,0,0,0-1.178-.476H3.34V15.982a2.031,2.031,0,0,1,.52-1.38,1.624,1.624,0,0,1,1.2-.548,1.633,1.633,0,0,1,1.653,1.2H6.469a.527.527,0,0,0,0,1.055H8.156a.527.527,0,0,0,0-1.055H7.794a2.688,2.688,0,0,0-.774-1.485A2.794,2.794,0,0,0,5.063,13a2.667,2.667,0,0,0-1.98.89,3.082,3.082,0,0,0-.8,2.092v2.924h-.6a1.7,1.7,0,0,0-1.178.476,1.612,1.612,0,0,0,0,2.352,1.71,1.71,0,0,0,.651.392v3.11a3.7,3.7,0,0,0,2.25,3.4v.924a.527.527,0,1,0,1.055,0v-.651a3.718,3.718,0,0,0,.387.02h8.3a3.718,3.718,0,0,0,.387-.02v.651a.527.527,0,1,0,1.055,0v-.924a3.7,3.7,0,0,0,2.25-3.4v-3.11a1.71,1.71,0,0,0,.651-.392A1.619,1.619,0,0,0,18,20.559Zm-2.215,4.678a2.64,2.64,0,0,1-2.637,2.637h-8.3a2.64,2.64,0,0,1-2.637-2.637V22.211h13.57Zm.527-4.08H1.688a.6.6,0,1,1,0-1.2H16.313a.6.6,0,1,1,0,1.2Z" transform="translate(0 -13)"/></svg>
+                                                {{$card['imovelBanheiros']}} banheiro{if}$card['imovelBanheiros'] > 1{/if}s{/endif}
+                                            </div>
+                                        </div>
+                                    {/endif}
+                                    {if}$card['imovelVagas']{/if}
+                                        <div class="card__feature-item">
+                                            <div class="jetgrid jetgrid--justify-left jetgrid--align-center">
+                                                <svg class="card__feature-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="11.507" viewBox="0 0 23 11.507"><path d="M23,135.192a3.092,3.092,0,0,0-2.875-3.356h-.811a1.311,1.311,0,0,1-.818-.288l-3.776-3.022a2.408,2.408,0,0,0-1.5-.525H6.3A2.391,2.391,0,0,0,4.3,129.067l-.816,1.225a1.312,1.312,0,0,1-1.092.584,2.4,2.4,0,0,0-2.4,2.4v1.918a2.4,2.4,0,0,0,1.958,2.356,2.4,2.4,0,0,0,4.7.041h9.68a2.4,2.4,0,0,0,4.7-.037A2.334,2.334,0,0,0,23,135.192ZM4.313,138.548A1.438,1.438,0,1,1,5.75,137.11,1.44,1.44,0,0,1,4.313,138.548Zm14.375,0a1.44,1.44,0,0,1-1.437-1.438h0a1.437,1.437,0,1,1,1.437,1.439Zm2.334-1.975a2.4,2.4,0,0,0-4.682.058H6.66a2.4,2.4,0,0,0-4.681-.062,1.441,1.441,0,0,1-1.021-1.376v-1.918A1.44,1.44,0,0,1,2.4,131.836a2.265,2.265,0,0,0,1.889-1.012L5.1,129.6a1.436,1.436,0,0,1,1.2-.641h6.927a1.445,1.445,0,0,1,.9.315L17.9,132.3a2.272,2.272,0,0,0,1.417.5h.81c1.406,0,1.917,1.434,1.917,2.4A1.368,1.368,0,0,1,21.022,136.573Z" transform="translate(0 -128)"/></svg>
+                                                {if}$card['imovelVagas'] == 1{/if}
+                                                    Sim
+                                                {elseif}$card['imovelVagas'] > 2{/elseif}
+                                                    {{$card['imovelVagas'] - 2}} vaga{if}$card['imovelVagas'] > 1{/if}s{/endif}
+                                                {else}
+                                                    Não
+                                                {/endif}
+                                            </div>
+                                        </div>
+                                    {/endif}
+                                    {if}$card['imovelQuartos']{/if}
+                                        <div class="card__feature-item">
+                                            <div class="card__element jetgrid jetgrid--justify-left jetgrid--align-center">
+                                                <svg class="card__feature-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="13.822" viewBox="0 0 16 13.822"><path d="M14.181,40.932V36.484a1.642,1.642,0,0,0-1.641-1.641H3.46A1.642,1.642,0,0,0,1.82,36.484v4.449A2.379,2.379,0,0,0,0,43.241v3.318a.477.477,0,0,0,.477.477H1.819v1.153a.477.477,0,1,0,.953,0V47.036H13.227v1.153a.477.477,0,1,0,.953,0V47.036h1.343A.477.477,0,0,0,16,46.559V43.241A2.378,2.378,0,0,0,14.181,40.932ZM2.773,36.484A.688.688,0,0,1,3.46,35.8h9.08a.688.688,0,0,1,.687.687v4.383H11.652v-.752a2.262,2.262,0,0,0-2.26-2.26H6.608a2.262,2.262,0,0,0-2.26,2.26v.752H2.773ZM10.7,40.114v.752H5.3v-.752a1.308,1.308,0,0,1,1.306-1.306H9.392A1.308,1.308,0,0,1,10.7,40.114ZM.953,46.083V43.241a1.423,1.423,0,0,1,1.421-1.421h11.25a1.423,1.423,0,0,1,1.421,1.421v2.842Z" transform="translate(0 -34.843)"/></svg>
+                                                {{$card['imovelQuartos']}} quarto{if}$card['imovelQuartos'] > 1{/if}s{/endif}
+                                            </div>
+                                        </div>
+                                    {/endif}
+                                </div>
+                                <hr class="card__line">
+                            {/endif}
+                        </div>
+                    </div>
+                </div>
+                <div class="card__col card__col-3">
+                    <div class="jetgrid jetgrid--align-content-top">
+                        <div class="jetgrid__col--24">
+                            <button class="ui__btn ui__btn--white card__btn favorite__btn card__favorite" data-jetfavorite='{"clienteId": "{{$card['clienteId']}}", "imovelId": "{{$card['imovelId']}}", "imovelPara": "{{$card['imovelTipoDivulgacao']}}"}'>
+                                <div class="card__favorite-box">
+                                    <svg class="card__favorite-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="26.493" viewBox="0 0 32 26.493"><g transform="translate(0 -35.514)"><g transform="translate(0 35.514)"><path d="M22.927,35.515h0A8.993,8.993,0,0,0,16,38.715a8.871,8.871,0,0,0-6.927-3.2A9.073,9.073,0,0,0,0,44.588c0,8.587,14.987,16.972,15.595,17.3a.729.729,0,0,0,.81,0C17.013,61.56,32,53.3,32,44.588A9.073,9.073,0,0,0,22.927,35.515ZM16,60.264C13.651,58.887,1.62,51.555,1.62,44.588a7.453,7.453,0,0,1,7.453-7.453A7.291,7.291,0,0,1,15.311,40.5a.851.851,0,0,0,1.377,0A7.453,7.453,0,0,1,30.38,44.588C30.38,51.636,18.349,58.927,16,60.264Z" transform="translate(0 -35.514)" fill="currentColor"/></g></g></svg>
+                                    <svg class="card__favorite-icon-fill" xmlns="http://www.w3.org/2000/svg" width="24" height="19.869" viewBox="0 0 24 19.869"><path d="M1419.216,487.873h0a6.741,6.741,0,0,0-5.194,2.4,6.656,6.656,0,0,0-5.195-2.4,6.8,6.8,0,0,0-6.805,6.8h0c0,6.44,11.24,12.728,11.7,12.972a.548.548,0,0,0,.608,0c.455-.243,11.7-6.44,11.7-12.972a6.8,6.8,0,0,0-6.8-6.8Z" transform="translate(-1402.022 -487.872)"/></svg>
+                                </div>
+                                Favoritar imóvel
+                            </button>
+                            <label class="ui__btn ui__btn--white card__btn" for="jetwindow-share">
+                                <div class="ui__btn-label">
+                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="18.993" height="19" viewBox="0 0 18.993 19"><path d="M18.993,9.495,10.334,0V5.688H9.328A9.329,9.329,0,0,0,0,15.016V19l1.662-1.821A11.925,11.925,0,0,1,10.334,13.3V18.99ZM1.113,16.138V15.016A8.215,8.215,0,0,1,9.328,6.8h2.119V2.873l6.039,6.622-6.039,6.622V12.189h-1a13.041,13.041,0,0,0-9.335,3.949Zm0,0" transform="translate(0)"/></svg>
+                                    Compartilhe<br>
+                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="18.993" height="19" viewBox="0 0 18.993 19"><path d="M18.993,9.495,10.334,0V5.688H9.328A9.329,9.329,0,0,0,0,15.016V19l1.662-1.821A11.925,11.925,0,0,1,10.334,13.3V18.99ZM1.113,16.138V15.016A8.215,8.215,0,0,1,9.328,6.8h2.119V2.873l6.039,6.622-6.039,6.622V12.189h-1a13.041,13.041,0,0,0-9.335,3.949Zm0,0" transform="translate(0)"/></svg>
+                                    Compartilhe
+                                </div>
+                            </label>
+                            <input class="jetwindow__input" id="jetwindow-share" type="checkbox" autocomplete="off">
+                            <section class="jetwindow" data-jetwindow="on">
+                                <div class="jetwindow__box ui__modal" data-jetwindow-effect="fade">
+                                    <div class="jetwindow__content ui__modal-content">
+                                        <label class="jetwindow__close ui__modal-close" for="jetwindow-share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+                                        </label>
+                                        <div class="jetgrid">
+                                            <div class="jetgrid__col--24">
+                                                <h2 class="ui__modal-title">Compartilhe esse imóvel:</h2>
+                                                <div class="jetgrid jetgrid--justify-center">
+                                                    <a class="ui__btn ui__btn--small ui__btn--white card__share" href="https://api.whatsapp.com/send?text=Veja este imóvel que encontrei no site da {{$client['nomeFantasia']}}: {{$card['tipoImovelDescricao']}} - Ref: {{$card['imovelReferencia']}}, no bairro {{$card['imovelEnderecoBairro']}} em {{$card['imovelEnderecoCidade']}}, acesse: {php}echo rawurlencode($global['url']){/php}" rel="noopener" target="_blank">
+                                                        <div class="ui__btn-label">
+                                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="28.665" height="28.665" viewBox="0 0 28.665 28.665"><g transform="translate(0 0)"><path d="M24.593,4.071A13.809,13.809,0,0,0,14.764,0h0A13.9,13.9,0,0,0,2.41,20.276L.073,26.951a1.289,1.289,0,0,0,1.211,1.714,1.3,1.3,0,0,0,.429-.073l6.675-2.336a13.9,13.9,0,0,0,16.2-22.184ZM23.4,22.541a12.224,12.224,0,0,1-14.377,2.15,1.3,1.3,0,0,0-1.033-.08L1.931,26.734,4.053,20.67a1.3,1.3,0,0,0-.08-1.033A12.221,12.221,0,0,1,14.763,1.681h0a12.22,12.22,0,0,1,8.64,20.86Zm0,0" transform="translate(0 0)"/><path d="M140.148,122.557a1.642,1.642,0,0,0-2.319,0l-.7.7a10.18,10.18,0,0,1-4.089-4.088l.7-.7a1.642,1.642,0,0,0,0-2.32l-1.885-1.885a1.642,1.642,0,0,0-2.319,0l-1.508,1.508c-.864.864-.907,2.348-.121,4.181a18.35,18.35,0,0,0,8.437,8.438,6.087,6.087,0,0,0,2.347.559,2.5,2.5,0,0,0,1.834-.681l1.508-1.508h0a1.64,1.64,0,0,0,0-2.319Zm-.812,4.523c-.246.246-1,.333-2.33-.235a16.714,16.714,0,0,1-7.555-7.555c-.568-1.325-.482-2.083-.235-2.33l1.479-1.479,1.827,1.827-.875.876a1.283,1.283,0,0,0-.238,1.494,11.86,11.86,0,0,0,5.209,5.209,1.283,1.283,0,0,0,1.494-.238l.875-.875,1.827,1.827Zm0,0" transform="translate(-120.218 -107.415)"/></g></svg><br>
+                                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="28.665" height="28.665" viewBox="0 0 28.665 28.665"><g transform="translate(0 0)"><path d="M24.593,4.071A13.809,13.809,0,0,0,14.764,0h0A13.9,13.9,0,0,0,2.41,20.276L.073,26.951a1.289,1.289,0,0,0,1.211,1.714,1.3,1.3,0,0,0,.429-.073l6.675-2.336a13.9,13.9,0,0,0,16.2-22.184ZM23.4,22.541a12.224,12.224,0,0,1-14.377,2.15,1.3,1.3,0,0,0-1.033-.08L1.931,26.734,4.053,20.67a1.3,1.3,0,0,0-.08-1.033A12.221,12.221,0,0,1,14.763,1.681h0a12.22,12.22,0,0,1,8.64,20.86Zm0,0" transform="translate(0 0)"/><path d="M140.148,122.557a1.642,1.642,0,0,0-2.319,0l-.7.7a10.18,10.18,0,0,1-4.089-4.088l.7-.7a1.642,1.642,0,0,0,0-2.32l-1.885-1.885a1.642,1.642,0,0,0-2.319,0l-1.508,1.508c-.864.864-.907,2.348-.121,4.181a18.35,18.35,0,0,0,8.437,8.438,6.087,6.087,0,0,0,2.347.559,2.5,2.5,0,0,0,1.834-.681l1.508-1.508h0a1.64,1.64,0,0,0,0-2.319Zm-.812,4.523c-.246.246-1,.333-2.33-.235a16.714,16.714,0,0,1-7.555-7.555c-.568-1.325-.482-2.083-.235-2.33l1.479-1.479,1.827,1.827-.875.876a1.283,1.283,0,0,0-.238,1.494,11.86,11.86,0,0,0,5.209,5.209,1.283,1.283,0,0,0,1.494-.238l.875-.875,1.827,1.827Zm0,0" transform="translate(-120.218 -107.415)"/></g></svg>
+                                                        </div>
+                                                    </a>
+                                                    <a class="ui__btn ui__btn--small ui__btn--white card__share" href="https://www.facebook.com/sharer.php?u={php}echo rawurlencode($global['url']){/php}" rel="noopener" target="_blank">
+                                                        <div class="ui__btn-label">
+                                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="16.27" height="28.665" viewBox="0 0 16.27 28.665"><path d="M10.55,28.664H5.959a1.392,1.392,0,0,1-1.39-1.39V16.92H1.891A1.392,1.392,0,0,1,.5,15.53V11.093A1.392,1.392,0,0,1,1.891,9.7H4.569V7.481a7.565,7.565,0,0,1,2-5.42A7.2,7.2,0,0,1,11.881,0l3.5.006A1.392,1.392,0,0,1,16.77,1.4V5.515a1.392,1.392,0,0,1-1.39,1.39H13.023c-.719,0-.9.144-.941.188-.065.073-.141.28-.141.852V9.7H15.2a1.413,1.413,0,0,1,.688.175,1.4,1.4,0,0,1,.715,1.216l0,4.437a1.392,1.392,0,0,1-1.39,1.39H11.94V27.274a1.392,1.392,0,0,1-1.391,1.39Zm-4.3-1.68h4.01V16.168a.929.929,0,0,1,.928-.928h3.736l0-3.856H11.188a.929.929,0,0,1-.928-.928V7.947a2.862,2.862,0,0,1,.562-1.964,2.848,2.848,0,0,1,2.2-.757h2.067V1.685l-3.21-.005c-3.472,0-5.63,2.223-5.63,5.8v2.974a.929.929,0,0,1-.928.928H2.181v3.856h3.14a.929.929,0,0,1,.928.928Zm9.129-25.3h0Zm0,0" transform="translate(-0.5 0)"/></svg><br>
+                                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="16.27" height="28.665" viewBox="0 0 16.27 28.665"><path d="M10.55,28.664H5.959a1.392,1.392,0,0,1-1.39-1.39V16.92H1.891A1.392,1.392,0,0,1,.5,15.53V11.093A1.392,1.392,0,0,1,1.891,9.7H4.569V7.481a7.565,7.565,0,0,1,2-5.42A7.2,7.2,0,0,1,11.881,0l3.5.006A1.392,1.392,0,0,1,16.77,1.4V5.515a1.392,1.392,0,0,1-1.39,1.39H13.023c-.719,0-.9.144-.941.188-.065.073-.141.28-.141.852V9.7H15.2a1.413,1.413,0,0,1,.688.175,1.4,1.4,0,0,1,.715,1.216l0,4.437a1.392,1.392,0,0,1-1.39,1.39H11.94V27.274a1.392,1.392,0,0,1-1.391,1.39Zm-4.3-1.68h4.01V16.168a.929.929,0,0,1,.928-.928h3.736l0-3.856H11.188a.929.929,0,0,1-.928-.928V7.947a2.862,2.862,0,0,1,.562-1.964,2.848,2.848,0,0,1,2.2-.757h2.067V1.685l-3.21-.005c-3.472,0-5.63,2.223-5.63,5.8v2.974a.929.929,0,0,1-.928.928H2.181v3.856h3.14a.929.929,0,0,1,.928.928Zm9.129-25.3h0Zm0,0" transform="translate(-0.5 0)"/></svg>
+                                                        </div>
+                                                    </a>
+                                                    <a class="ui__btn ui__btn--small ui__btn--white card__share" href="https://twitter.com/share?url={php}echo rawurlencode($global['url']);{/php}&amp;name={{$card['tipoImovelDescricao']}} - {{$card['clienteNome']}}&amp;hashtags={{$card['clienteNome']}}" rel="noopener" target="_blank">
+                                                        <div class="ui__btn-label">
+                                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="33.272" height="27.232" viewBox="0 0 33.272 27.232"><path d="M33.272,3.637c-2.093.1-2.047.089-2.284.108l1.24-3.54s-3.869,1.423-4.85,1.678a7.763,7.763,0,0,0-9.142-.735,6.332,6.332,0,0,0-3.044,6.511A16.888,16.888,0,0,1,4.25,1.5L3.333.4l-.686,1.26a7.612,7.612,0,0,0-.811,5.124,7.362,7.362,0,0,0,.713,2l-.787-.305L1.668,9.792a7.02,7.02,0,0,0,1.191,4.173,7.421,7.421,0,0,0,.927,1.144l-.407-.062.5,1.508a7.329,7.329,0,0,0,3.767,4.365c-1.757.746-3.176,1.221-5.509,1.989L0,23.609l1.971,1.078A20.692,20.692,0,0,0,8,26.882c5.833.915,12.4.17,16.823-3.812,3.724-3.354,4.946-8.125,4.692-13.09a3.1,3.1,0,0,1,.58-2.02c.826-1.1,3.169-4.315,3.174-4.323ZM28.539,6.792a5.052,5.052,0,0,0-.966,3.287c.256,5.008-1.107,8.892-4.05,11.543-3.439,3.1-8.986,4.313-15.217,3.335a15.091,15.091,0,0,1-3.26-.969,51.7,51.7,0,0,0,5.905-2.427l3.405-1.612L10.6,19.709a5.317,5.317,0,0,1-4.222-2.4A6.743,6.743,0,0,0,7.8,17.065l3.586-1-3.616-.885a5.385,5.385,0,0,1-3.289-2.288,5.515,5.515,0,0,1-.713-1.573,9.025,9.025,0,0,0,1.467.234l3.346.331L5.935,9.817A5.581,5.581,0,0,1,3.82,3.937,19.4,19.4,0,0,0,17.487,9.819a11.542,11.542,0,0,0-.2-1.654,4.476,4.476,0,0,1,1.967-5.358,5.822,5.822,0,0,1,6.869.569,1.744,1.744,0,0,0,1.6.428,13.474,13.474,0,0,0,1.319-.4L28.2,5.8h1.073l-.738.987Zm0,0" transform="translate(0 0)"/></svg><br>
+                                                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="33.272" height="27.232" viewBox="0 0 33.272 27.232"><path d="M33.272,3.637c-2.093.1-2.047.089-2.284.108l1.24-3.54s-3.869,1.423-4.85,1.678a7.763,7.763,0,0,0-9.142-.735,6.332,6.332,0,0,0-3.044,6.511A16.888,16.888,0,0,1,4.25,1.5L3.333.4l-.686,1.26a7.612,7.612,0,0,0-.811,5.124,7.362,7.362,0,0,0,.713,2l-.787-.305L1.668,9.792a7.02,7.02,0,0,0,1.191,4.173,7.421,7.421,0,0,0,.927,1.144l-.407-.062.5,1.508a7.329,7.329,0,0,0,3.767,4.365c-1.757.746-3.176,1.221-5.509,1.989L0,23.609l1.971,1.078A20.692,20.692,0,0,0,8,26.882c5.833.915,12.4.17,16.823-3.812,3.724-3.354,4.946-8.125,4.692-13.09a3.1,3.1,0,0,1,.58-2.02c.826-1.1,3.169-4.315,3.174-4.323ZM28.539,6.792a5.052,5.052,0,0,0-.966,3.287c.256,5.008-1.107,8.892-4.05,11.543-3.439,3.1-8.986,4.313-15.217,3.335a15.091,15.091,0,0,1-3.26-.969,51.7,51.7,0,0,0,5.905-2.427l3.405-1.612L10.6,19.709a5.317,5.317,0,0,1-4.222-2.4A6.743,6.743,0,0,0,7.8,17.065l3.586-1-3.616-.885a5.385,5.385,0,0,1-3.289-2.288,5.515,5.515,0,0,1-.713-1.573,9.025,9.025,0,0,0,1.467.234l3.346.331L5.935,9.817A5.581,5.581,0,0,1,3.82,3.937,19.4,19.4,0,0,0,17.487,9.819a11.542,11.542,0,0,0-.2-1.654,4.476,4.476,0,0,1,1.967-5.358,5.822,5.822,0,0,1,6.869.569,1.744,1.744,0,0,0,1.6.428,13.474,13.474,0,0,0,1.319-.4L28.2,5.8h1.073l-.738.987Zm0,0" transform="translate(0 0)"/></svg>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="jetwindow__close-bg" for="jetwindow-share"></label>
+                            </section>
+                            <div class="jetwindow__overlay" data-jetwindow="on" data-jetwindow-effect="fade"></div>
+                            <button class="ui__btn ui__btn--white card__btn" onclick="window.open(`{{$global['base']}}print.php?id={{$card['clienteId']}}&ref={{$card['imovelReferencia']}}`)">
+                                <div class="ui__btn-label">
+                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M17.07,5.039h-.547V2.93A2.933,2.933,0,0,0,13.594,0H6.406a2.933,2.933,0,0,0-2.93,2.93V5.039H2.93A2.933,2.933,0,0,0,0,7.969v4.688a2.933,2.933,0,0,0,2.93,2.93h.547v2.656A1.76,1.76,0,0,0,5.234,20h9.531a1.76,1.76,0,0,0,1.758-1.758V15.586h.547A2.933,2.933,0,0,0,20,12.656V7.969A2.933,2.933,0,0,0,17.07,5.039ZM4.648,2.93A1.76,1.76,0,0,1,6.406,1.172h7.188A1.76,1.76,0,0,1,15.352,2.93V5.039H4.648Zm10.7,15.313a.587.587,0,0,1-.586.586H5.234a.587.587,0,0,1-.586-.586V12.461h10.7Zm3.477-5.586a1.76,1.76,0,0,1-1.758,1.758h-.547V12.461h.352a.586.586,0,0,0,0-1.172H3.125a.586.586,0,0,0,0,1.172h.352v1.953H2.93a1.76,1.76,0,0,1-1.758-1.758V7.969A1.76,1.76,0,0,1,2.93,6.211H17.07a1.76,1.76,0,0,1,1.758,1.758Z"/><path d="M204.711,353h-3.125a.586.586,0,0,0,0,1.172h3.125a.586.586,0,0,0,0-1.172Z" transform="translate(-193.148 -339.211)"/><path d="M204.711,417h-3.125a.586.586,0,0,0,0,1.172h3.125a.586.586,0,0,0,0-1.172Z" transform="translate(-193.148 -400.711)"/><path d="M67.461,193H65.586a.586.586,0,0,0,0,1.172h1.875a.586.586,0,0,0,0-1.172Z" transform="translate(-62.461 -185.461)"/></svg>
+                                    Imprimir ficha<br>
+                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M17.07,5.039h-.547V2.93A2.933,2.933,0,0,0,13.594,0H6.406a2.933,2.933,0,0,0-2.93,2.93V5.039H2.93A2.933,2.933,0,0,0,0,7.969v4.688a2.933,2.933,0,0,0,2.93,2.93h.547v2.656A1.76,1.76,0,0,0,5.234,20h9.531a1.76,1.76,0,0,0,1.758-1.758V15.586h.547A2.933,2.933,0,0,0,20,12.656V7.969A2.933,2.933,0,0,0,17.07,5.039ZM4.648,2.93A1.76,1.76,0,0,1,6.406,1.172h7.188A1.76,1.76,0,0,1,15.352,2.93V5.039H4.648Zm10.7,15.313a.587.587,0,0,1-.586.586H5.234a.587.587,0,0,1-.586-.586V12.461h10.7Zm3.477-5.586a1.76,1.76,0,0,1-1.758,1.758h-.547V12.461h.352a.586.586,0,0,0,0-1.172H3.125a.586.586,0,0,0,0,1.172h.352v1.953H2.93a1.76,1.76,0,0,1-1.758-1.758V7.969A1.76,1.76,0,0,1,2.93,6.211H17.07a1.76,1.76,0,0,1,1.758,1.758Z"/><path d="M204.711,353h-3.125a.586.586,0,0,0,0,1.172h3.125a.586.586,0,0,0,0-1.172Z" transform="translate(-193.148 -339.211)"/><path d="M204.711,417h-3.125a.586.586,0,0,0,0,1.172h3.125a.586.586,0,0,0,0-1.172Z" transform="translate(-193.148 -400.711)"/><path d="M67.461,193H65.586a.586.586,0,0,0,0,1.172h1.875a.586.586,0,0,0,0-1.172Z" transform="translate(-62.461 -185.461)"/></svg>
+                                    Imprimir ficha
+                                </div>
+                            </button>
+                            <div class="ui__box card__box">
+                                {if}$card['imovelReservadoLocacao'] || $card['imovelReservadoVenda']{/if}
+                                    <div class="card-reserved">Reservado</div>
+                                {/endif}
+                                {if}$card['imovelValorVenda']{/if}
+                                    <div class="jetgrid jetgrid--justify-between card__price">
+                                        <div>Venda:</div>
+                                        <div>R$ {n2}$card['imovelValorVenda']{/n2}</div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorAluguel']{/if}
+                                    <div class="jetgrid jetgrid--justify-between card__price">
+                                        <div>Locação:</div>
+                                        <div>R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto'] + $card['imovelValorCondominio'] + $card['imovelValorIPTU']{/n2}</div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorCondominio']{/if}
+                                    <div class="jetgrid jetgrid--justify-between card__price">
+                                        <div>Condomínio:</div>
+                                        <div>R$ {n2}$card['imovelValorCondominio']{/n2}</div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorIPTU']{/if}
+                                    <div class="jetgrid jetgrid--justify-between card__price">
+                                        <div>IPTU:</div>
+                                        <div>R$ {n2}$card['imovelValorIPTU']{/n2}</div>
+                                    </div>
+                                {/endif}
+                                {foreach}$card['outrosValores'] as $data{/foreach}
+                                    {if}$data['divulgado'] === true{/if}
+                                        <div class="jetgrid jetgrid--justify-between card__price">
+                                            <div>{{$data['descricao']}}:</div>
+                                            <div>R$ {n}$data['valor']{/n2}</div>
+                                        </div>
+                                    {/endif}
+                                {/endforeach}
+                                <hr class="card__line card__line--box">
+                                {if}$card['imovelVenda']{/if}
+                                    <a class="ui__btn ui__btn--green" href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{$client['ddd']}}{{$client['whatsAppVenda']}}&text=Estou interessado neste imóvel: {{$card['tipoImovelDescricao']}} - Ref: {{$card['imovelReferencia']}}, no bairro {{$card['imovelEnderecoBairro']}} em {{$card['imovelEnderecoCidade']}}, acesse: {php}echo rawurlencode($global['url']){/php}" rel="noopener" target="_blank">
+                                {else}
+                                    <a class="ui__btn ui__btn--green" href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{$client['ddd']}}{{$client['whatsAppLocacao']}}&text=Estou interessado neste imóvel: {{$card['tipoImovelDescricao']}} - Ref: {{$card['imovelReferencia']}}, no bairro {{$card['imovelEnderecoBairro']}} em {{$card['imovelEnderecoCidade']}}, acesse: {php}echo rawurlencode($global['url']){/php}" rel="noopener" target="_blank">
+                                {/endif}
+                                    <div class="ui__btn-label">
+                                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><g transform="translate(0)"><path d="M21.449,3.551A12.043,12.043,0,0,0,12.876,0h0A12.126,12.126,0,0,0,2.1,17.684L.064,23.505A1.124,1.124,0,0,0,1.12,25a1.132,1.132,0,0,0,.374-.064L7.316,22.9A12.124,12.124,0,0,0,21.449,3.551ZM20.412,19.659A10.661,10.661,0,0,1,7.873,21.535a1.129,1.129,0,0,0-.9-.07L1.684,23.316l1.851-5.289a1.13,1.13,0,0,0-.07-.9,10.658,10.658,0,0,1,9.41-15.66h0A10.657,10.657,0,0,1,20.412,19.66Zm0,0" transform="translate(0 0)" fill="#fff"/><path d="M138.511,121.436a1.432,1.432,0,0,0-2.023,0l-.61.61a8.879,8.879,0,0,1-3.566-3.566l.61-.61a1.432,1.432,0,0,0,0-2.023l-1.644-1.644a1.432,1.432,0,0,0-2.023,0l-1.315,1.315c-.753.753-.791,2.048-.106,3.646a16,16,0,0,0,7.359,7.359,5.308,5.308,0,0,0,2.047.488,2.18,2.18,0,0,0,1.6-.594l1.315-1.315h0a1.43,1.43,0,0,0,0-2.023Zm-.708,3.945c-.215.215-.876.29-2.032-.2a14.577,14.577,0,0,1-6.589-6.589c-.5-1.156-.42-1.817-.205-2.032l1.29-1.29,1.593,1.593-.764.764a1.119,1.119,0,0,0-.207,1.3,10.344,10.344,0,0,0,4.543,4.543,1.119,1.119,0,0,0,1.3-.207l.764-.764,1.593,1.593Zm0,0" transform="translate(-121.129 -108.229)" fill="#fff"/></g></svg>
+                                        Fale pelo WhatsApp<br>
+                                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"><g transform="translate(0)"><path d="M21.449,3.551A12.043,12.043,0,0,0,12.876,0h0A12.126,12.126,0,0,0,2.1,17.684L.064,23.505A1.124,1.124,0,0,0,1.12,25a1.132,1.132,0,0,0,.374-.064L7.316,22.9A12.124,12.124,0,0,0,21.449,3.551ZM20.412,19.659A10.661,10.661,0,0,1,7.873,21.535a1.129,1.129,0,0,0-.9-.07L1.684,23.316l1.851-5.289a1.13,1.13,0,0,0-.07-.9,10.658,10.658,0,0,1,9.41-15.66h0A10.657,10.657,0,0,1,20.412,19.66Zm0,0" transform="translate(0 0)" fill="#fff"/><path d="M138.511,121.436a1.432,1.432,0,0,0-2.023,0l-.61.61a8.879,8.879,0,0,1-3.566-3.566l.61-.61a1.432,1.432,0,0,0,0-2.023l-1.644-1.644a1.432,1.432,0,0,0-2.023,0l-1.315,1.315c-.753.753-.791,2.048-.106,3.646a16,16,0,0,0,7.359,7.359,5.308,5.308,0,0,0,2.047.488,2.18,2.18,0,0,0,1.6-.594l1.315-1.315h0a1.43,1.43,0,0,0,0-2.023Zm-.708,3.945c-.215.215-.876.29-2.032-.2a14.577,14.577,0,0,1-6.589-6.589c-.5-1.156-.42-1.817-.205-2.032l1.29-1.29,1.593,1.593-.764.764a1.119,1.119,0,0,0-.207,1.3,10.344,10.344,0,0,0,4.543,4.543,1.119,1.119,0,0,0,1.3-.207l.764-.764,1.593,1.593Zm0,0" transform="translate(-121.129 -108.229)" fill="#fff"/></g></svg>
+                                        Fale pelo WhatsApp
+                                    </div>
+                                </a>
+                                <hr class="card__line card__line--box">
+                                <input class="card__form-input" id="form" type="checkbox" autocomplete="off">
+                                <label class="ui__btn ui__btn--white-line card__form-property-btn" for="form">
+                                    <div class="ui__btn-label">
+                                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="16.294" height="16.297" viewBox="0 0 16.294 16.297"><path d="M638.528-156.295a2.583,2.583,0,0,1-.236.405.825.825,0,0,1-.676.253q-3.095,0-6.189,0H631.2v.213c0,2.032-.007,4.063.005,6.095a.93.93,0,0,1-.663,1.024h-.318c-.008-.007-.014-.017-.023-.02a.824.824,0,0,1-.634-.892q0-3.094,0-6.189v-.23h-6.43a.824.824,0,0,1-.88-.647.808.808,0,0,1,.649-.968,1.816,1.816,0,0,1,.285-.018h6.376v-.221q0-3.1,0-6.2a.827.827,0,0,1,.656-.889.809.809,0,0,1,.957.646,1.862,1.862,0,0,1,.019.3q0,3.07,0,6.141v.226h.214c2.031,0,4.062.007,6.092-.005a.928.928,0,0,1,1.023.663Z" transform="translate(-622.234 164.603)"/></svg>
+                                        Quero mais informações<br>
+                                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="16.294" height="16.297" viewBox="0 0 16.294 16.297"><path d="M638.528-156.295a2.583,2.583,0,0,1-.236.405.825.825,0,0,1-.676.253q-3.095,0-6.189,0H631.2v.213c0,2.032-.007,4.063.005,6.095a.93.93,0,0,1-.663,1.024h-.318c-.008-.007-.014-.017-.023-.02a.824.824,0,0,1-.634-.892q0-3.094,0-6.189v-.23h-6.43a.824.824,0,0,1-.88-.647.808.808,0,0,1,.649-.968,1.816,1.816,0,0,1,.285-.018h6.376v-.221q0-3.1,0-6.2a.827.827,0,0,1,.656-.889.809.809,0,0,1,.957.646,1.862,1.862,0,0,1,.019.3q0,3.07,0,6.141v.226h.214c2.031,0,4.062.007,6.092-.005a.928.928,0,0,1,1.023.663Z" transform="translate(-622.234 164.603)"/></svg>
+                                        Quero mais informações
+                                    </div>
+                                </label>
+                                <label class="ui__btn ui__btn--white-line card__form-schedule-visit-btn" for="form">
+                                    <div class="ui__btn-label">
+                                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="19.434" height="19.434" viewBox="0 0 19.434 19.434"><path d="M17.351,2.082H15.269V.694a.694.694,0,0,0-1.388,0V2.082H5.552V.694a.694.694,0,1,0-1.388,0V2.082H2.082A2.082,2.082,0,0,0,0,4.164V17.351a2.082,2.082,0,0,0,2.082,2.082H17.351a2.082,2.082,0,0,0,2.082-2.082V4.164A2.082,2.082,0,0,0,17.351,2.082Zm.694,15.269a.694.694,0,0,1-.694.694H2.082a.694.694,0,0,1-.694-.694V8.329H18.045Zm0-10.411H1.388V4.164a.694.694,0,0,1,.694-.694H4.164V4.858a.694.694,0,1,0,1.388,0V3.47h8.329V4.858a.694.694,0,1,0,1.388,0V3.47h2.082a.694.694,0,0,1,.694.694V6.941Z" fill="currentColor"/></svg>
+                                        Agendar visita<br>
+                                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="19.434" height="19.434" viewBox="0 0 19.434 19.434"><path d="M17.351,2.082H15.269V.694a.694.694,0,0,0-1.388,0V2.082H5.552V.694a.694.694,0,1,0-1.388,0V2.082H2.082A2.082,2.082,0,0,0,0,4.164V17.351a2.082,2.082,0,0,0,2.082,2.082H17.351a2.082,2.082,0,0,0,2.082-2.082V4.164A2.082,2.082,0,0,0,17.351,2.082Zm.694,15.269a.694.694,0,0,1-.694.694H2.082a.694.694,0,0,1-.694-.694V8.329H18.045Zm0-10.411H1.388V4.164a.694.694,0,0,1,.694-.694H4.164V4.858a.694.694,0,1,0,1.388,0V3.47h8.329V4.858a.694.694,0,1,0,1.388,0V3.47h2.082a.694.694,0,0,1,.694.694V6.941Z" fill="currentColor"/></svg>
+                                        Agendar visita
+                                    </div>
+                                </label>
+                                <hr class="card__line card__line--box">
+                                <div class="card__form-property">
+                                    <h2 class="card__title">Quero mais informações</h2>
+                                    <form class="form" id="property-info">
+                                        <div class="form__content">
+                                            <label class="form__label" for="name">Seu nome: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="name" placeholder="Digite seu nome" name="nome" type="text" required>
+                                            <label class="form__label" for="email">E-mail: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="email" placeholder="Digite seu email" name="email" type="text" required>
+                                            <label class="form__label" for="phone">WhatsApp: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="phone" placeholder="Ex: (DDD) 9 9999 9999" name="telefone" type="text" required>
+                                            <label class="form__label" for="message">Mensagem: <span class="form__asterisk">*</span></label>
+                                            <textarea class="form__textarea" id="message" placeholder="Digite sua mensagem" name="mensagem" required>Olá, estou interessado neste imóvel que vi na {{$client['nomeFantasia']}} e gostaria de receber mais informações</textarea>
+                                            <input type="hidden" name="imovel" value="{{$global['url']}}">
+                                            <input type="hidden" name="referencia" value="{{$card['imovelReferencia']}}">
+                                            <input type="hidden" name="base-url" value="{{$global['base']}}">
+                                            <input type="hidden" name="nome-fantasia" value="{{$client['nomeFantasia']}}">
+                                            <input type="hidden" name="eCliente" value="{{$config['idCliente']}}">
+                                            <input type="hidden" name="eOrigem" value="Informações do imóvel">
+                                            <button class="ui__btn card__submit-btn" type="submit">
+                                                <div class="ui__btn-label">
+                                                    Enviar<br>Enviar
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <div class="form__sending">
+                                            <div class="form__sending-content">
+                                                <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                                                <div>Aguarde, enviando email</div>
+                                            </div>
+                                        </div>
+                                        <div class="form__success">
+                                            <div class="form__success-content">
+                                                <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                                                <p class="form__success-title">Mensagem enviada com sucesso!</p>
+                                                <p>Obrigado pelo seu interesse, entraremos em contato para maiores informações.</p>
+                                                <button class="form__success-btn" type="button">
+                                                    <svg class="form__success-btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                                    <span class="form__success-text">Voltar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card__form-schedule-visit">
+                                    <h2 class="card__title">Agendar uma Visita</h2>
+                                    <form class="form" id="schedule-visit">
+                                        <div class="form__content">
+                                            <label class="form__label" for="name">Seu nome: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="name" placeholder="Digite seu nome" name="nome" type="text" required>
+                                            <label class="form__label" for="email">E-mail: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="email" placeholder="Digite seu email" name="email" type="text" required>
+                                            <label class="form__label" for="phone">WhatsApp: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="phone" placeholder="Ex: (DDD) 9 9999 9999" name="telefone" type="text" required>
+                                            <label class="form__label" for="date">Data e horário: <span class="form__asterisk">*</span></label>
+                                            <input class="form__input" id="date" placeholder="Ex: 10/05 às 14:00hrs" name="data" type="text" required>
+                                            <input type="hidden" name="imovel" value="{{$global['url']}}">
+                                            <input type="hidden" name="referencia" value="{{$card['imovelReferencia']}}">
+                                            <input type="hidden" name="base-url" value="{{$global['base']}}">
+                                            <input type="hidden" name="nome-fantasia" value="{{$client['nomeFantasia']}}">
+                                            <input type="hidden" name="eCliente" value="{{$config['idCliente']}}">
+                                            <input type="hidden" name="eOrigem" value="Agendar uma visita">
+                                            <button class="ui__btn card__submit-btn" type="submit">
+                                                <div class="ui__btn-label">
+                                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="19.434" height="19.434" viewBox="0 0 19.434 19.434"><path d="M17.351,2.082H15.269V.694a.694.694,0,0,0-1.388,0V2.082H5.552V.694a.694.694,0,1,0-1.388,0V2.082H2.082A2.082,2.082,0,0,0,0,4.164V17.351a2.082,2.082,0,0,0,2.082,2.082H17.351a2.082,2.082,0,0,0,2.082-2.082V4.164A2.082,2.082,0,0,0,17.351,2.082Zm.694,15.269a.694.694,0,0,1-.694.694H2.082a.694.694,0,0,1-.694-.694V8.329H18.045Zm0-10.411H1.388V4.164a.694.694,0,0,1,.694-.694H4.164V4.858a.694.694,0,1,0,1.388,0V3.47h8.329V4.858a.694.694,0,1,0,1.388,0V3.47h2.082a.694.694,0,0,1,.694.694V6.941Z" fill="#fff"/></svg>
+                                                    Agendar<br>
+                                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="19.434" height="19.434" viewBox="0 0 19.434 19.434"><path d="M17.351,2.082H15.269V.694a.694.694,0,0,0-1.388,0V2.082H5.552V.694a.694.694,0,1,0-1.388,0V2.082H2.082A2.082,2.082,0,0,0,0,4.164V17.351a2.082,2.082,0,0,0,2.082,2.082H17.351a2.082,2.082,0,0,0,2.082-2.082V4.164A2.082,2.082,0,0,0,17.351,2.082Zm.694,15.269a.694.694,0,0,1-.694.694H2.082a.694.694,0,0,1-.694-.694V8.329H18.045Zm0-10.411H1.388V4.164a.694.694,0,0,1,.694-.694H4.164V4.858a.694.694,0,1,0,1.388,0V3.47h8.329V4.858a.694.694,0,1,0,1.388,0V3.47h2.082a.694.694,0,0,1,.694.694V6.941Z" fill="#fff"/></svg>
+                                                    Agendar
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <div class="form__sending">
+                                            <div class="form__sending-content">
+                                                <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                                                <div>Aguarde, enviando email</div>
+                                            </div>
+                                        </div>
+                                        <div class="form__success">
+                                            <div class="form__success-content">
+                                                <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                                                <p class="form__success-title">Agendamento enviado com sucesso!</p>
+                                                <p>As datas e horários serão confirmados com a imobiliária.</p>
+                                                <button class="form__success-btn" type="button">
+                                                    <svg class="form__success-btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                                    <span class="form__success-text">Voltar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card__col card__col-2">
+                    <div class="jetgrid jetgrid--align-content-top">
+                        <div class="jetgrid__col--24">
+                            {if}$card['imovelPontosFortes']{/if}
+                                <h2 class="card__title">Sobre o imóvel</h2>
+                                <p class="card__highlight">{{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $card['imovelPontosFortes']))}}</p>
+                                <hr class="card__line">
+                            {/endif}
+                        </div>
+                        {if}$card['caracteristicas']{/if}
+                            <div class="jetgrid__col--24">
+                                <h2 class="card__title">Características</h2>
+                            </div>
+                            <div class="jetgrid__col--18 jetgrid__col--md-20 jetgrid__col--sm-24 jetgrid__col--no-gap">
+                                <div class="jetgrid card-info">
+                                    {foreach}$card['caracteristicas'] as $data{/foreach}
+                                        <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                            <div class="jetgrid">
+                                                <strong class="card-info__label jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">{{$data['label']}}:</strong>
+                                                <div class="card-info__value jetgrid__col--12 jetgrid__col--sm-10 jetgrid__col--xs-12">{{$data['valor']}}</div>
+                                            </div>
+                                        </div>
+                                    {/endforeach}
+                                </div>
+                            </div>
+                            <div class="jetgrid__col--24">
+                                <hr class="card__line">
+                            </div>
+                        {/endif}
+                        {if}$card['dependencias']{/if}
+                            <div class="jetgrid__col--24">
+                                <h2 class="card__title">Dependências</h2>
+                            </div>
+                            <div class="jetgrid__col--18 jetgrid__col--md-20 jetgrid__col--sm-24 jetgrid__col--no-gap">
+                                <div class="jetgrid card-info">
+                                    {foreach}$card['dependencias'] as $data{/foreach}
+                                        <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                            <div class="jetgrid">
+                                                <strong class="card-info__label jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">{{$data['label']}}:</strong>
+                                                <div class="card-info__value jetgrid__col--12 jetgrid__col--sm-10 jetgrid__col--xs-12">{{$data['valor']}}</div>
+                                            </div>
+                                        </div>
+                                    {/endforeach}
+                                </div>
+                            </div>
+                            <div class="jetgrid__col--24">
+                                <hr class="card__line">
+                            </div>
+                        {/endif}
+                        {if}$card['imovelVenda']{/if}
+                            <div class="jetgrid__col--24">
+                                <h2 class="card__title">Simule seu financiamento</h2>
+                            </div>
+                            <div class="jetgrid card__financing">
+                                <div class="jetgrid__col--5 jetgrid__col--sm-6 jetgrid__col--xs-12">
+                                    <a class="card__financing-item" href="https://www.bb.com.br/pbb/pagina-inicial/voce/produtos-e-servicos/financiamentos/financiar-imoveis#/" rel="noopener" target="_blank">
+                                        <img class="card__financing-img" src="{{$global['base']}}img/card-bb.png" alt="logo banco do brasil" width="56px" height="56px">
+                                    </a>
+                                </div>
+                                <div class="jetgrid__col--5 jetgrid__col--sm-6 jetgrid__col--xs-12">
+                                    <a class="card__financing-item" href="https://www.bb.com.br/pbb/pagina-inicial/voce/produtos-e-servicos/financiamentos/financiar-imoveis#/" rel="noopener" target="_blank">
+                                        <img class="card__financing-img" src="{{$global['base']}}img/card-santander.png" alt="logo do banco santander" width="57px" height="54px">
+                                    </a>
+                                </div>
+                                <div class="jetgrid__col--5 jetgrid__col--sm-6 jetgrid__col--xs-12">
+                                    <a class="card__financing-item" href="https://banco.bradesco/html/classic/produtos-servicos/emprestimo-e-financiamento/index.shtm" rel="noopener" target="_blank">
+                                        <img class="card__financing-img" src="{{$global['base']}}img/card-bradesco.png" alt="logo do banco bradesco" width="53px" height="53px">
+                                    </a>
+                                </div>
+                                <div class="jetgrid__col--5 jetgrid__col--sm-6 jetgrid__col--xs-12">
+                                    <a class="card__financing-item" href="https://www8.caixa.gov.br/siopiinternet-web/simulaOperacaoInternet.do?method=inicializarCasoUso" rel="noopener" target="_blank">
+                                        <img class="card__financing-img" src="{{$global['base']}}img/card-caixa.png" alt="logo do banco caixa" width="109" height="25">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="jetgrid__col--24">
+                                <hr class="card__line">
+                            </div>
+                        {/endif}
+                        <div class="jetgrid__col--24">
+                            <h2 class="card__title">Outros Valores</h2>
+                        </div>
+                        <div class="jetgrid__col--18 jetgrid__col--no-gap">
+                            <div class="jetgrid card__value">
+                                {if}$card['imovelValorVenda']{/if}
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                        <div class="jetgrid card__value-item">
+                                            <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">Compra:</strong>
+                                            <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$card['imovelValorVenda']{/n2}</div>
+                                        </div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorAluguel']{/if}
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                        <div class="jetgrid card__value-item">
+                                            <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">Aluguel bruto:</strong>
+                                            <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$card['imovelValorAluguel']{/n2}</div>
+                                        </div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorMultaDesconto']{/if}
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                        <div class="jetgrid card__value-item">
+                                            <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">Bonificação:</strong>
+                                            <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$card['imovelValorMultaDesconto']{/n2}</div>
+                                        </div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorAluguel'] && $card['imovelValorMultaDesconto']{/if}
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                        <div class="jetgrid card__value-item">
+                                            <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">Aluguel líquido:</strong>
+                                            <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto']{/n2}</div>
+                                        </div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorCondominio']{/if}
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                        <div class="jetgrid card__value-item">
+                                            <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">Condomínio:</strong>
+                                            <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$card['imovelValorCondominio']{/n2}</div>
+                                        </div>
+                                    </div>
+                                {/endif}
+                                {if}$card['imovelValorIPTU']{/if}
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                        <div class="jetgrid card__value-item">
+                                            <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">IPTU:</strong>
+                                            <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$card['imovelValorIPTU']{/n2}</div>
+                                        </div>
+                                    </div>
+                                {/endif}
+                                {foreach}$card['outrosValores'] as $data{/foreach}
+                                    {if}$data['divulgado'] === true{/if}
+                                        <div class="jetgrid__col--12 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                                            <div class="jetgrid card__value-item">
+                                                <strong class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">{{$data['descricao']}}:</strong>
+                                                <div class="jetgrid__col--12 jetgrid__col--sm-14 jetgrid__col--xs-12">R$ {n2}$data['valor']{/n2}</div>
+                                            </div>
+                                        </div>
+                                    {/endif}
+                                {/endforeach}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {if}$card['imovelVenda']{/if}
+                <script type="application/ld+json">{"@context":"https://schema.org","@type":"BuyAction","price":"{if}$card['imovelValorVenda']{/if}R$ {n2}$card['imovelValorVenda']{/n2}{/endif}","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"BRL"},"object":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":{"@type":"Country","name":"Brasil"},"addressLocality":"{{$card['imovelEnderecoCidade']}}","addressRegion":"{{$card['imovelEnderecoEstado']}}","streetAddress":"{if}$client['naoMostrarEnderecoVenda']{/if}{if}$card['imovelTipoEndereco']{/if}{{$card['imovelTipoEndereco']}}. {/endif}{if}$card['imovelEndereco']{/if}{{$card['imovelEndereco']}}{/endif}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}}{/endif}{/endif}{if}$card['imovelEnderecoBairro']{/if} - {{$card['imovelEnderecoBairro']}}{/endif}{if}$card['imovelEnderecoCidade']{/if} - {{$card['imovelEnderecoCidade']}}{/endif}{if}$card['imovelEnderecoEstado']{/if}/{{$card['imovelEnderecoEstado']}}{/endif}"},"geo":{"@type":"GeoCoordinates","latitude":"{{$card['imovelEnderecoLatitude']}}","longitude":"{{$card['imovelEnderecoLongitude']}}"},"name":"{{str_replace('_', '/', $card['tipoImovelDescricao'])}}{if}$card['imovelAreaUtil']{/if} de {n}$card['imovelAreaUtil'])}}m²{/endif}{if}$client['naoMostrarEnderecoVenda']{/if} na {if}$card['imovelTipoEndereco']{/if}{{$card['imovelTipoEndereco']}}. {/endif}{if}$card['imovelEndereco']{/if}{{$card['imovelEndereco']}}{/endif}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}}{/endif}{/endif}{if}$card['imovelEnderecoBairro']{/if} - {{$card['imovelEnderecoBairro']}}{/endif}{if}$card['imovelEnderecoCidade']{/if} - {{$card['imovelEnderecoCidade']}}{/endif}{if}$card['imovelEnderecoEstado']{/if}/{{$card['imovelEnderecoEstado']}}{/endif}{if}$card['imovelValorVenda']{/if}, venda por R$ {n2}$card['imovelValorVenda']{/n2}{/endif}","url":"{{$global['url']}}","image":"{{$card['urlFotoPrincipalMedia']}}"} }</script>
+                <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"{{str_replace('_', '/', $card['tipoImovelDescricao'])}}{if}$card['imovelAreaTotal']{/if} de {n2}$card['imovelAreaTotal']{/n2} m²{/endif} na {{$card['imovelTipoEndereco']}}. {{$card['imovelEndereco']}}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}} -{/endif} {{$card['imovelEnderecoBairro']}} - {{$card['imovelEnderecoCidade']}} - {{$card['imovelEnderecoEstado']}}, à venda{if}$card['imovelValorVenda']{/if} por R$ {n2}$card['imovelValorVenda']{/n2}{else}, valor sob consulta{/endif}","description":"{{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $card['imovelPontosFortes']))}}","url":"{{$global['url']}}","image":[{foreach}$card['fotos'] as $index=>$foto{/foreach}"{{$foto['fullPath']}}"{if}$index != (count($card['fotos']) - 1){/if},{/endif}{/endforeach}],"sku":"1","offers":{"@type":"Offer","priceCurrency":"BRL","price":"{if}$card['imovelValorVenda']{/if}R$ {n2}$card['imovelValorVenda']{/n2}{/endif}","url":"{{$global['url']}}","availability":"InStock"} }</script>
+            {/endif}
+            {if}$card['imovelLocacao']{/if}
+                <script type="application/ld+json">{"@context":"https://schema.org","@type":"RentAction","price":"{if}$card['imovelValorAluguel']{/if}R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto']{/n2}{/endif}","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"BRL"},"object":{"@type":"Place","address":{"@type":"PostalAddress","addressCountry":{"@type":"Country","name":"Brasil"},"addressLocality":"{{$card['imovelEnderecoCidade']}}","addressRegion":"{{$card['imovelEnderecoEstado']}}","streetAddress":"{if}$client['naoMostrarEnderecoLocacao']{/if}{if}$card['imovelTipoEndereco']{/if}{{$card['imovelTipoEndereco']}}. {/endif}{if}$card['imovelEndereco']{/if}{{$card['imovelEndereco']}}{/endif}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}}{/endif}{/endif}{if}$card['imovelEnderecoBairro']{/if} - {{$card['imovelEnderecoBairro']}}{/endif}{if}$card['imovelEnderecoCidade']{/if} - {{$card['imovelEnderecoCidade']}}{/endif}{if}$card['imovelEnderecoEstado']{/if}/{{$card['imovelEnderecoEstado']}}{/endif}"},"geo":{"@type":"GeoCoordinates","latitude":"{{$card['imovelEnderecoLatitude']}}","longitude":"{{$card['imovelEnderecoLongitude']}}"},"name":"{{str_replace('_', '/', $card['tipoImovelDescricao'])}}{if}$card['imovelAreaUtil']{/if} de {n}$card['imovelAreaUtil'])}}m²{/endif}{if}$client['naoMostrarEnderecoVenda']{/if} na {if}$card['imovelTipoEndereco']{/if}{{$card['imovelTipoEndereco']}}. {/endif}{if}$card['imovelEndereco']{/if}{{$card['imovelEndereco']}}{/endif}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}}{/endif}{/endif}{if}$card['imovelEnderecoBairro']{/if} - {{$card['imovelEnderecoBairro']}}{/endif}{if}$card['imovelEnderecoCidade']{/if} - {{$card['imovelEnderecoCidade']}}{/endif}{if}$card['imovelEnderecoEstado']{/if}/{{$card['imovelEnderecoEstado']}}{/endif}{if}$card['imovelValorAluguel']{/if}, alugar por R$ R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto']{/n2}{/endif}","url":"{{$global['url']}}","image":"{{$card['urlFotoPrincipalMedia']}}"} }</script>
+                <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"{{str_replace('_', '/', $card['tipoImovelDescricao'])}}{if}$card['imovelAreaTotal']{/if} de {n2}$card['imovelAreaTotal']{/n2} m²{/endif} na {{$card['imovelTipoEndereco']}}. {{$card['imovelEndereco']}}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}} -{/endif} {{$card['imovelEnderecoBairro']}} - {{$card['imovelEnderecoCidade']}} - {{$card['imovelEnderecoEstado']}}, aluguel{if}$card['imovelValorAluguel']{/if} por R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto']{/n2}{else}, valor sob consulta{/endif}","description":"{{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $card['imovelPontosFortes']))}}","url":"{{$global['url']}}","image":[{foreach}$card['fotos'] as $index=>$foto{/foreach}"{{$foto['fullPath']}}"{if}$index != (count($card['fotos']) - 1){/if},{/endif}{/endforeach}],"sku":"1","offers":{"@type":"Offer","priceCurrency":"BRL","price":"{if}$card['imovelValorAluguel']{/if}R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto']{/n2}{/endif}","url":"{{$global['url']}}","availability":"InStock"} }</script>
+            {/endif}
+            {if}$similar['data']['total'] > 1 || $similar['data']['total'] === 1 && $similar['data']['resultado'][0]['imovelId'] != $card['imovelId']{/if}
+                <div class="jetgrid__col--24">
+                    <h3 class="similar__title">Imóveis semelhantes</h3>
+                    <div class="similar">
+                        {foreach}$similar['data']['resultado'] as $data{/foreach}
+                            {if}$data['imovelId'] != $card['imovelId']{/if}
+                                <div class="ui__card">
+                                    <button class="favorite__btn ui__card-favorite" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                                        <svg class="ui__card-favorite-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="26.493" viewBox="0 0 32 26.493"><g transform="translate(0 -35.514)"><g transform="translate(0 35.514)"><path d="M22.927,35.515h0A8.993,8.993,0,0,0,16,38.715a8.871,8.871,0,0,0-6.927-3.2A9.073,9.073,0,0,0,0,44.588c0,8.587,14.987,16.972,15.595,17.3a.729.729,0,0,0,.81,0C17.013,61.56,32,53.3,32,44.588A9.073,9.073,0,0,0,22.927,35.515ZM16,60.264C13.651,58.887,1.62,51.555,1.62,44.588a7.453,7.453,0,0,1,7.453-7.453A7.291,7.291,0,0,1,15.311,40.5a.851.851,0,0,0,1.377,0A7.453,7.453,0,0,1,30.38,44.588C30.38,51.636,18.349,58.927,16,60.264Z" transform="translate(0 -35.514)" fill="currentColor"/></g></g></svg>
+                                        <svg class="ui__card-favorite-icon-fill" xmlns="http://www.w3.org/2000/svg" width="24" height="19.869" viewBox="0 0 24 19.869"><path d="M1419.216,487.873h0a6.741,6.741,0,0,0-5.194,2.4,6.656,6.656,0,0,0-5.195-2.4,6.8,6.8,0,0,0-6.805,6.8h0c0,6.44,11.24,12.728,11.7,12.972a.548.548,0,0,0,.608,0c.455-.243,11.7-6.44,11.7-12.972a6.8,6.8,0,0,0-6.8-6.8Z" transform="translate(-1402.022 -487.872)"/></svg>
+                                    </button>
+                                    <a class="ui__card-link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0">
+                                        <div class="ui__card-box">
+                                            {if}$data['imovelReservadoLocacao'] || $data['imovelReservadoVenda']{/if}
+                                                <div class="ui__card-reserved">Reservado</div>
+                                            {/endif}
+                                            <img class="ui__card-img" src="{{$data['urlFotoPrincipalMedia']}}" loading="lazy" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal'])}}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                                        </div>
+                                        <div class="ui__card-content">
+                                            <div class="ui__card-reference">{{$data['imovelReferencia']}}</div>
+                                            <div class="ui__card-type">{{$data['tipoImovelDescricao']}}</div>
+                                            <div class="ui__card-address">
+                                                {if}$data['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $data['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                                                    {if}$data['imovelTipoEndereco']{/if}{{$data['imovelTipoEndereco']}}. {/endif}{if}$data['imovelEndereco']{/if}{{$data['imovelEndereco']}}{/endif}{if}$data['imovelEnderecoNumero']{/if}, {{$data['imovelEnderecoNumero']}}{/endif}<br>
+                                                {/endif}
+                                                {if}$data['imovelEnderecoBairro']{/if}{{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                                            </div>
+                                            <div class="ui__card-price">
+                                                {if}$data['imovelLocacao']{/if}
+                                                    Locação: <strong>R$ {n}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}</strong>
+                                                {/endif}
+                                                {if}$data['imovelVenda']{/if}
+                                                    Venda: <strong>R$ {n}$data['imovelValorVenda']{/n2}</strong>
+                                                {/endif}
+                                            </div>
+                                            <div class="ui__card-feature">
+                                                {if}$data['imovelAreaTotal']{/if}
+                                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                        <div class="ui__card-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                                        </div>
+                                                        {n}$data['imovelAreaTotal'])}}m² total
+                                                    </div>
+                                                {/endif}
+                                                {if}$data['imovelAreaUtil']{/if}
+                                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                        <div class="ui__card-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                                        </div>
+                                                        {n}$data['imovelAreaUtil'])}}m² útil
+                                                    </div>
+                                                {/endif}
+                                                {if}isset($data['imovelBanheiros']){/if}
+                                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                        <div class="ui__card-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17.086" viewBox="0 0 18 17.086"><path d="M18,20.559a1.619,1.619,0,0,0-.509-1.176,1.7,1.7,0,0,0-1.178-.476H3.34V15.982a2.031,2.031,0,0,1,.52-1.38,1.624,1.624,0,0,1,1.2-.548,1.633,1.633,0,0,1,1.653,1.2H6.469a.527.527,0,0,0,0,1.055H8.156a.527.527,0,0,0,0-1.055H7.794a2.688,2.688,0,0,0-.774-1.485A2.794,2.794,0,0,0,5.063,13a2.667,2.667,0,0,0-1.98.89,3.082,3.082,0,0,0-.8,2.092v2.924h-.6a1.7,1.7,0,0,0-1.178.476,1.612,1.612,0,0,0,0,2.352,1.71,1.71,0,0,0,.651.392v3.11a3.7,3.7,0,0,0,2.25,3.4v.924a.527.527,0,1,0,1.055,0v-.651a3.718,3.718,0,0,0,.387.02h8.3a3.718,3.718,0,0,0,.387-.02v.651a.527.527,0,1,0,1.055,0v-.924a3.7,3.7,0,0,0,2.25-3.4v-3.11a1.71,1.71,0,0,0,.651-.392A1.619,1.619,0,0,0,18,20.559Zm-2.215,4.678a2.64,2.64,0,0,1-2.637,2.637h-8.3a2.64,2.64,0,0,1-2.637-2.637V22.211h13.57Zm.527-4.08H1.688a.6.6,0,1,1,0-1.2H16.313a.6.6,0,1,1,0,1.2Z" transform="translate(0 -13)"/></svg>
+                                                        </div>
+                                                        {{$data['imovelBanheiros']}} banheiro{if}$data['imovelBanheiros'] > 1{/if}s{/endif}
+                                                    </div>
+                                                {/endif}
+                                                {if}$data['imovelVagas']{/if}
+                                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                        <div class="ui__card-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="11.507" viewBox="0 0 23 11.507"><path d="M23,135.192a3.092,3.092,0,0,0-2.875-3.356h-.811a1.311,1.311,0,0,1-.818-.288l-3.776-3.022a2.408,2.408,0,0,0-1.5-.525H6.3A2.391,2.391,0,0,0,4.3,129.067l-.816,1.225a1.312,1.312,0,0,1-1.092.584,2.4,2.4,0,0,0-2.4,2.4v1.918a2.4,2.4,0,0,0,1.958,2.356,2.4,2.4,0,0,0,4.7.041h9.68a2.4,2.4,0,0,0,4.7-.037A2.334,2.334,0,0,0,23,135.192ZM4.313,138.548A1.438,1.438,0,1,1,5.75,137.11,1.44,1.44,0,0,1,4.313,138.548Zm14.375,0a1.44,1.44,0,0,1-1.437-1.438h0a1.437,1.437,0,1,1,1.437,1.439Zm2.334-1.975a2.4,2.4,0,0,0-4.682.058H6.66a2.4,2.4,0,0,0-4.681-.062,1.441,1.441,0,0,1-1.021-1.376v-1.918A1.44,1.44,0,0,1,2.4,131.836a2.265,2.265,0,0,0,1.889-1.012L5.1,129.6a1.436,1.436,0,0,1,1.2-.641h6.927a1.445,1.445,0,0,1,.9.315L17.9,132.3a2.272,2.272,0,0,0,1.417.5h.81c1.406,0,1.917,1.434,1.917,2.4A1.368,1.368,0,0,1,21.022,136.573Z" transform="translate(0 -128)"/></svg>
+                                                        </div>
+                                                        {{$data['imovelVagas']}} vaga{if}$data['imovelVagas'] > 1{/if}s{/endif}
+                                                    </div>
+                                                {/endif}
+                                                {if}$data['imovelQuartos']{/if}
+                                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                        <div class="ui__card-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13.822" viewBox="0 0 16 13.822"><path d="M14.181,40.932V36.484a1.642,1.642,0,0,0-1.641-1.641H3.46A1.642,1.642,0,0,0,1.82,36.484v4.449A2.379,2.379,0,0,0,0,43.241v3.318a.477.477,0,0,0,.477.477H1.819v1.153a.477.477,0,1,0,.953,0V47.036H13.227v1.153a.477.477,0,1,0,.953,0V47.036h1.343A.477.477,0,0,0,16,46.559V43.241A2.378,2.378,0,0,0,14.181,40.932ZM2.773,36.484A.688.688,0,0,1,3.46,35.8h9.08a.688.688,0,0,1,.687.687v4.383H11.652v-.752a2.262,2.262,0,0,0-2.26-2.26H6.608a2.262,2.262,0,0,0-2.26,2.26v.752H2.773ZM10.7,40.114v.752H5.3v-.752a1.308,1.308,0,0,1,1.306-1.306H9.392A1.308,1.308,0,0,1,10.7,40.114ZM.953,46.083V43.241a1.423,1.423,0,0,1,1.421-1.421h11.25a1.423,1.423,0,0,1,1.421,1.421v2.842Z" transform="translate(0 -34.843)"/></svg>
+                                                        </div>
+                                                        {{$data['imovelQuartos']}} quarto{if}$data['imovelQuartos'] > 1{/if}s{/endif}
+                                                    </div>
+                                                {/endif}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {if}$data['imovelVenda']{/if}
+                                        <script type="application/ld+json">{"@context":"https://schema.org","@type":"BuyAction","price":"{if}$data['imovelValorVenda']{/if}R$ {n2}$data['imovelValorVenda']{/n2}{/endif}","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"BRL"},"object":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"{{$data['imovelEnderecoCidade']}}","streetAddress":"{{$data['imovelEnderecoBairro']}}"},"name":"{{$data['tipoImovelDescricao']}} para venda, {if}$data['imovelAreaUtil']{/if}{n}$data['imovelAreaUtil'])}}m²{/endif} por R$ {n2}$data['imovelValorVenda']{/n2}{if}$data['imovelEnderecoBairro']{/if} - {{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}","image":"{{$data['urlFotoPrincipalMedia']}}","url":"{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0"} }</script>
+                                    {/endif}
+                                    {if}$data['imovelLocacao']{/if}
+                                        <script type="application/ld+json">{"@context":"https://schema.org","@type":"RentAction","price":"{if}$data['imovelValorAluguel']{/if}R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}{/endif}","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"BRL"},"object":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"{{$data['imovelEnderecoCidade']}}","streetAddress":"{{$data['imovelEnderecoBairro']}}"},"name":"{{$data['tipoImovelDescricao']}} para alugar, {if}$data['imovelAreaUtil']{/if}{n}$data['imovelAreaUtil'])}}m²{/endif} por R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}{if}$data['imovelEnderecoBairro']{/if} - {{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}","image":"{{$data['urlFotoPrincipalMedia']}}","url":"{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0"} }</script>
+                                    {/endif}
+                                </div>
+                            {/endif}
+                        {/endforeach}
+                    </div>
+                    {if}$similar['data']['total'] > 4{/if}
+                        <div class="jetgrid jetgrid--justify-center jetgrid--align-center jetgrid--xs-justify-between">
+                            <button class="similar__pagination-btn similar__pagination-prev">
+                                <span class="similar__pagination-btn-previous-box">
+                                    <svg class="similar__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                    <svg class="similar__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                </span>
+                            </button>
+                            <div class="similar__pagination"></div>
+                            <button class="similar__pagination-btn similar__pagination-next">
+                                <span class="similar__pagination-btn-next-box">
+                                    <svg class="similar__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                    <svg class="similar__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                </span>
+                            </button>
+                        </div>
+                    {/endif}
+                </div>
+            {/endif}
+        </div>
+    {else}
+        <nav class="ui__breadcrumb">
+            <div class="jetgrid jetgrid--1200">
+                <div class="jetgrid__col--24">
+                    <div class="jetgrid jetgrid--align-center">
+                        <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                        </a>
+                        Imóvel não encontrado
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+            <div class="jetgrid__col--24">
+                <h1 class="jetgrid jetgrid--justify-between jetgrid--align-center ui__title-line">
+                    Imóvel não encontrado
+                </h1>
+            </div>
+            <div class="jetgrid__col--9 jetgrid__col--lg-11 jetgrid__col--md-15 jetgrid__col--sm-19 jetgrid__col--xs-24 favorite__no-result">
+                <p>
+                    <strong>Este imóvel não está mais disponível ou você pode ter digitado o endereço (URL) incorretamente</strong>
+                </p>
+                <a class="ui__btn card__no-result-btn" href="{{$config['pageImoveis']}}/comprar">
+                    <div class="ui__btn-label">
+                        Ver imóveis de venda<br>Ver imóveis de venda
+                    </div>
+                </a>
+                <a class="ui__btn card__no-result-btn" href="{{$config['pageImoveis']}}/alugar">
+                    <div class="ui__btn-label">
+                        Ver imóveis de locação<br>Ver imóveis de locação
+                    </div>
+                </a>
+            </div>
+        </div>
+    {/endif}   
+</section>

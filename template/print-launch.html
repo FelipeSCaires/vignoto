@@ -1,0 +1,201 @@
+<section class="print">
+    {php}$launch = $launch['data'];{/php}
+    <div class="print__header">
+        <div class="print__real-estate">
+            <div class="print__logo">
+                <img class="print__logo-img" src="{{$global['base']}}img/logo-print.png" alt="{{$client['nomeFantasia']}} logo" width="100" height="90" loading="lazy">
+            </div>
+            <div class="print__location">
+                {{$client['endereco']}}, {{$client['bairro']}}<br>{{$client['cidade']}}/{{$client['estado']}}
+            </div>
+        </div>
+        <div class="print__contact">
+            {if}isset($client['telefoneMovelLocacao']) || isset($client['whatsAppLocacao']) || isset($client['telefoneMovelVenda']) || isset($client['whatsAppVenda']){/if}
+                <div class="print__whatsapp">
+                    {if}isset($client['telefoneMovelLocacao']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['telefoneMovelLocacao'], 0, 5) . ' ' . substr($client['telefoneMovelLocacao'], 5)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['whatsAppLocacao']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['whatsAppLocacao'], 0, 5) . ' ' . substr($client['whatsAppLocacao'], 5)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['telefoneMovelVenda']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['telefoneMovelVenda'], 0, 5) . ' ' . substr($client['telefoneMovelVenda'], 5)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['whatsAppVenda']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['whatsAppVenda'], 0, 5) . ' ' . substr($client['whatsAppVenda'], 5)}}</span>
+                        </div>
+                    {/endif}
+                </div>
+            {/endif}
+            {if}isset($client['telefone']) || isset($client['telefoneVenda']) || isset($client['telefoneLocacao']){/if}
+                <div class="print__phone">
+                    {if}isset($client['telefone']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.199" height="8.504" viewBox="0 0 9.199 8.504"><path d="M358.373,30h-.434a.834.834,0,0,0-.6.282,2.526,2.526,0,0,0-.792,1.882,4.383,4.383,0,0,0,.924,2.333,9.274,9.274,0,0,0,3.866,3.4c1.912.752,2.3.6,2.716.565a2.286,2.286,0,0,0,1.528-1.073,1.87,1.87,0,0,0,.132-1.072c-.056-.094-.207-.151-.434-.263s-1.335-.668-1.543-.744-.358-.112-.509.114-.6.747-.728.9-.264.17-.49.057a6.259,6.259,0,0,1-1.813-1.124,6.949,6.949,0,0,1-1.272-1.586c-.132-.226-.014-.348.1-.461s.239-.239.352-.371a1.516,1.516,0,0,0,.221-.376.417.417,0,0,0-.019-.4c-.057-.113-.491-1.228-.693-1.675h0C358.713,30.022,358.534,30.009,358.373,30Z" transform="translate(-356.544 -30.002)" fill="#040506"/></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{wordwrap($client['telefone'], 4, ' ', true)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['telefoneVenda']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.199" height="8.504" viewBox="0 0 9.199 8.504"><path d="M358.373,30h-.434a.834.834,0,0,0-.6.282,2.526,2.526,0,0,0-.792,1.882,4.383,4.383,0,0,0,.924,2.333,9.274,9.274,0,0,0,3.866,3.4c1.912.752,2.3.6,2.716.565a2.286,2.286,0,0,0,1.528-1.073,1.87,1.87,0,0,0,.132-1.072c-.056-.094-.207-.151-.434-.263s-1.335-.668-1.543-.744-.358-.112-.509.114-.6.747-.728.9-.264.17-.49.057a6.259,6.259,0,0,1-1.813-1.124,6.949,6.949,0,0,1-1.272-1.586c-.132-.226-.014-.348.1-.461s.239-.239.352-.371a1.516,1.516,0,0,0,.221-.376.417.417,0,0,0-.019-.4c-.057-.113-.491-1.228-.693-1.675h0C358.713,30.022,358.534,30.009,358.373,30Z" transform="translate(-356.544 -30.002)" fill="#040506"/></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{wordwrap($client['telefoneVenda'], 4, ' ', true)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['telefoneLocacao']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.199" height="8.504" viewBox="0 0 9.199 8.504"><path d="M358.373,30h-.434a.834.834,0,0,0-.6.282,2.526,2.526,0,0,0-.792,1.882,4.383,4.383,0,0,0,.924,2.333,9.274,9.274,0,0,0,3.866,3.4c1.912.752,2.3.6,2.716.565a2.286,2.286,0,0,0,1.528-1.073,1.87,1.87,0,0,0,.132-1.072c-.056-.094-.207-.151-.434-.263s-1.335-.668-1.543-.744-.358-.112-.509.114-.6.747-.728.9-.264.17-.49.057a6.259,6.259,0,0,1-1.813-1.124,6.949,6.949,0,0,1-1.272-1.586c-.132-.226-.014-.348.1-.461s.239-.239.352-.371a1.516,1.516,0,0,0,.221-.376.417.417,0,0,0-.019-.4c-.057-.113-.491-1.228-.693-1.675h0C358.713,30.022,358.534,30.009,358.373,30Z" transform="translate(-356.544 -30.002)" fill="#040506"/></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{wordwrap($client['telefoneLocacao'], 4, ' ', true)}}</span>
+                        </div>
+                    {/endif}
+                </div>
+            {/endif}
+        </div>
+    </div>
+    <div class="print__content">
+        <div class="print__left">
+            <span class="print__reference">
+                Ref.: {{$launch['empReferencia']}}
+            </span>
+            <h1 class="print__type">
+                {{$launch['empEdificio']}}
+            </h1>
+            <span class="print__address">
+                {if}$launch['empEndereco'] && !$client['naoMostrarEnderecoVenda']{/if}{if}$launch['empTipoEndereco']{/if}{{$launch['empTipoEndereco']}}. {/endif}{if}$launch['empEndereco']{/if}{{$launch['empEndereco']}}{/endif}{if}$launch['empNumero']{/if}, {{$launch['empNumero']}}{/endif}{if}$launch['empComplemento']{/if} {{$launch['empComplemento']}}{/endif}{if}$launch['empBairro']{/if}, {{$launch['empBairro']}}{/endif}{else}{{$launch['empBairro']}}{/endif}{if}$launch['empCidade']{/if}, {{$launch['empCidade']}}{/endif}{if}$launch['empEstado']{/if}/{{$launch['empEstado']}}{/endif}
+            </span>
+            {if}$launch['minAreaTotal'] || $launch['maxAreaTotal'] || $launch['minAreaUtil'] || $launch['maxAreaUtil'] || $launch['minQuartos'] || $launch['maxQuartos'] || $launch['minGaragem'] || $launch['maxGaragem']{/if}
+                <div class="print__feature">
+                    {if}$launch['minAreaTotal'] || $launch['maxAreaTotal']{/if}
+                        <span class="print__component">
+                            {if}($launch['minAreaTotal'] && $launch['maxAreaTotal']) && ($launch['minAreaTotal'] != $launch['maxAreaTotal']){/if}
+                                De {n}$launch['minAreaTotal']{/n} a {n}$launch['maxAreaTotal']{/n}m² total
+                            {elseif}$launch['minAreaTotal'] && !$launch['maxAreaTotal'] || $launch['minAreaTotal'] === $launch['maxAreaTotal']{/elseif}
+                                {n}$launch['minAreaTotal']{/n}m² total
+                            {elseif}!$launch['minAreaTotal'] && $launch['maxAreaTotal']{/elseif}
+                                {n}$launch['maxAreaTotal']{/n}m² total
+                            {/endif}
+                        </span>
+                    {/endif}
+                    {if}$launch['minAreaUtil'] || $launch['maxAreaUtil']{/if}
+                        <span class="print__component">
+                            {if}($launch['minAreaUtil'] && $launch['maxAreaUtil']) && ($launch['minAreaUtil'] != $launch['maxAreaUtil']){/if}
+                                De {n}$launch['minAreaUtil']{/n} a {n}$launch['maxAreaUtil']{/n}m² útil
+                            {elseif}$launch['minAreaUtil'] && !$launch['maxAreaUtil'] || $launch['minAreaUtil'] === $launch['maxAreaUtil']{/elseif}
+                                {n}$launch['minAreaUtil']{/n}m² útil
+                            {elseif}!$launch['minAreaUtil'] && $launch['maxAreaUtil']{/elseif}
+                                {n}$launch['maxAreaUtil']{/n}m² útil
+                            {/endif}
+                        </span>
+                    {/endif}
+                    {if}$launch['minGaragem'] || $launch['maxGaragem']{/if}
+                        <span class="print__component">
+                            {if}($launch['minGaragem'] && $launch['maxGaragem']) && ($launch['minGaragem'] != $launch['maxGaragem']){/if}
+                                De {n}$launch['minGaragem']{/n} a {n}$launch['maxGaragem']{/n} vaga{if}$launch['maxGaragem'] > 1{/if}s{/endif}
+                            {elseif}$launch['minGaragem'] && !$launch['maxGaragem'] || $launch['minGaragem'] === $launch['maxGaragem']{/elseif}
+                                {n}$launch['minGaragem']{/n} vaga{if}$launch['minGaragem'] > 1{/if}s{/endif}
+                            {elseif}!$launch['minGaragem'] && $launch['maxGaragem']{/elseif}
+                                {n}$launch['maxGaragem']{/n} vaga{if}$launch['maxGaragem'] > 1{/if}s{/endif}
+                            {/endif}
+                        </span>
+                    {/endif}
+                    {if}$launch['minQuartos'] || $launch['maxQuartos']{/if}
+                        <span class="print__component">
+                            {if}($launch['minQuartos'] && $launch['maxQuartos']) && ($launch['minQuartos'] != $launch['maxQuartos']){/if}
+                                De {n}$launch['minQuartos']{/n} a {n}$launch['maxQuartos']{/n} vaga{if}$launch['maxGaragem'] > 1{/if}s{/endif}
+                            {elseif}$launch['minQuartos'] && !$launch['maxQuartos'] || $launch['minQuartos'] === $launch['maxQuartos']{/elseif}
+                                {n}$launch['minQuartos']{/n} vaga{if}$launch['minQuartos'] > 1{/if}s{/endif}
+                            {elseif}!$launch['minQuartos'] && $launch['maxQuartos']{/elseif}
+                                {n}$launch['maxQuartos']{/n} vaga{if}$launch['maxQuartos'] > 1{/if}s{/endif}
+                            {/endif}
+                        </span>
+                    {/endif}
+                </div>
+            {/endif}
+            {if}$launch['minValorVenda'] || $launch['maxValorVenda']{/if}
+                <h2 class="print__price">
+                    A partir de:
+                </h2>
+                <span class="">
+                    De R$ {n2}$launch['minValorVenda']{/n2} até R$ {n2}$launch['maxValorVenda']{/n2}
+                </span>
+            {/endif}
+            {foreach}$launch['outrosValores'] as $data{/foreach}
+                {if}$data['divulgado'] === true && $data['descricao'] != "" && $data['valor'] != ""{/if}
+                    <h2 class="print__price">
+                        Outros valores:
+                    </h2>
+                    <div class="print__tax">
+                        {foreach}$launch['outrosValores'] as $valores{/foreach}
+                            {if}$valores['divulgado'] === true && $valores['descricao'] != "" && $valores['valor'] != ""{/if}
+                                <span class="print__cost">
+                                    + {{$valores['descricao']}}: R$ {n2}$valores['valor']{/n2}
+                                </span>
+                            {/endif}
+                        {/endforeach}
+                    </div>
+                {php}break;{/php}
+                {/endif}
+            {/endforeach}
+        </div>
+        <div class="print__right">
+            {if}$launch['urlFotoPrincipal']{/if}
+                <div class="print__box">
+                    <img class="print__img" src="{{$launch['urlFotoPrincipal']}}">
+                </div>
+            {/endif}
+            <span class="card__updated">Imóvel atualizado em: {{substr($launch['empDataAtualizado'], 0, 10) . ' '}} ás {php}$triggerOn = substr($launch['empDataAtualizado'], 11, 5);$user_tz = 'GMT';$schedule_date = new DateTime($triggerOn, new DateTimeZone($user_tz));$schedule_date->setTimeZone(new DateTimeZone('America/Sao_Paulo'));$triggerOn = $schedule_date->format('H:i');echo $triggerOn;{/php}</span>
+        </div>
+    </div>
+    {if}$launch['empPontosFortes']{/if}
+        <h2 class="print__title">
+            Pontos fortes:
+        </h2>
+        <p class="print__text">
+            {{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $launch['empPontosFortes']))}}
+        </p>
+    {/endif}
+    {if}$launch['dependencias']{/if}
+        <h2 class="print__title">
+            Dependências:
+        </h2>
+        <div class="print__room">
+            {foreach}$launch['dependencias'] as $data{/foreach}
+                <div class="print__column">
+                    <span class="print__label">
+                        {{$data['label']}}:
+                    </span>
+                    <span class="print__value">
+                        {{$data['valor']}}
+                    </span>
+                </div>
+            {/endforeach}
+        </div>
+    {/endif}
+    {if}$launch['caracteristicas']{/if}
+        <h2 class="print__title">
+            Características:
+        </h2>
+        <div class="print__characteristic">
+            {foreach}$launch['caracteristicas'] as $data{/foreach}
+                <div class="print__column">
+                    <span class="print__label">
+                        {{$data['label']}}:
+                    </span>
+                    <span class="print__value">
+                        {{$data['valor']}}
+                    </span>
+                </div>
+            {/endforeach}
+        </div>
+    {/endif}
+</section>

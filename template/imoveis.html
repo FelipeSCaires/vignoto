@@ -1,0 +1,457 @@
+<section class="list" data-template>
+    <nav class="ui__breadcrumb">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--align-center">
+                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                    </a>
+                    <span>
+                        {if}!$result{/if}
+                            Nenhum imóvel encontrado
+                        {elseif}$list['data']['total'] > 1{/elseif}
+                            <strong>{{$list['data']['total']}} imóveis</strong> encontrados
+                        {else}
+                            <strong>{{$list['data']['total']}} imóvel</strong> encontrado
+                        {/endif}
+                        {if}$imovelPara{/if}
+                            {if}$imovelPara === 'v'{/if}
+                                para <strong>venda</strong>
+                            {else}
+                                para <strong>locação</strong>
+                            {/endif}
+                        {/endif}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jetgrid jetgrid--1200 jetgrid--justify-center jetgrid--xs-justify-left">
+        <div class="jetgrid__col--24">
+            <div class="list__tags"></div>
+            <hr class="list__line">
+        </div>
+        <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-24 list__search-btn-box">
+            <label class="ui__btn list__search-btn" for="jetwindow-search">
+                <div class="ui__btn-label">
+                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="#fff"/></svg>
+                    Filter sua busca<br>
+                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="#fff"/></svg>
+                    Filter sua busca
+                </div>
+            </label>
+            <input class="jetwindow__input" id="jetwindow-search" type="checkbox" autocomplete="off">
+            <section class="jetwindow" data-jetwindow="on" data-jetwindow-xs="on">
+                <div class="jetwindow__box search__window-box" data-jetwindow-effect="slide-down" data-jetwindow-align="top center" data-jetwindow-effect-xs="slide-left" data-jetwindow-align-xs="top left">
+                    <div class="jetwindow__content search__window-content">
+                        <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+                            <div class="jetgrid__col--24">
+                                <label class="jetwindow__close search__window-close" for="jetwindow-search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+                                </label>
+                            </div>
+                            <div class="jetgrid__col--18 jetgrid__col--lg-21 jetgrid__col--md-24">
+                                <div class="jetgrid jetgrid--justify-center">
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">O que deseja?</label>
+                                        <div class="jetselect search__type"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Tipo de imóvel:</label>
+                                        <div class="jetselect search__property"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Valor mínimo:</label>
+                                        <div class="jetselect search__min-price"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Valor máximo:</label>
+                                        <div class="jetselect search__max-price"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Cidade:</label>
+                                        <div class="jetselect search__city"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Bairro:</label>
+                                        <div class="jetselect search__neighborhood"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Região:</label>
+                                        <div class="jetselect search__region"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Quartos:</label>
+                                        <div class="jetselect search__bedroom"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Garagem:</label>
+                                        <div class="jetselect search__garage"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Área útil mínima:</label>
+                                        <div class="jetselect search__min-area"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Área útil máxima:</label>
+                                        <div class="jetselect search__max-area"></div>
+                                    </div>
+                                    <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Características:</label>
+                                        <div class="jetgrid jetgrid--direction-column jetgrid--sm-direction-row">
+                                            <div class="jetcheckbox search__furnished"></div>
+                                            <div class="jetcheckbox search__condominium"></div>
+                                        </div>
+                                    </div>
+                                    <div class="jetgrid__col--24 search__filter-box">
+                                        <hr class="search__line">
+                                    </div>
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Referência do imóvel:</label>
+                                        <div class="jetinput search__reference"></div>
+                                        <a class="ui__btn ui__btn--transparent search__btn search__input-btn">
+                                            <div class="ui__btn-label">
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="currentColor"/></svg><br>
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="currentColor"/></svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="jetgrid__col--12 jetgrid__col--xs-24 search__filter-box">
+                                        <label class="form__label" for="">Nome da rua:</label>
+                                        <div class="jetinput search__address"></div>
+                                        <a class="ui__btn ui__btn--transparent search__btn search__input-btn">
+                                            <div class="ui__btn-label">
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="currentColor"/></svg><br>
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="currentColor"/></svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="jetgrid__col--24 search__filter-box ui__display--xs-none">
+                                        <hr class="search__line">
+                                    </div>
+                                    <div class="jetgrid__col--8 jetgrid__col--sm-12 jetgrid__col--xs-24 search__filter-box search__btn-box">
+                                        <a class="ui__btn search__btn">
+                                            <div class="ui__btn-label">
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="#fff"/></svg>
+                                                Buscar<br>
+                                                <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M19.772,18.673l-4.881-4.881a8.43,8.43,0,1,0-1.1,1.1l4.881,4.881a.778.778,0,1,0,1.1-1.1ZM1.555,8.418A6.862,6.862,0,1,1,8.418,15.28,6.87,6.87,0,0,1,1.555,8.418Z" fill="#fff"/></svg>
+                                                Buscar
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label class="jetwindow__close-bg" for="jetwindow-search"></label>
+            </section>
+        </div>
+        {if}$list['data']['total'] > 0 && $result{/if}
+            <div class="jetgrid__col--5 jetgrid__col--md-7 jetgrid__col--sm-11 jetgrid__col--xs-24 list__map-btn-box">
+                <button class="ui__btn ui__btn--white-line list__map-btn">
+                    <div class="ui__btn-label">
+                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="17.362" height="22.954" viewBox="0 0 17.362 22.954"><g transform="translate(0 0)"><g transform="translate(0 0)"><g transform="translate(0)"><path d="M56.761,0A8.592,8.592,0,0,0,48.08,8.479a9.6,9.6,0,0,0,.736,3.265,13.572,13.572,0,0,0,1,1.833l5.952,8.809a1.145,1.145,0,0,0,1.978,0l5.953-8.81a13.516,13.516,0,0,0,1-1.833,9.594,9.594,0,0,0,.736-3.265A8.592,8.592,0,0,0,56.761,0Zm7,11.357a12.435,12.435,0,0,1-.915,1.671L56.9,21.837c-.117.174-.155.174-.272,0l-5.953-8.81a12.442,12.442,0,0,1-.915-1.671A8.711,8.711,0,0,1,49.1,8.479a7.662,7.662,0,0,1,15.32,0A8.718,8.718,0,0,1,63.765,11.357Z" transform="translate(-48.08)" fill="currentColor"/><path d="M116.676,64.008a4.49,4.49,0,1,0,4.6,4.489A4.549,4.549,0,0,0,116.676,64.008Zm0,7.981A3.492,3.492,0,1,1,120.25,68.5,3.538,3.538,0,0,1,116.676,71.989Z" transform="translate(-107.995 -60.017)" fill="currentColor"/></g></g></g></svg>
+                        <span class="list__map-btn-text">Imóveis no mapa</span><br>
+                        <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="17.362" height="22.954" viewBox="0 0 17.362 22.954"><g transform="translate(0 0)"><g transform="translate(0 0)"><g transform="translate(0)"><path d="M56.761,0A8.592,8.592,0,0,0,48.08,8.479a9.6,9.6,0,0,0,.736,3.265,13.572,13.572,0,0,0,1,1.833l5.952,8.809a1.145,1.145,0,0,0,1.978,0l5.953-8.81a13.516,13.516,0,0,0,1-1.833,9.594,9.594,0,0,0,.736-3.265A8.592,8.592,0,0,0,56.761,0Zm7,11.357a12.435,12.435,0,0,1-.915,1.671L56.9,21.837c-.117.174-.155.174-.272,0l-5.953-8.81a12.442,12.442,0,0,1-.915-1.671A8.711,8.711,0,0,1,49.1,8.479a7.662,7.662,0,0,1,15.32,0A8.718,8.718,0,0,1,63.765,11.357Z" transform="translate(-48.08)" fill="currentColor"/><path d="M116.676,64.008a4.49,4.49,0,1,0,4.6,4.489A4.549,4.549,0,0,0,116.676,64.008Zm0,7.981A3.492,3.492,0,1,1,120.25,68.5,3.538,3.538,0,0,1,116.676,71.989Z" transform="translate(-107.995 -60.017)" fill="currentColor"/></g></g></g></svg>
+                        <span class="list__map-btn-text">Imóveis no mapa</span>
+                    </div>
+                </button>
+            </div>
+            <div class="jetgrid__col--auto jetgrid__col--no-gap jetgrid__col--xs-gap-15">
+                <label class="list__order-title" for="">Ordenar por:</label>
+            </div>
+            <div class="jetgrid__col--5 jetgrid__col--md-6 jetgrid__col--sm-8 jetgrid__col--xs-24 list__order-box">
+                <div class="jetselect list__order"></div>
+            </div>
+        {/endif}
+    </div>
+    <div class="jetgrid jetgrid--1200">
+        {if}$list['data']['total'] > 0 && $result{/if}
+            {foreach}$list['data']['resultado'] as $data{/foreach}
+                <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24 ui__card">
+                    <button class="favorite__btn ui__card-favorite" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                        <svg class="ui__card-favorite-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="26.493" viewBox="0 0 32 26.493"><g transform="translate(0 -35.514)"><g transform="translate(0 35.514)"><path d="M22.927,35.515h0A8.993,8.993,0,0,0,16,38.715a8.871,8.871,0,0,0-6.927-3.2A9.073,9.073,0,0,0,0,44.588c0,8.587,14.987,16.972,15.595,17.3a.729.729,0,0,0,.81,0C17.013,61.56,32,53.3,32,44.588A9.073,9.073,0,0,0,22.927,35.515ZM16,60.264C13.651,58.887,1.62,51.555,1.62,44.588a7.453,7.453,0,0,1,7.453-7.453A7.291,7.291,0,0,1,15.311,40.5a.851.851,0,0,0,1.377,0A7.453,7.453,0,0,1,30.38,44.588C30.38,51.636,18.349,58.927,16,60.264Z" transform="translate(0 -35.514)" fill="currentColor"/></g></g></svg>
+                        <svg class="ui__card-favorite-icon-fill" xmlns="http://www.w3.org/2000/svg" width="24" height="19.869" viewBox="0 0 24 19.869"><path d="M1419.216,487.873h0a6.741,6.741,0,0,0-5.194,2.4,6.656,6.656,0,0,0-5.195-2.4,6.8,6.8,0,0,0-6.805,6.8h0c0,6.44,11.24,12.728,11.7,12.972a.548.548,0,0,0,.608,0c.455-.243,11.7-6.44,11.7-12.972a6.8,6.8,0,0,0-6.8-6.8Z" transform="translate(-1402.022 -487.872)"/></svg>
+                    </button>
+                    <a class="ui__card-link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0">
+                        <div class="ui__card-box">
+                            {if}$data['imovelReservadoLocacao'] || $data['imovelReservadoVenda']{/if}
+                                <div class="ui__card-reserved">Reservado</div>
+                            {/endif}
+                            <img class="ui__card-img" src="{{$data['urlFotoPrincipalMedia']}}" loading="lazy" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal'])}}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                        </div>
+                        <div class="ui__card-content">
+                            <div class="ui__card-reference">{{$data['imovelReferencia']}}</div>
+                            <div class="ui__card-type">{{$data['tipoImovelDescricao']}}</div>
+                            <div class="ui__card-address">
+                                {if}$data['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $data['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                                    {if}$data['imovelTipoEndereco']{/if}{{$data['imovelTipoEndereco']}}. {/endif}{if}$data['imovelEndereco']{/if}{{$data['imovelEndereco']}}{/endif}{if}$data['imovelEnderecoNumero']{/if}, {{$data['imovelEnderecoNumero']}}{/endif}<br>
+                                {/endif}
+                                {if}$data['imovelEnderecoBairro']{/if}{{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                            </div>
+                            <div class="ui__card-price">
+                                {if}$data['imovelLocacao']{/if}
+                                    Locação: <strong>R$ {n}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}</strong>
+                                {/endif}
+                                {if}$data['imovelVenda']{/if}
+                                    Venda: <strong>R$ {n}$data['imovelValorVenda']{/n2}</strong>
+                                {/endif}
+                            </div>
+                            <div class="ui__card-feature">
+                                {if}$data['imovelAreaTotal']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                        </div>
+                                        {n}$data['imovelAreaTotal'])}}m² total
+                                    </div>
+                                {/endif}
+                                {if}$data['imovelAreaUtil']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                        </div>
+                                        {n}$data['imovelAreaUtil'])}}m² útil
+                                    </div>
+                                {/endif}
+                                {if}isset($data['imovelBanheiros']){/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17.086" viewBox="0 0 18 17.086"><path d="M18,20.559a1.619,1.619,0,0,0-.509-1.176,1.7,1.7,0,0,0-1.178-.476H3.34V15.982a2.031,2.031,0,0,1,.52-1.38,1.624,1.624,0,0,1,1.2-.548,1.633,1.633,0,0,1,1.653,1.2H6.469a.527.527,0,0,0,0,1.055H8.156a.527.527,0,0,0,0-1.055H7.794a2.688,2.688,0,0,0-.774-1.485A2.794,2.794,0,0,0,5.063,13a2.667,2.667,0,0,0-1.98.89,3.082,3.082,0,0,0-.8,2.092v2.924h-.6a1.7,1.7,0,0,0-1.178.476,1.612,1.612,0,0,0,0,2.352,1.71,1.71,0,0,0,.651.392v3.11a3.7,3.7,0,0,0,2.25,3.4v.924a.527.527,0,1,0,1.055,0v-.651a3.718,3.718,0,0,0,.387.02h8.3a3.718,3.718,0,0,0,.387-.02v.651a.527.527,0,1,0,1.055,0v-.924a3.7,3.7,0,0,0,2.25-3.4v-3.11a1.71,1.71,0,0,0,.651-.392A1.619,1.619,0,0,0,18,20.559Zm-2.215,4.678a2.64,2.64,0,0,1-2.637,2.637h-8.3a2.64,2.64,0,0,1-2.637-2.637V22.211h13.57Zm.527-4.08H1.688a.6.6,0,1,1,0-1.2H16.313a.6.6,0,1,1,0,1.2Z" transform="translate(0 -13)"/></svg>
+                                        </div>
+                                        {{$data['imovelBanheiros']}} banheiro{if}$data['imovelBanheiros'] > 1{/if}s{/endif}
+                                    </div>
+                                {/endif}
+                                {if}$data['imovelVagas']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="11.507" viewBox="0 0 23 11.507"><path d="M23,135.192a3.092,3.092,0,0,0-2.875-3.356h-.811a1.311,1.311,0,0,1-.818-.288l-3.776-3.022a2.408,2.408,0,0,0-1.5-.525H6.3A2.391,2.391,0,0,0,4.3,129.067l-.816,1.225a1.312,1.312,0,0,1-1.092.584,2.4,2.4,0,0,0-2.4,2.4v1.918a2.4,2.4,0,0,0,1.958,2.356,2.4,2.4,0,0,0,4.7.041h9.68a2.4,2.4,0,0,0,4.7-.037A2.334,2.334,0,0,0,23,135.192ZM4.313,138.548A1.438,1.438,0,1,1,5.75,137.11,1.44,1.44,0,0,1,4.313,138.548Zm14.375,0a1.44,1.44,0,0,1-1.437-1.438h0a1.437,1.437,0,1,1,1.437,1.439Zm2.334-1.975a2.4,2.4,0,0,0-4.682.058H6.66a2.4,2.4,0,0,0-4.681-.062,1.441,1.441,0,0,1-1.021-1.376v-1.918A1.44,1.44,0,0,1,2.4,131.836a2.265,2.265,0,0,0,1.889-1.012L5.1,129.6a1.436,1.436,0,0,1,1.2-.641h6.927a1.445,1.445,0,0,1,.9.315L17.9,132.3a2.272,2.272,0,0,0,1.417.5h.81c1.406,0,1.917,1.434,1.917,2.4A1.368,1.368,0,0,1,21.022,136.573Z" transform="translate(0 -128)"/></svg>
+                                        </div>
+                                        {if}$data['imovelVagas'] == 1{/if}
+                                            Sim
+                                        {elseif}$data['imovelVagas'] > 2{/elseif}
+                                            {{$data['imovelVagas'] - 2}} vaga{if}$data['imovelVagas'] > 1{/if}s{/endif}
+                                        {else}
+                                            Não
+                                        {/endif}
+                                    </div>
+                                {/endif}
+                                {if}$data['imovelQuartos']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13.822" viewBox="0 0 16 13.822"><path d="M14.181,40.932V36.484a1.642,1.642,0,0,0-1.641-1.641H3.46A1.642,1.642,0,0,0,1.82,36.484v4.449A2.379,2.379,0,0,0,0,43.241v3.318a.477.477,0,0,0,.477.477H1.819v1.153a.477.477,0,1,0,.953,0V47.036H13.227v1.153a.477.477,0,1,0,.953,0V47.036h1.343A.477.477,0,0,0,16,46.559V43.241A2.378,2.378,0,0,0,14.181,40.932ZM2.773,36.484A.688.688,0,0,1,3.46,35.8h9.08a.688.688,0,0,1,.687.687v4.383H11.652v-.752a2.262,2.262,0,0,0-2.26-2.26H6.608a2.262,2.262,0,0,0-2.26,2.26v.752H2.773ZM10.7,40.114v.752H5.3v-.752a1.308,1.308,0,0,1,1.306-1.306H9.392A1.308,1.308,0,0,1,10.7,40.114ZM.953,46.083V43.241a1.423,1.423,0,0,1,1.421-1.421h11.25a1.423,1.423,0,0,1,1.421,1.421v2.842Z" transform="translate(0 -34.843)"/></svg>
+                                        </div>
+                                        {{$data['imovelQuartos']}} quarto{if}$data['imovelQuartos'] > 1{/if}s{/endif}
+                                    </div>
+                                {/endif}
+                            </div>
+                        </div>
+                    </a>
+                    {if}$data['imovelVenda']{/if}
+                        <script type="application/ld+json">{"@context":"https://schema.org","@type":"BuyAction","price":"{if}$data['imovelValorVenda']{/if}R$ {n2}$data['imovelValorVenda']{/n2}{/endif}","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"BRL"},"object":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"{{$data['imovelEnderecoCidade']}}","streetAddress":"{{$data['imovelEnderecoBairro']}}"},"name":"{{$data['tipoImovelDescricao']}} para venda, {if}$data['imovelAreaUtil']{/if}{n}$data['imovelAreaUtil'])}}m²{/endif} por R$ {n2}$data['imovelValorVenda']{/n2}{if}$data['imovelEnderecoBairro']{/if} - {{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}","image":"{{$data['urlFotoPrincipalMedia']}}","url":"{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0"} }</script>
+                    {/endif}
+                    {if}$data['imovelLocacao']{/if}
+                        <script type="application/ld+json">{"@context":"https://schema.org","@type":"RentAction","price":"{if}$data['imovelValorAluguel']{/if}R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}{/endif}","priceSpecification":{"@type":"PriceSpecification","priceCurrency":"BRL"},"object":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"{{$data['imovelEnderecoCidade']}}","streetAddress":"{{$data['imovelEnderecoBairro']}}"},"name":"{{$data['tipoImovelDescricao']}} para alugar, {if}$data['imovelAreaUtil']{/if}{n}$data['imovelAreaUtil'])}}m²{/endif} por R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}{if}$data['imovelEnderecoBairro']{/if} - {{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}","image":"{{$data['urlFotoPrincipalMedia']}}","url":"{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0"} }</script>
+                    {/endif}
+                </div>
+            {/endforeach}
+        {else}
+            <div class="jetgrid jetgrid--justify-center">
+                <div class="jetgrid__col--12 jetgrid__col--md-18 jetgrid__col--sm-21 jetgrid__col--xs-24 jetgrid__col--no-gap">
+                    <div class="jetgrid">
+                        <div class="jetgrid__col--24 list__no-result-box">
+                            <h2 class="list__no-result-title">Não foram encontrados resultados para sua pesquisa</h2>
+                            <p>Mas não se preocupe. Você pode <strong>realizar uma nova busca</strong> ou <strong>entrar em contato</strong> para buscarmos o imóvel que você deseja. Preencha o formulário abaixo:</p>
+                        </div>
+                    </div>
+                    <form class="form" id="no-result">
+                        <div class="jetgrid jetgrid--justify-center form__content">
+                            <div class="jetgrid__col--24">
+                                <label class="form__label" for="name">Nome: <span class="form__asterisk">*</span></label>
+                                <input class="form__input" id="name" placeholder="Digite seu nome" name="nome" type="text">
+                            </div>
+                            <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                                <label class="form__label" for="email">E-mail: <span class="form__asterisk">*</span></label>
+                                <input class="form__input" id="email" placeholder="Digite seu email" name="email" type="text">
+                            </div>
+                            <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                                <label class="form__label" for="phone">WhatsApp ou telefone: <span class="form__asterisk">*</span></label>
+                                <input class="form__input" id="phone" placeholder="Ex: (DDD) 9 9999 9999" name="telefone" type="text">
+                            </div>
+                            <div class="jetgrid__col--24">
+                                <label class="form__label" for="message">Mensagem: <span class="form__asterisk">*</span></label>
+                                <textarea class="form__textarea" id="message" placeholder="Digite as características do imóvel que você esta procurando" name="mensagem"></textarea>
+                                <hr class="list__no-result-line">
+                            </div>
+                            <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                                <input type="hidden" name="busca" value="{{$search}}">
+                                <input type="hidden" name="base-url" value="{{$global['base']}}">
+                                <input type="hidden" name="nome-fantasia" value="{{$client['nomeFantasia']}}">
+                                <input type="hidden" name="eCliente" value="{{$config['idCliente']}}">
+                                <input type="hidden" name="eOrigem" value="Não encontrei meu imóvel">
+                                <button class="ui__btn" type="submit">
+                                    <div class="ui__btn-label">
+                                        Enviar<br>
+                                        Enviar
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form__sending">
+                            <div class="form__sending-content">
+                                <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                                <div>Aguarde, enviando email</div>
+                            </div>
+                        </div>
+                        <div class="form__success">
+                            <div class="form__success-content">
+                                <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                                <p class="form__success-title">Solicitação enviada com sucesso!</p>
+                                <p>Entraremos em contato para lhe enviar imóveis com as características selecionadas.</p>
+                                <button class="form__success-btn" type="button">
+                                    <svg class="form__success-btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                    <span class="form__success-text">Voltar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="jetgrid__col--24">
+                    <h2 class="list__no-result-subtitle">Veja alguns imóveis parecidos com o que você está buscando:</h2>
+                    <div class="list__no-result">
+                        {foreach}$list['data']['resultado'] as $data{/foreach}
+                            <div class="ui__card">
+                                <button class="favorite__btn ui__card-favorite" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                                    <svg class="ui__card-favorite-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="26.493" viewBox="0 0 32 26.493"><g transform="translate(0 -35.514)"><g transform="translate(0 35.514)"><path d="M22.927,35.515h0A8.993,8.993,0,0,0,16,38.715a8.871,8.871,0,0,0-6.927-3.2A9.073,9.073,0,0,0,0,44.588c0,8.587,14.987,16.972,15.595,17.3a.729.729,0,0,0,.81,0C17.013,61.56,32,53.3,32,44.588A9.073,9.073,0,0,0,22.927,35.515ZM16,60.264C13.651,58.887,1.62,51.555,1.62,44.588a7.453,7.453,0,0,1,7.453-7.453A7.291,7.291,0,0,1,15.311,40.5a.851.851,0,0,0,1.377,0A7.453,7.453,0,0,1,30.38,44.588C30.38,51.636,18.349,58.927,16,60.264Z" transform="translate(0 -35.514)" fill="currentColor"/></g></g></svg>
+                                    <svg class="ui__card-favorite-icon-fill" xmlns="http://www.w3.org/2000/svg" width="24" height="19.869" viewBox="0 0 24 19.869"><path d="M1419.216,487.873h0a6.741,6.741,0,0,0-5.194,2.4,6.656,6.656,0,0,0-5.195-2.4,6.8,6.8,0,0,0-6.805,6.8h0c0,6.44,11.24,12.728,11.7,12.972a.548.548,0,0,0,.608,0c.455-.243,11.7-6.44,11.7-12.972a6.8,6.8,0,0,0-6.8-6.8Z" transform="translate(-1402.022 -487.872)"/></svg>
+                                </button>
+                                <a class="ui__card-link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0">
+                                    <div class="ui__card-box">
+                                        {if}$data['imovelReservadoLocacao'] || $data['imovelReservadoVenda']{/if}
+                                            <div class="ui__card-reserved">Reservado</div>
+                                        {/endif}
+                                        <img class="ui__card-img" src="{{$data['urlFotoPrincipalMedia']}}" loading="lazy" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal'])}}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                                    </div>
+                                    <div class="ui__card-content">
+                                        <div class="ui__card-reference">{{$data['imovelReferencia']}}</div>
+                                        <div class="ui__card-type">{{$data['tipoImovelDescricao']}}</div>
+                                        <div class="ui__card-address">
+                                            {if}$data['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $data['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                                                {if}$data['imovelTipoEndereco']{/if}{{$data['imovelTipoEndereco']}}. {/endif}{if}$data['imovelEndereco']{/if}{{$data['imovelEndereco']}}{/endif}{if}$data['imovelEnderecoNumero']{/if}, {{$data['imovelEnderecoNumero']}}{/endif}<br>
+                                            {/endif}
+                                            {if}$data['imovelEnderecoBairro']{/if}{{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                                        </div>
+                                        <div class="ui__card-price">
+                                            {if}$data['imovelLocacao']{/if}
+                                                Locação: <strong>R$ {n}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}</strong>
+                                            {/endif}
+                                            {if}$data['imovelVenda']{/if}
+                                                Venda: <strong>R$ {n}$data['imovelValorVenda']{/n2}</strong>
+                                            {/endif}
+                                        </div>
+                                        <div class="ui__card-feature">
+                                            {if}$data['imovelAreaTotal']{/if}
+                                                <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                    <div class="ui__card-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                                    </div>
+                                                    {n}$data['imovelAreaTotal'])}}m² total
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelAreaUtil']{/if}
+                                                <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                    <div class="ui__card-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                                    </div>
+                                                    {n}$data['imovelAreaUtil'])}}m² útil
+                                                </div>
+                                            {/endif}
+                                            {if}isset($data['imovelBanheiros']){/if}
+                                                <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                    <div class="ui__card-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17.086" viewBox="0 0 18 17.086"><path d="M18,20.559a1.619,1.619,0,0,0-.509-1.176,1.7,1.7,0,0,0-1.178-.476H3.34V15.982a2.031,2.031,0,0,1,.52-1.38,1.624,1.624,0,0,1,1.2-.548,1.633,1.633,0,0,1,1.653,1.2H6.469a.527.527,0,0,0,0,1.055H8.156a.527.527,0,0,0,0-1.055H7.794a2.688,2.688,0,0,0-.774-1.485A2.794,2.794,0,0,0,5.063,13a2.667,2.667,0,0,0-1.98.89,3.082,3.082,0,0,0-.8,2.092v2.924h-.6a1.7,1.7,0,0,0-1.178.476,1.612,1.612,0,0,0,0,2.352,1.71,1.71,0,0,0,.651.392v3.11a3.7,3.7,0,0,0,2.25,3.4v.924a.527.527,0,1,0,1.055,0v-.651a3.718,3.718,0,0,0,.387.02h8.3a3.718,3.718,0,0,0,.387-.02v.651a.527.527,0,1,0,1.055,0v-.924a3.7,3.7,0,0,0,2.25-3.4v-3.11a1.71,1.71,0,0,0,.651-.392A1.619,1.619,0,0,0,18,20.559Zm-2.215,4.678a2.64,2.64,0,0,1-2.637,2.637h-8.3a2.64,2.64,0,0,1-2.637-2.637V22.211h13.57Zm.527-4.08H1.688a.6.6,0,1,1,0-1.2H16.313a.6.6,0,1,1,0,1.2Z" transform="translate(0 -13)"/></svg>
+                                                    </div>
+                                                    {{$data['imovelBanheiros']}} banheiro{if}$data['imovelBanheiros'] > 1{/if}s{/endif}
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelVagas']{/if}
+                                                <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                    <div class="ui__card-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="11.507" viewBox="0 0 23 11.507"><path d="M23,135.192a3.092,3.092,0,0,0-2.875-3.356h-.811a1.311,1.311,0,0,1-.818-.288l-3.776-3.022a2.408,2.408,0,0,0-1.5-.525H6.3A2.391,2.391,0,0,0,4.3,129.067l-.816,1.225a1.312,1.312,0,0,1-1.092.584,2.4,2.4,0,0,0-2.4,2.4v1.918a2.4,2.4,0,0,0,1.958,2.356,2.4,2.4,0,0,0,4.7.041h9.68a2.4,2.4,0,0,0,4.7-.037A2.334,2.334,0,0,0,23,135.192ZM4.313,138.548A1.438,1.438,0,1,1,5.75,137.11,1.44,1.44,0,0,1,4.313,138.548Zm14.375,0a1.44,1.44,0,0,1-1.437-1.438h0a1.437,1.437,0,1,1,1.437,1.439Zm2.334-1.975a2.4,2.4,0,0,0-4.682.058H6.66a2.4,2.4,0,0,0-4.681-.062,1.441,1.441,0,0,1-1.021-1.376v-1.918A1.44,1.44,0,0,1,2.4,131.836a2.265,2.265,0,0,0,1.889-1.012L5.1,129.6a1.436,1.436,0,0,1,1.2-.641h6.927a1.445,1.445,0,0,1,.9.315L17.9,132.3a2.272,2.272,0,0,0,1.417.5h.81c1.406,0,1.917,1.434,1.917,2.4A1.368,1.368,0,0,1,21.022,136.573Z" transform="translate(0 -128)"/></svg>
+                                                    </div>
+                                                    {if}$data['imovelVagas'] == 1{/if}
+                                                        Sim
+                                                    {elseif}$data['imovelVagas'] > 2{/elseif}
+                                                        {{$data['imovelVagas'] - 2}} vaga{if}$data['imovelVagas'] > 1{/if}s{/endif}
+                                                    {else}
+                                                        Não
+                                                    {/endif}
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelQuartos']{/if}
+                                                <div class="jetgrid jetgrid--align-center ui__card-item">
+                                                    <div class="ui__card-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13.822" viewBox="0 0 16 13.822"><path d="M14.181,40.932V36.484a1.642,1.642,0,0,0-1.641-1.641H3.46A1.642,1.642,0,0,0,1.82,36.484v4.449A2.379,2.379,0,0,0,0,43.241v3.318a.477.477,0,0,0,.477.477H1.819v1.153a.477.477,0,1,0,.953,0V47.036H13.227v1.153a.477.477,0,1,0,.953,0V47.036h1.343A.477.477,0,0,0,16,46.559V43.241A2.378,2.378,0,0,0,14.181,40.932ZM2.773,36.484A.688.688,0,0,1,3.46,35.8h9.08a.688.688,0,0,1,.687.687v4.383H11.652v-.752a2.262,2.262,0,0,0-2.26-2.26H6.608a2.262,2.262,0,0,0-2.26,2.26v.752H2.773ZM10.7,40.114v.752H5.3v-.752a1.308,1.308,0,0,1,1.306-1.306H9.392A1.308,1.308,0,0,1,10.7,40.114ZM.953,46.083V43.241a1.423,1.423,0,0,1,1.421-1.421h11.25a1.423,1.423,0,0,1,1.421,1.421v2.842Z" transform="translate(0 -34.843)"/></svg>
+                                                    </div>
+                                                    {{$data['imovelQuartos']}} quarto{if}$data['imovelQuartos'] > 1{/if}s{/endif}
+                                                </div>
+                                            {/endif}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {/endforeach}
+                    </div>
+                    {if}$list['data']['total'] > 4{/if}
+                        <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                            <button class="list__no-result-btn list__no-result-prev">
+                                <span class="list__no-result-btn-previous-box">
+                                    <svg class="list__no-result-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                    <svg class="list__no-result-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                </span>
+                            </button>
+                            <ul class="list__no-result-pagination"></ul>
+                            <button class="list__no-result-btn list__no-result-next">
+                                <span class="list__no-result-btn-next-box">
+                                    <svg class="list__no-result-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                    <svg class="list__no-result-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                </span>
+                            </button>
+                        </div>
+                    {/endif}
+                </div>
+            </div>
+        {/endif}
+        {if}$list['data']['total'] > $list['data']['maximo'] && $result{/if}
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--justify-between jetgrid--align-center jetgrid--xs-direction-column">
+                    <span>Página <strong>{if}!$list['data']['pagina']{/if}1{else}{{$list['data']['pagina']}}{/endif}</strong> de {{ceil($list['data']['total'] / $list['data']['maximo'])}}</span>
+                    <div class="jetpagination ui__pagination-box" data-total="{{ceil($list['data']['total'] / $list['data']['maximo'])}}">
+                        <div class="jetgrid">
+                            <a class="ui__pagination-previous">
+                                <span class="ui__pagination-previous-box">
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                </span>
+                            </a>
+                            <ul class="ui__pagination"></ul>
+                            <a class="ui__pagination-next">
+                                <span class="ui__pagination-next-box">
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/endif}
+    </div>
+</section>
+<section class="list__map-container" data-template>
+    <button class="list__map-close">
+        <svg class="list__map-close-icon" xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+    </button>
+    <div class="list__map" id="map"></div>
+</section>

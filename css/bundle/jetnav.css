@@ -1,0 +1,299 @@
+/**
+ * @name * JetNav
+ * @file * jetnav.css
+ * @author * Paper Plane Design Studio® <http://www.paperplane.com.br>
+ * @description * css responsive & animated navigation component
+ * @version * 1.0
+ * @license * Todos os direitos reservados - Paper Plane Design Studio®
+ */
+
+
+
+/* ==========================================================================
+   = breakpoint full ( 1600px - 100% )
+   ========================================================================== */
+
+
+/* = default
+   ========================================================================== */
+
+.jetnav__list,
+.jetnav__submenu-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+
+.jetnav__submenu-list {
+    flex-direction: column;
+}
+
+
+/* = mode
+   ========================================================================== */
+
+/* normal */
+
+.jetnav__btn,
+.jetnav__submenu-btn {
+    display: block;
+    text-decoration: none;
+}
+
+.jetnav__submenu {
+    position: absolute;
+    display: none;
+    overflow: hidden;
+}
+
+.jetnav:not([jetnav-effect]) .jetnav__item--submenu:hover .jetnav__submenu { display: inherit; }
+
+
+/* = direction
+   ========================================================================== */
+
+[jetnav-direction="vertical"] .jetnav__list { flex-direction: column; }
+[jetnav-direction="vertical"] .jetnav__submenu { position: relative; }
+
+
+/* = effects
+   ========================================================================== */
+
+/* submenu */
+
+[jetnav-effect="reveal"] .jetnav__submenu {
+    max-height: 0;
+    display: inherit;
+    transition: max-height 3s ease-in-out -2.7s;
+}
+
+[jetnav-effect="reveal"] .jetnav__item--submenu:hover .jetnav__submenu {
+    max-height: 10000px;
+    transition: max-height 3s ease-in-out;
+}
+
+
+
+/* ==========================================================================
+   = breakpoint xl ( 1340px - 1600px )
+   ========================================================================== */
+
+
+@media (max-width: 1600px) {
+
+    /* = direction
+       ========================================================================== */
+       
+    [jetnav-direction-xl="horizontal"] .jetnav__list { flex-direction: row; }
+    [jetnav-direction-xl="horizontal"] .jetnav__submenu { position: absolute; }
+    [jetnav-direction-xl="vertical"] .jetnav__list { flex-direction: column; }
+    [jetnav-direction-xl="vertical"] .jetnav__submenu { position: relative; }
+
+
+    /* = effects
+       ========================================================================== */
+
+    /* submenu */
+
+    [jetnav-effect-xl="none"] .jetnav__submenu {
+        display: none;
+    }
+
+    [jetnav-effect-xl="none"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: inherit;
+        display: initial;
+    }
+
+    [jetnav-effect-xl="reveal"] .jetnav__submenu {
+        max-height: 0;
+        display: inherit;
+        transition: max-height 3s ease-in-out -2.7s;
+    }
+
+    [jetnav-effect-xl="reveal"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: 10000px; 
+        transition: max-height 3s ease-in-out;
+    }
+
+}
+
+
+
+/* ==========================================================================
+   = breakpoint lg ( 1080px - 1340px )
+   ========================================================================== */
+
+
+@media (max-width: 1340px) {
+
+    /* = direction
+       ========================================================================== */
+
+    [jetnav-direction-lg="horizontal"] .jetnav__list { flex-direction: row; }
+    [jetnav-direction-lg="horizontal"] .jetnav__submenu { position: absolute; }
+    [jetnav-direction-lg="vertical"] .jetnav__list { flex-direction: column; }
+    [jetnav-direction-lg="vertical"] .jetnav__submenu { position: relative; }
+
+
+    /* = effects
+       ========================================================================== */
+
+    /* submenu */
+
+    [jetnav-effect-lg="none"] .jetnav__submenu {
+        display: none;
+    }
+
+    [jetnav-effect-lg="none"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: inherit;
+        display: initial;
+    }
+
+    [jetnav-effect-lg="reveal"] .jetnav__submenu {
+        max-height: 0;
+        display: inherit;
+        transition: max-height 3s ease-in-out -2.7s;
+    }
+
+    [jetnav-effect-lg="reveal"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: 10000px; 
+        transition: max-height 3s ease-in-out;
+    }
+
+}
+    
+    
+    
+/* ==========================================================================
+    = breakpoint md ( 820px - 1080px )
+    ========================================================================== */
+
+
+@media (max-width: 1080px) {
+
+    /* = direction
+       ========================================================================== */
+
+    [jetnav-direction-md="horizontal"] .jetnav__list { flex-direction: row; }
+    [jetnav-direction-md="horizontal"] .jetnav__submenu { position: absolute; }
+    [jetnav-direction-md="vertical"] .jetnav__list { flex-direction: column; }
+    [jetnav-direction-md="vertical"] .jetnav__submenu { position: relative; }
+
+
+    /* = effects
+       ========================================================================== */
+
+    /* submenu */
+
+    [jetnav-effect-md="none"] .jetnav__submenu {
+        display: none;
+    }
+
+    [jetnav-effect-md="none"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: inherit;
+        display: initial;
+    }
+
+    [jetnav-effect-md="reveal"] .jetnav__submenu {
+        max-height: 0;
+        display: inherit;
+        transition: max-height 3s ease-in-out -2.7s;
+    }
+
+    [jetnav-effect-md="reveal"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: 10000px; 
+        transition: max-height 3s ease-in-out;
+    }
+
+}
+
+
+
+/* ==========================================================================
+    = breakpoint sm ( 567px - 820px )
+    ========================================================================== */
+
+
+@media (max-width: 820px) {
+
+    /* = direction
+       ========================================================================== */
+
+    [jetnav-direction-sm="horizontal"] .jetnav__list { flex-direction: row; }
+    [jetnav-direction-sm="horizontal"] .jetnav__submenu { position: absolute; }
+    [jetnav-direction-sm="vertical"] .jetnav__list { flex-direction: column; }
+    [jetnav-direction-sm="vertical"] .jetnav__submenu { position: relative; }
+
+
+    /* = effects
+       ========================================================================== */
+
+    /* submenu */
+
+    [jetnav-effect-sm="none"] .jetnav__submenu {
+        display: none;
+    }
+
+    [jetnav-effect-sm="none"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: inherit;
+        display: initial;
+    }
+
+    [jetnav-effect-sm="reveal"] .jetnav__submenu {
+        max-height: 0;
+        display: inherit;
+        transition: max-height 3s ease-in-out -2.7s;
+    }
+
+    [jetnav-effect-sm="reveal"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: 10000px; 
+        transition: max-height 3s ease-in-out;
+    }
+
+}
+
+
+
+/* ==========================================================================
+    = breakpoint xs ( 0px - 567px )
+    ========================================================================== */
+
+
+@media (max-width: 567px) {
+
+    /* = direction
+       ========================================================================== */
+
+    [jetnav-direction-xs="horizontal"] .jetnav__list { flex-direction: row; }
+    [jetnav-direction-xs="horizontal"] .jetnav__submenu { position: absolute; }
+    [jetnav-direction-xs="vertical"] .jetnav__list { flex-direction: column; }
+    [jetnav-direction-xs="vertical"] .jetnav__submenu { position: relative; }
+
+
+    /* = effects
+       ========================================================================== */
+
+    /* submenu */
+
+    [jetnav-effect-xs="none"] .jetnav__submenu {
+        display: none;
+    }
+
+    [jetnav-effect-xs="none"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: inherit;
+        display: initial;
+    }
+
+    [jetnav-effect-xs="reveal"] .jetnav__submenu {
+        max-height: 0;
+        display: inherit;
+        transition: max-height 3s ease-in-out -2.7s;
+    }
+
+    [jetnav-effect-xs="reveal"] .jetnav__item--submenu:hover .jetnav__submenu {
+        max-height: 10000px; 
+        transition: max-height 3s ease-in-out;
+    }
+    
+}

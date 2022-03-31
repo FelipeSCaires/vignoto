@@ -1,0 +1,182 @@
+/**
+ * @name * JetCheckbox
+ * @file * jetcheckbox.css
+ * @author * Paper Plane Design Studio® <http://www.paperplane.com.br>
+ * @description * css styles for JetCheckbox
+ * @version * 1.0
+ * @license * Todos os direitos reservados - Paper Plane Design Studio®
+ */
+
+
+
+/* ==========================================================================
+   = jetcheckbox
+   ========================================================================== */
+
+
+.jetcheckbox {
+    position: relative;
+}
+
+.jetcheckbox--disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.jetcheckbox__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.jetcheckbox__filter {
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+}
+
+.jetcheckbox__input {
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    border: 1px solid #000;
+    outline: none;
+    line-height: 40px;
+}
+
+.jetcheckbox__input::-ms-clear {
+    display: none;
+}
+
+.jetcheckbox__empty-btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: none;
+    -webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+            user-select: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.jetcheckbox__empty-btn::before,
+.jetcheckbox__empty-btn::after {
+    width: 1px;
+    height: 12px;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background-color: #000;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.jetcheckbox__empty-btn::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.jetcheckbox__group {
+    padding-left: 0;
+}
+
+.jetcheckbox__title {
+    padding: 5px 0;
+    display: flex;
+    font-weight: bold;
+}
+
+.jetcheckbox__option {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.jetcheckbox__label {
+    margin-bottom: 10px;
+}
+
+.jetcheckbox__option {
+    padding: 0;
+}
+
+.jetcheckbox__option--hidden {
+    display: none;
+}
+
+.jetcheckbox__item {
+    padding: 4px 0;
+    display: flex;
+    cursor: pointer;
+}
+
+.jetcheckbox__checkbox {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #000;
+    align-self: center;
+}
+
+.jetcheckbox__checkbox::after {
+    width: 6px;
+    height: 6px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+}
+
+.jetcheckbox__item--active .jetcheckbox__checkbox::after {
+    display: inline-block;
+}
+
+.jetcheckbox__tag {
+    height: 26px;
+    margin-right: 10px;
+    padding: 0 10px;
+    position: relative;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    border-radius: 13px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.jetcheckbox__delete-btn {
+    width: 5px;
+    height: 9px;
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.jetcheckbox__delete-btn::before,
+.jetcheckbox__delete-btn::after {
+    width: 2px;
+    height: 10px;
+    position: absolute;
+    content: '';
+    display: inline-block;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+
+.jetcheckbox__delete-btn::before {
+    transform: rotate(-45deg);
+}
+
+.jetcheckbox__name,
+.jetcheckbox__text {
+    flex: 1 0 0px;
+}

@@ -1,0 +1,18 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="10" style="font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";">
+    <tr><td>
+        <table width="500" border="0" cellspacing="0" cellpadding="10" align="center" style="border: #ddd 1px solid; margin-top: 30px">
+            <tr><td align="center"><img src="[base-url]img/logo-print.png" vspace="10"></td></tr>
+            <tr><td bgcolor="#eaeaea" align="center" style="font-size: 14px;"><strong>Trabalhe Conosco</strong></td></tr>
+            <tr><td align="center">
+                <table width="400" border="0" cellspacing="10" cellpadding="5" style="font-size: 12px;">
+                    <tr><td><strong>Nome:</strong> [nome]</td></tr>
+                    <tr><td><strong>E-mail:</strong> [email]</td></tr>
+                    <tr><td><strong>WhatsApp ou telefone:</strong> [telefone]</td></tr>
+                    <tr><td><strong>Cargo pretendido:</strong> [cargo]</td></tr>
+                    <tr><td><strong>Fale sobre você: </strong> [sobre]</td></tr>
+                    <tr><td style="font-size: 10px; text-align: center;">--- E-mail enviado pelo site [nome-fantasia] ---</td></tr>
+                </table>
+            </td></tr>
+        </table>
+    </td></tr>
+</table>

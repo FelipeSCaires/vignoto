@@ -1,0 +1,208 @@
+<section class="favorite" data-template>
+    <nav class="ui__breadcrumb">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--align-center">
+                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                    </a>
+                    Imóveis favoritos
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jetgrid jetgrid--1200">
+        <div class="jetgrid__col--24">
+            <h1 class="jetgrid jetgrid--justify-between jetgrid--align-center ui__title-line">
+                Imóveis favoritos
+                {if}isset($query['user']){/if}
+                    <button class="ui__btn ui__btn--transparent favorite__exit">
+                        <div class="ui__btn-label">
+                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="17.937" viewBox="0 0 18 17.937"><g transform="translate(-208.2 -154.792)"><path d="M208.2,156.765c.045-.162.08-.328.137-.485a2.2,2.2,0,0,1,2.06-1.482c2.249-.01,4.5-.005,6.747,0a.743.743,0,1,1,0,1.486c-.937.007-1.874,0-2.811,0q-1.889,0-3.778,0a.741.741,0,0,0-.734.353,1.251,1.251,0,0,0-.122.553q-.011,4.331-.005,8.663,0,2.258,0,4.516a.835.835,0,0,0,.257.681.886.886,0,0,0,.622.189h6.431a1.66,1.66,0,0,1,.332.02.745.745,0,0,1-.106,1.466c-.047,0-.094,0-.14,0q-3.3,0-6.607,0a2.229,2.229,0,0,1-2.229-1.754c-.017-.073-.037-.145-.056-.217Z" transform="translate(0)"/><path d="M353.474,245.689h-.255c-2.782,0-5.565,0-8.347,0a.781.781,0,0,1-.83-.626.746.746,0,0,1,.654-.861c.087-.007.176-.006.263-.006h8.512c-.074-.078-.117-.127-.164-.174q-1.5-1.482-3-2.962a.782.782,0,0,1-.272-.771.741.741,0,0,1,1.165-.432,1.781,1.781,0,0,1,.183.164l4.352,4.3a.768.768,0,0,1,0,1.245l-4.377,4.321a.752.752,0,0,1-1.055.128.736.736,0,0,1-.126-1.047,2.064,2.064,0,0,1,.167-.18l2.976-2.938C353.36,245.811,353.4,245.768,353.474,245.689Z" transform="translate(-129.851 -81.185)"/></g></svg>
+                            Sair<br>
+                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="17.937" viewBox="0 0 18 17.937"><g transform="translate(-208.2 -154.792)"><path d="M208.2,156.765c.045-.162.08-.328.137-.485a2.2,2.2,0,0,1,2.06-1.482c2.249-.01,4.5-.005,6.747,0a.743.743,0,1,1,0,1.486c-.937.007-1.874,0-2.811,0q-1.889,0-3.778,0a.741.741,0,0,0-.734.353,1.251,1.251,0,0,0-.122.553q-.011,4.331-.005,8.663,0,2.258,0,4.516a.835.835,0,0,0,.257.681.886.886,0,0,0,.622.189h6.431a1.66,1.66,0,0,1,.332.02.745.745,0,0,1-.106,1.466c-.047,0-.094,0-.14,0q-3.3,0-6.607,0a2.229,2.229,0,0,1-2.229-1.754c-.017-.073-.037-.145-.056-.217Z" transform="translate(0)"/><path d="M353.474,245.689h-.255c-2.782,0-5.565,0-8.347,0a.781.781,0,0,1-.83-.626.746.746,0,0,1,.654-.861c.087-.007.176-.006.263-.006h8.512c-.074-.078-.117-.127-.164-.174q-1.5-1.482-3-2.962a.782.782,0,0,1-.272-.771.741.741,0,0,1,1.165-.432,1.781,1.781,0,0,1,.183.164l4.352,4.3a.768.768,0,0,1,0,1.245l-4.377,4.321a.752.752,0,0,1-1.055.128.736.736,0,0,1-.126-1.047,2.064,2.064,0,0,1,.167-.18l2.976-2.938C353.36,245.811,353.4,245.768,353.474,245.689Z" transform="translate(-129.851 -81.185)"/></g></svg>
+                            Sair
+                        </div>
+                    </button>
+                {/endif}
+            </h1>
+        </div>
+        {if}isset($query['user']) && !empty($favorite) && $favorite['data']['total'] > 0{/if}
+            <div class="jetgrid jetgrid--align-center">
+                <div class="jetgrid__col--auto favorite__text">Confira seus imóveis favoritos:</div>
+                <div class="jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24">
+                    <label class="ui__btn ui__btn--white-line favorite__delete-btn" for="jetwindow-delete">
+                        <div class="ui__btn-label">
+                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="15.384" height="18.934" viewBox="0 0 15.384 18.934"><g transform="translate(-48)"><path d="M61.9,2.367H58.651V1.775A1.777,1.777,0,0,0,56.876,0H54.509a1.777,1.777,0,0,0-1.775,1.775v.592H49.479A1.481,1.481,0,0,0,48,3.846V5.917a.592.592,0,0,0,.592.592h.323l.511,10.735A1.773,1.773,0,0,0,51.2,18.934h8.986a1.773,1.773,0,0,0,1.773-1.691l.511-10.735h.323a.592.592,0,0,0,.592-.592V3.846A1.481,1.481,0,0,0,61.9,2.367Zm-7.988-.592a.592.592,0,0,1,.592-.592h2.367a.592.592,0,0,1,.592.592v.592h-3.55ZM49.183,3.846a.3.3,0,0,1,.3-.3H61.9a.3.3,0,0,1,.3.3V5.325H49.183ZM60.776,17.187a.591.591,0,0,1-.591.564H51.2a.591.591,0,0,1-.591-.564L50.1,6.509H61.284Z"/><path d="M240.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,0,0-1.183,0v7.692A.592.592,0,0,0,240.592,216.876Z" transform="translate(-184.9 -200.308)"/><path d="M320.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,1,0-1.183,0v7.692A.592.592,0,0,0,320.592,216.876Z" transform="translate(-261.941 -200.308)"/><path d="M160.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,0,0-1.183,0v7.692A.592.592,0,0,0,160.592,216.876Z" transform="translate(-107.858 -200.308)"/></g></svg>
+                            Excluir todos os imóveis<br>
+                            <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="15.384" height="18.934" viewBox="0 0 15.384 18.934"><g transform="translate(-48)"><path d="M61.9,2.367H58.651V1.775A1.777,1.777,0,0,0,56.876,0H54.509a1.777,1.777,0,0,0-1.775,1.775v.592H49.479A1.481,1.481,0,0,0,48,3.846V5.917a.592.592,0,0,0,.592.592h.323l.511,10.735A1.773,1.773,0,0,0,51.2,18.934h8.986a1.773,1.773,0,0,0,1.773-1.691l.511-10.735h.323a.592.592,0,0,0,.592-.592V3.846A1.481,1.481,0,0,0,61.9,2.367Zm-7.988-.592a.592.592,0,0,1,.592-.592h2.367a.592.592,0,0,1,.592.592v.592h-3.55ZM49.183,3.846a.3.3,0,0,1,.3-.3H61.9a.3.3,0,0,1,.3.3V5.325H49.183ZM60.776,17.187a.591.591,0,0,1-.591.564H51.2a.591.591,0,0,1-.591-.564L50.1,6.509H61.284Z"/><path d="M240.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,0,0-1.183,0v7.692A.592.592,0,0,0,240.592,216.876Z" transform="translate(-184.9 -200.308)"/><path d="M320.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,1,0-1.183,0v7.692A.592.592,0,0,0,320.592,216.876Z" transform="translate(-261.941 -200.308)"/><path d="M160.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,0,0-1.183,0v7.692A.592.592,0,0,0,160.592,216.876Z" transform="translate(-107.858 -200.308)"/></g></svg>
+                            Excluir todos os imóveis
+                        </div>
+                    </label>
+                </div>
+            </div>
+            {foreach}$favorite['data']['resultado'] as $data{/foreach}
+                <div class="ui__card jetgrid__col--6 jetgrid__col--md-8 jetgrid__col--sm-12 jetgrid__col--xs-24">
+                    <button class="favorite__btn ui__card-favorite-remove" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                        <svg class="ui__card-favorite-remove-icon" xmlns="http://www.w3.org/2000/svg" width="15.384" height="18.934" viewBox="0 0 15.384 18.934"><g transform="translate(-48)"><path d="M61.9,2.367H58.651V1.775A1.777,1.777,0,0,0,56.876,0H54.509a1.777,1.777,0,0,0-1.775,1.775v.592H49.479A1.481,1.481,0,0,0,48,3.846V5.917a.592.592,0,0,0,.592.592h.323l.511,10.735A1.773,1.773,0,0,0,51.2,18.934h8.986a1.773,1.773,0,0,0,1.773-1.691l.511-10.735h.323a.592.592,0,0,0,.592-.592V3.846A1.481,1.481,0,0,0,61.9,2.367Zm-7.988-.592a.592.592,0,0,1,.592-.592h2.367a.592.592,0,0,1,.592.592v.592h-3.55ZM49.183,3.846a.3.3,0,0,1,.3-.3H61.9a.3.3,0,0,1,.3.3V5.325H49.183ZM60.776,17.187a.591.591,0,0,1-.591.564H51.2a.591.591,0,0,1-.591-.564L50.1,6.509H61.284Z"/><path d="M240.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,0,0-1.183,0v7.692A.592.592,0,0,0,240.592,216.876Z" transform="translate(-184.9 -200.308)"/><path d="M320.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,1,0-1.183,0v7.692A.592.592,0,0,0,320.592,216.876Z" transform="translate(-261.941 -200.308)"/><path d="M160.592,216.876a.592.592,0,0,0,.592-.592v-7.692a.592.592,0,0,0-1.183,0v7.692A.592.592,0,0,0,160.592,216.876Z" transform="translate(-107.858 -200.308)"/></g></svg>
+                    </button>
+                    <a class="ui__card-link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search=0">
+                        <div class="ui__card-box">
+                            {if}$data['imovelReservadoLocacao'] || $data['imovelReservadoVenda']{/if}
+                                <div class="ui__card-reserved">Reservado</div>
+                            {/endif}
+                            <img class="ui__card-img" src="{{$data['urlFotoPrincipalMedia']}}" loading="lazy" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal'])}}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                        </div>
+                        <div class="ui__card-content">
+                            <div class="ui__card-reference">{{$data['imovelReferencia']}}</div>
+                            <div class="ui__card-type">{{$data['tipoImovelDescricao']}}</div>
+                            <div class="ui__card-address">
+                                {if}$data['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $data['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}
+                                    {if}$data['imovelTipoEndereco']{/if}{{$data['imovelTipoEndereco']}}. {/endif}{if}$data['imovelEndereco']{/if}{{$data['imovelEndereco']}}{/endif}{if}$data['imovelEnderecoNumero']{/if}, {{$data['imovelEnderecoNumero']}}{/endif}<br>
+                                {/endif}
+                                {if}$data['imovelEnderecoBairro']{/if}{{$data['imovelEnderecoBairro']}}{/endif}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                            </div>
+                            <div class="ui__card-price">
+                                {if}$data['imovelLocacao']{/if}
+                                    Locação: <strong>R$ {n}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}</strong>
+                                {/endif}
+                                {if}$data['imovelVenda']{/if}
+                                    Venda: <strong>R$ {n}$data['imovelValorVenda']{/n2}</strong>
+                                {/endif}
+                            </div>
+                            <div class="ui__card-feature">
+                                {if}$data['imovelAreaTotal']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                        </div>
+                                        {n}$data['imovelAreaTotal'])}}m² total
+                                    </div>
+                                {/endif}
+                                {if}$data['imovelAreaUtil']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9.063" viewBox="0 0 16 9.063"><path d="M14.75,111v4.491l-3.2-3.2-.884.884,1.7,1.7H3.622l1.7-1.7-.884-.884L1.25,115.479V111H0v9.063H1.25v-4.541L4.433,118.7l.884-.884-1.7-1.7h8.744l-1.7,1.7.884.884,3.2-3.2v4.554H16V111Z" transform="translate(0 -111)"/></svg>
+                                        </div>
+                                        {n}$data['imovelAreaUtil'])}}m² útil
+                                    </div>
+                                {/endif}
+                                {if}isset($data['imovelBanheiros']){/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17.086" viewBox="0 0 18 17.086"><path d="M18,20.559a1.619,1.619,0,0,0-.509-1.176,1.7,1.7,0,0,0-1.178-.476H3.34V15.982a2.031,2.031,0,0,1,.52-1.38,1.624,1.624,0,0,1,1.2-.548,1.633,1.633,0,0,1,1.653,1.2H6.469a.527.527,0,0,0,0,1.055H8.156a.527.527,0,0,0,0-1.055H7.794a2.688,2.688,0,0,0-.774-1.485A2.794,2.794,0,0,0,5.063,13a2.667,2.667,0,0,0-1.98.89,3.082,3.082,0,0,0-.8,2.092v2.924h-.6a1.7,1.7,0,0,0-1.178.476,1.612,1.612,0,0,0,0,2.352,1.71,1.71,0,0,0,.651.392v3.11a3.7,3.7,0,0,0,2.25,3.4v.924a.527.527,0,1,0,1.055,0v-.651a3.718,3.718,0,0,0,.387.02h8.3a3.718,3.718,0,0,0,.387-.02v.651a.527.527,0,1,0,1.055,0v-.924a3.7,3.7,0,0,0,2.25-3.4v-3.11a1.71,1.71,0,0,0,.651-.392A1.619,1.619,0,0,0,18,20.559Zm-2.215,4.678a2.64,2.64,0,0,1-2.637,2.637h-8.3a2.64,2.64,0,0,1-2.637-2.637V22.211h13.57Zm.527-4.08H1.688a.6.6,0,1,1,0-1.2H16.313a.6.6,0,1,1,0,1.2Z" transform="translate(0 -13)"/></svg>
+                                        </div>
+                                        {{$data['imovelBanheiros']}} banheiro{if}$data['imovelBanheiros'] > 1{/if}s{/endif}
+                                    </div>
+                                {/endif}
+                                {if}$data['imovelVagas']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="11.507" viewBox="0 0 23 11.507"><path d="M23,135.192a3.092,3.092,0,0,0-2.875-3.356h-.811a1.311,1.311,0,0,1-.818-.288l-3.776-3.022a2.408,2.408,0,0,0-1.5-.525H6.3A2.391,2.391,0,0,0,4.3,129.067l-.816,1.225a1.312,1.312,0,0,1-1.092.584,2.4,2.4,0,0,0-2.4,2.4v1.918a2.4,2.4,0,0,0,1.958,2.356,2.4,2.4,0,0,0,4.7.041h9.68a2.4,2.4,0,0,0,4.7-.037A2.334,2.334,0,0,0,23,135.192ZM4.313,138.548A1.438,1.438,0,1,1,5.75,137.11,1.44,1.44,0,0,1,4.313,138.548Zm14.375,0a1.44,1.44,0,0,1-1.437-1.438h0a1.437,1.437,0,1,1,1.437,1.439Zm2.334-1.975a2.4,2.4,0,0,0-4.682.058H6.66a2.4,2.4,0,0,0-4.681-.062,1.441,1.441,0,0,1-1.021-1.376v-1.918A1.44,1.44,0,0,1,2.4,131.836a2.265,2.265,0,0,0,1.889-1.012L5.1,129.6a1.436,1.436,0,0,1,1.2-.641h6.927a1.445,1.445,0,0,1,.9.315L17.9,132.3a2.272,2.272,0,0,0,1.417.5h.81c1.406,0,1.917,1.434,1.917,2.4A1.368,1.368,0,0,1,21.022,136.573Z" transform="translate(0 -128)"/></svg>
+                                        </div>
+                                        {{$data['imovelVagas']}} vaga{if}$data['imovelVagas'] > 1{/if}s{/endif}
+                                    </div>
+                                {/endif}
+                                {if}$data['imovelQuartos']{/if}
+                                    <div class="jetgrid jetgrid--align-center ui__card-item">
+                                        <div class="ui__card-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="13.822" viewBox="0 0 16 13.822"><path d="M14.181,40.932V36.484a1.642,1.642,0,0,0-1.641-1.641H3.46A1.642,1.642,0,0,0,1.82,36.484v4.449A2.379,2.379,0,0,0,0,43.241v3.318a.477.477,0,0,0,.477.477H1.819v1.153a.477.477,0,1,0,.953,0V47.036H13.227v1.153a.477.477,0,1,0,.953,0V47.036h1.343A.477.477,0,0,0,16,46.559V43.241A2.378,2.378,0,0,0,14.181,40.932ZM2.773,36.484A.688.688,0,0,1,3.46,35.8h9.08a.688.688,0,0,1,.687.687v4.383H11.652v-.752a2.262,2.262,0,0,0-2.26-2.26H6.608a2.262,2.262,0,0,0-2.26,2.26v.752H2.773ZM10.7,40.114v.752H5.3v-.752a1.308,1.308,0,0,1,1.306-1.306H9.392A1.308,1.308,0,0,1,10.7,40.114ZM.953,46.083V43.241a1.423,1.423,0,0,1,1.421-1.421h11.25a1.423,1.423,0,0,1,1.421,1.421v2.842Z" transform="translate(0 -34.843)"/></svg>
+                                        </div>
+                                        {{$data['imovelQuartos']}} quarto{if}$data['imovelQuartos'] > 1{/if}s{/endif}
+                                    </div>
+                                {/endif}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {/endforeach}
+        {elseif}!isset($query['user']){/elseif}
+            <div class="jetgrid jetgrid--justify-center">
+                <div class="jetgrid__col--9 jetgrid__col--lg-11 jetgrid__col--md-15 jetgrid__col--sm-19 jetgrid__col--xs-24 favorite__no-result">
+                    <p>
+                        <strong>Você precisa estar logado para visualizar seus imóveis, clique no botão abaixo</strong>
+                    </p>
+                    <label class="ui__btn favorite__no-result-btn" for="jetwindow-favorite">
+                        <div class="ui__btn-label">
+                            Fazer login<br>Fazer login
+                        </div>
+                    </label>
+                </div>
+            </div>
+        {else}
+            <div class="jetgrid jetgrid--justify-center">
+                <div class="jetgrid__col--9 jetgrid__col--lg-11 jetgrid__col--md-15 jetgrid__col--sm-19 jetgrid__col--xs-24 favorite__no-result">
+                    <p>
+                        <strong>Você ainda não possui imóveis favoritos</strong>
+                    </p>
+                    <p>Busque imóveis de vendas ou locação. Comece a favoritar seus imóveis e volte para esta página para visualizar</p>
+                    <a class="ui__btn favorite__no-result-btn" href="{{$config['pageImoveis']}}/comprar">
+                        <div class="ui__btn-label">
+                            Ver imóveis de venda<br>Ver imóveis de venda
+                        </div>
+                    </a>
+                    <a class="ui__btn favorite__no-result-btn" href="{{$config['pageImoveis']}}/alugar">
+                        <div class="ui__btn-label">
+                            Ver imóveis de locação<br>Ver imóveis de locação
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {/endif}
+        {if}$favorite['data']['total'] > $favorite['data']['maximo']{/if}
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--justify-between jetgrid--align-center jetgrid--xs-direction-column">
+                    <span>Página <strong>{if}!$favorite['data']['pagina']{/if}1{else}{{$favorite['data']['pagina']}}{/endif}</strong> de {{ceil($favorite['data']['total'] / $favorite['data']['maximo'])}}</span>
+                    <div class="jetpagination ui__pagination-box" data-page="{{$page}}" data-total="{{ceil($favorite['data']['total'] / $favorite['data']['maximo'])}}">
+                        <div class="jetgrid">
+                            <a class="ui__pagination-previous">
+                                <span class="ui__pagination-previous-box">
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="#fff"/></g></svg>
+                                </span>
+                            </a>
+                            <ul class="ui__pagination"></ul>
+                            <a class="ui__pagination-next">
+                                <span class="ui__pagination-next-box">
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                    <svg class="ui__pagination-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825,7.942a.625.625,0,0,1-.884,0L7.5,1.509,1.068,7.942a.625.625,0,1,1-.884-.884L7.062.183a.625.625,0,0,1,.884,0l6.879,6.875A.624.624,0,0,1,14.825,7.942Z" fill="#fff"/></g></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/endif}
+    </div>
+    <input class="jetwindow__input favorite__delete-input" id="jetwindow-delete" type="checkbox" autocomplete="off">
+    <section class="jetwindow" data-jetwindow="on">
+        <div class="jetwindow__box ui__modal" data-jetwindow-effect="fade">
+            <div class="jetwindow__content ui__modal-content">
+                <div class="form__content favorite__delete-content">
+                    <label class="jetwindow__close ui__modal-close" for="jetwindow-delete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+                    </label>
+                    <p class="ui__modal-subtitle"><strong>Você tem certeza que deseja apagar seus imóveis favoritos</strong></p>
+                    <div class="jetgrid jetgrid--direction-column jetgrid--align-center">
+                        <div class="jetgrid__col--12 jetgrid__col--xs-16">
+                            <button class="ui__btn ui__btn--white-line favorite__delete">
+                                <div class="ui__btn-label">
+                                    Excluir<br>Excluir
+                                </div>
+                            </button>
+                            <label class="ui__link favorite__cancel" for="jetwindow-delete">Cancelar</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form__success favorite__delete-success">
+                    <div class="form__success-content">
+                        <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                        <p class="form__success-title">Imóveis excluídos com sucesso!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label class="jetwindow__close-bg" for="jetwindow-delete"></label>
+    </section>
+    <div class="jetwindow__overlay favorite__overlay" data-jetwindow="on" data-jetwindow-effect="fade"></div>
+</section>

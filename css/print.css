@@ -1,0 +1,206 @@
+body { margin: 0px; }
+
+.print * {
+    color: #161615;
+    font-size: 9px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 11px;
+}
+
+.print {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+}
+
+.print__header {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    display: flex;
+    border-bottom: 1px solid #BABABA;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.print__real-estate {
+    width: calc(50% - 15px);
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.print__logo { 
+    width: 100%;
+    height: auto;
+    max-width: calc(50% - 7.5px);
+}
+
+.print__logo-img {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.print__location { max-width: calc(50% - 7.5px); }
+
+.print__contact {
+    width: calc(50% - 15px);
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.print__phone { margin-left: 15px; }
+
+.print__number {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+}
+
+.print__icon { margin-right: 10px; }
+
+.print__content {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.print__left,
+.print__right {
+    width: calc(50% - 15px);
+    height: auto;
+}
+
+.print__reference {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.print__type {
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.print__address {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.print__feature {
+    width: 100%;
+    height: auto;
+    max-width: 260px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.print__item {
+    width: 33.33%;
+    height: auto;
+}
+
+.print__component {
+    width: 100%;
+    height: auto;
+}
+
+.print__price {
+    width: 100%;
+    height: auto;
+    margin: 10px 0px 0px;
+}
+
+.print__tax {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.print__cost {
+    width: 100%;
+    height: auto;
+}
+
+.print__box {
+    width: 100%;
+    height: auto;
+    background-color: #CCC;
+}
+
+.print__img {
+    width: 100%;
+    height: auto;
+    max-height: 285px;
+    object-fit: contain;
+}
+
+.card__updated {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: block;
+}
+
+.print__title {
+    width: 100%;
+    height: auto;
+    margin: 20px 0px 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #BABABA;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.print__text {
+    width: 100%;
+    height: auto;
+    margin: 15px 0px 0px;
+}
+
+.print__room,
+.print__characteristic {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.print__column {
+    width: 25%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.print__label {
+    margin-right: 5px;
+    font-weight: bold;
+}

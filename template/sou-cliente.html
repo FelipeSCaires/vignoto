@@ -1,0 +1,131 @@
+<section class="client">
+    <nav class="ui__breadcrumb">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--align-center">
+                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                    </a>
+                    Sou Cliente
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jetgrid jetgrid--1200">
+        <div class="jetgrid__col--24">
+            <h1 class="ui__title-line">Sou Cliente</h1>
+            <div class="ui__box">
+                <div class="jetgrid">
+                    <div class="jetgrid__col--12 jetgrid__col--no-gap jetgrid__col--sm-24">
+                        <h2 class="client__subtitle">Acesse a 2ª via de boletos<br>e os extratos do<br>proprietário</h2>
+                        <img class="client__img" src="img/client.jpg" loading="lazy" alt="família feliz unida no sofá" width="632" height="500">
+                    </div>
+                    <div class="jetgrid__col--12 jetgrid__col--sm-24">
+                        <div class="jetgrid jetgrid--justify-right jetgrid--align-center">
+                            <div class="jetgrid__col--22 jetgrid__col--sm-24">
+                                <div class="client__login">
+                                    <div class="client__slider">
+                                        <div class="client__slider-container">
+                                            <form class="client__slider-item client__get-user">
+                                                <label class="form__label" for="user">Identificação: <span class="form__asterisk">*</span></label>
+                                                <input class="form__input client__user" name="user" id="user" type="text" placeholder="Digite sua Identificação, CNPJ, CPF, ou e-mail" autocomplete="off" required>
+                                                <button class="ui__btn client__get-user-btn" type="submit">
+                                                    <div class="ui__btn-label">
+                                                        Continuar<br>Continuar
+                                                    </div>
+                                                </button>
+                                            </form>
+                                            <div class="client__slider-item">
+                                                <label class="form__label">Escolha o usuário: <span class="form__asterisk">*</span></label>
+                                                <div class="client__user-box"></div>
+                                            </div>
+                                            <form class="client__slider-item client__login" onsubmit="return false">
+                                                <input class="client__id form__input" id="login" name="login" type="hidden" value="{php}echo isset($username) ? $username : '';{/php}" required>
+                                                <label class="form__label" for="senha">Senha: <span class="form__asterisk">*</span></label>
+                                                <input class="client__password form__input" id="senha" name="senha" type="password" placeholder="Digite sua senha" value="{php}echo isset($password) ? $password : '';{/php}" autocomplete="off" required>
+                                                <button class="ui__btn client__btn" type="submit">
+                                                    <div class="ui__btn-label">
+                                                        Acessar<br>Acessar
+                                                    </div>
+                                                </button>
+                                                <button class="ui__btn ui__btn--transparent client__recover" type="button">
+                                                    <svg class="ui__btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15" viewBox="0 0 8.125 15"><g transform="translate(-117.336 15) rotate(-90)"><g transform="translate(0 117.336)"><path d="M14.817,117.52a.624.624,0,0,0-.884,0L7.5,123.953,1.067,117.52a.625.625,0,1,0-.884.884l6.875,6.875a.625.625,0,0,0,.884,0l6.875-6.875A.624.624,0,0,0,14.817,117.52Z" transform="translate(0 -117.336)" fill="currentColor"/></g></g></svg>
+                                                    <span class="client__recover-text">Esqueci minha senha</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="client__message">Todos os proprietários e inquilinos recebem mensalmente um e-mail com seus dados de acesso. Basta preencher os campos com as informações do seu e-mail e clicar em <strong>''Acessar''</strong> para ver seus extratos ou boletos. Caso não tenha essa informação <label class="ui__link" for="jetwindow-access">entre em contato conosco</label> e solicite seus dados de acesso.</div>
+                                    <div class="jetgrid jetgrid--justify-center jetgrid--align-center jetgrid__col--no-gap client__preloader">
+                                        <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                                        <div class="client__preloader-text">Aguarde, carregando seus dados</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input class="jetwindow__input client__access-input" id="jetwindow-access" type="checkbox" autocomplete="off">
+    <section class="jetwindow" data-jetwindow="on">
+        <div class="jetwindow__box ui__modal" data-jetwindow-effect="fade">
+            <div class="jetwindow__content ui__modal-content">
+                <label class="jetwindow__close ui__modal-close" for="jetwindow-access">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="21.322" height="21.322" viewBox="0 0 21.322 21.322"><g transform="translate(-1541.24 -70.393)"><path d="M26.539,124.976H1.154a1.154,1.154,0,0,1,0-2.308H26.539a1.154,1.154,0,0,1,0,2.308Zm0,0" transform="translate(1474.082 178.346) rotate(-135)" fill="currentColor"/><path d="M26.539,2.308H1.154A1.154,1.154,0,0,1,1.154,0H26.539a1.154,1.154,0,1,1,0,2.308Zm0,0" transform="translate(1541.349 90.084) rotate(-45)" fill="currentColor"/></g></svg>
+                </label>
+                <form class="form" id="access">
+                    <div class="jetgrid jetgrid--justify-center form__content">
+                        <div class="jetgrid__col--24">
+                            <div class="ui__modal-title">Solicite seus dados de acesso</div>
+                            <p>Preencha os campos abaixo para solicitar seus dados de acesso</p>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <label class="form__label" for="name">Nome: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="name" placeholder="Digite seu nome" name="nome" type="text" required>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <label class="form__label" for="cpf">CPF/CNPJ: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="cpf" placeholder="Ex: 999.999.999-99" name="cpf" type="text" required>
+                        </div>
+                        <div class="jetgrid__col--24">
+                            <label class="form__label" for="email">E-mail: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="email" placeholder="Digite seu email" name="email" type="text" required>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <input type="hidden" name="base-url" value="{{$global['base']}}">
+                            <input type="hidden" name="nome-fantasia" value="{{$client['nomeFantasia']}}">
+                            <input type="hidden" name="eCliente" value="{{$config['idCliente']}}">
+                            <input type="hidden" name="eOrigem" value="Acesso">
+                            <button class="ui__btn ui__modal-btn" type="submit">
+                                <div class="ui__btn-label">
+                                    Enviar<br>Enviar
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form__sending">
+                        <div class="form__sending-content">
+                            <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                            <div>Aguarde, enviando email</div>
+                        </div>
+                    </div>
+                    <div class="form__success">
+                        <div class="form__success-content">
+                            <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                            <p class="form__success-title">Dados de acesso solicitados com sucesso!</p>
+                            <p>Entraremos em contato para lhe enviar os dados de acesso.</p>
+                            <button class="form__success-btn" type="button">
+                                <svg class="form__success-btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                <span class="form__success-text">Voltar</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <label class="jetwindow__close-bg" for="jetwindow-access"></label>
+    </section>
+    <div class="jetwindow__overlay access__overlay" data-jetwindow="on" data-jetwindow-effect="fade"></div>
+</section>

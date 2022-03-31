@@ -1,0 +1,87 @@
+<section class="work-with-us">
+    <nav class="ui__breadcrumb">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--align-center">
+                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                    </a>
+                    Trabalhe Conosco
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="work-with-us__header">
+        <div class="jetgrid jetgrid--1200 jetgrid--align-center work-with-us__box">
+            <div class="jetgrid__col--24">
+                <h1 class="work-with-us__title">Trabalhe Conosco</h1>
+                <h2 class="work-with-us__subtitle">Caso esteja interessado em trabalhar conosco<br>preencha o formulário abaixo e envie seu currículo</h2>
+            </div>
+        </div>
+        <picture>
+            <source media="(min-width: 1080px)" srcset="img/work-with-us.jpg">
+            <source media="(min-width: 567px)" srcset="img/work-with-us-1080.jpg">
+            <img class="work-with-us__img" src="img/work-with-us-567.jpg" alt="Equipe trabalhando feliz" loading="lazy" width="1920" height="500">
+        </picture>
+    </div>
+    <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+        <div class="jetgrid__col--15 jetgrid__col--md-18 jetgrid__col--sm-21 jetgrid__col--xs-24">
+            <div class="ui__box work-with-us__content">
+                <form class="form" id="work-with-us">
+                    <div class="jetgrid jetgrid--justify-center form__content">
+                        <div class="jetgrid__col--24">
+                            <label class="form__label" for="name">Nome: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="name" placeholder="Digite seu nome" name="nome" type="text" required>
+                            <label class="form__label" for="email">E-mail: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="email" placeholder="Digite seu email" name="email" type="text" required>
+                            <label class="form__label" for="phone">WhatsApp ou telefone: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="phone" placeholder="Ex: (DDD) 9 9999 9999" name="telefone" type="text" required>
+                            <label class="form__label" for="cargo">Cargo pretendido: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="cargo" placeholder="Ex: Corretor de imóveis" name="cargo" type="text" required>
+                            <label class="form__label" for="message">Fale sobre você: <span class="form__asterisk">*</span></label>
+                            <textarea class="form__textarea" id="message" placeholder="Fale sobre você" name="sobre" required></textarea>
+                            <div class="jetgrid jetgrid--align-center form__input-file-box">
+                                <label class="form__label" for="file">Anexe seu currículo:</label>
+                                <label class="ui__btn ui__btn--white-line form__input-file-label" for="file">
+                                    <div class="ui__btn-label">
+                                        Anexar<br>Anexar
+                                    </div>
+                                </label>
+                                <input class="form__input-file" id="file" name="file[]" type="file" multiple>
+                                <ul class="form__input-file-list"></ul>
+                            </div>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <input type="hidden" name="base-url" value="{{$global['base']}}">
+                            <input type="hidden" name="nome-fantasia" value="{{$client['nomeFantasia']}}">
+                            <input type="hidden" name="eCliente" value="{{$config['idCliente']}}">
+                            <input type="hidden" name="eOrigem" value="Trabalhe Conosco">
+                            <button class="ui__btn" type="submit">
+                                <div class="ui__btn-label">
+                                    Enviar currículo<br>Enviar currículo
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form__sending">
+                        <div class="form__sending-content">
+                            <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                            <div>Aguarde, enviando email</div>
+                        </div>
+                    </div>
+                    <div class="form__success">
+                        <div class="form__success-content">
+                            <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                            <p class="form__success-title">Currículo enviado com sucesso!</p>
+                            <p>Iremos analisar seu currículo, e havendo uma oportunidade entraremos em contato.</p>
+                            <button class="form__success-btn" type="button">
+                                <svg class="form__success-btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                <span class="form__success-text">Voltar</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

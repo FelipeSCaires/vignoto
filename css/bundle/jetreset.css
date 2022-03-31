@@ -1,0 +1,249 @@
+/**
+ * @name * JetReset
+ * @file * jetreset.css
+ * @author * Paper Plane Design Studio® <http://www.paperplane.com.br>
+ * @description * css styles to reset browser default styles
+ * @version * 1.0
+ * @license * Todos os direitos reservados - Paper Plane Design Studio®
+ */
+
+
+
+/* ==========================================================================
+   = reset
+   ========================================================================== */
+
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: sans-serif;
+        font-size: 100%;
+    }
+   
+   
+    /* = body
+        ========================================================================== */
+
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 100%;
+        -webkit-text-size-adjust: 100%;
+    }
+   
+   
+    /* = content grouping
+       ========================================================================== */
+   
+    hr {
+        margin: 0;
+    }
+
+
+    /* = typography
+        ========================================================================== */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0;
+    }
+
+    p {
+        margin: 0 0 20px;
+    }
+
+
+    /* = abbreviation
+        ========================================================================== */
+
+    abbr[title] {
+        text-decoration: underline;
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+        border-bottom: 0;
+    }
+
+    address {
+        font-style: normal;
+        line-height: inherit;
+    }
+
+    ol,
+    ul,
+    dl {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    dt {
+        font-weight: 700;
+    }
+
+    dd,
+    blockquote {
+        margin: 0;
+    }
+
+    dfn {
+        font-style: italic;
+    }
+
+    b,
+    strong {
+        font-weight: bolder;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+
+    sub {
+        bottom: -4px;
+    }
+
+    sup {
+        top: -4px;
+    }
+
+
+    /* = link
+        ========================================================================== */
+
+    a {
+        color: unset;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* = code
+        ========================================================================== */
+
+    pre,
+    code,
+    kbd,
+    samp {
+        font-family: monospace;
+        font-size: inherit;
+    }
+
+    pre {
+        margin: 0;
+        overflow: auto;
+        -ms-overflow-style: scrollbar;
+    }
+
+
+    /* = figure
+        ========================================================================== */
+
+    figure {
+        margin: 0;
+    }
+
+
+    /* = image & content
+        ========================================================================== */
+
+    img {
+        vertical-align: middle;
+    }
+
+    iframe {
+        border: none;
+    }
+
+
+    /* = table
+        ========================================================================== */
+
+    table {
+        border-collapse: collapse;
+    }
+
+    caption {
+        text-align: left;
+        caption-side: bottom;
+    }
+
+    th {
+        text-align: inherit;
+    }
+
+
+    /* = form
+        ========================================================================== */
+
+    form {
+        margin: 0;
+    }
+
+    label {
+        -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+    }
+
+    label * {
+        pointer-events: none;
+    }
+
+    button {
+        padding: 0;
+        background-color: transparent;
+        border: none;
+    }
+
+    input,
+    button,
+    select,
+    optgroup,
+    textarea {
+        -webkit-appearance: none;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    input[type='button'],
+    input[type='submit'],
+    input[type='reset'],
+    input[type='file'],
+    button,
+    select {
+        cursor: pointer;
+    }
+
+    input[disabled],
+    button[disabled],
+    select[disabled],
+    textarea[disabled] {
+        cursor: default;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    :focus {
+        outline: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }

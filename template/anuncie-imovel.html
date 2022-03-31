@@ -1,0 +1,148 @@
+<section class="announce">
+    <nav class="ui__breadcrumb">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--align-center">
+                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                    </a>
+                    Anuncie
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+        <div class="jetgrid__col--24">
+            <h1 class="ui__title-line">Anuncie</h1>
+        </div>
+        <div class="jetgrid__col--15 jetgrid__col--md-18 jetgrid__col--sm-21 jetgrid__col--xs-24">
+            <div class="ui__box">
+                <form class="form" id="announce">
+                    <div class="jetgrid jetgrid--justify-center form__content">
+                        <div class="jetgrid__col--24">
+                            <p class="announce__text">Anuncie seu imóvel preenchendo o formulário abaixo</p>
+                        </div>
+                        <div class="jetgrid__col--24">
+                            <label class="form__label" for="name">Nome: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="name" placeholder="Seu nome completo" name="nome" type="text" required>
+                            <label class="form__label" for="email">E-mail: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="email" placeholder="seuemail@email.com.br" name="email" type="text" required>
+                            <label class="form__label" for="phone">WhatsApp ou telefone: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="phone" placeholder="(DDD) 99999 9999" name="telefone" type="text" required>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <label class="form__label" for="type">Imovel para: <span class="form__asterisk">*</span></label>
+                            <select class="form__select" id="type" name="imovelpara" required>
+                                <option value="">Selecione</option>
+                                <option value="venda">Venda</option>
+                                <option value="locação">Locação</option>
+                            </select>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <label class="form__label" for="property">Tipo de imóvel: <span class="form__asterisk">*</span></label>
+                            <select class="form__select" id="property" name="tipo-imovel" required>
+                                <option value="">Selecione</option>
+                                <option value="Apartamento">Apartamento</option>
+                                <option value="Apartamento Duplex">Apartamento Duplex</option>
+                                <option value="Apartamento Garden">Apartamento Garden</option>
+                                <option value="Área Comercial">Área Comercial</option>
+                                <option value="Casa Comercial">Casa Comercial</option>
+                                <option value="Casa de Condomínio">Casa de Condomínio</option>
+                                <option value="Casa Residencial">Casa Residencial</option>
+                                <option value="Chácara">Chácara</option>
+                                <option value="Cobertura">Cobertura</option>
+                                <option value="Conjunto Comercial / Sala">Conjunto Comercial / Sala</option>
+                                <option value="Fazenda">Fazenda</option>
+                                <option value="Flat Residencial">Flat Residencial</option>
+                                <option value="Galpão / Pavilhão / Barracão">Galpão / Pavilhão / Barracão</option>
+                                <option value="Galpão Comercial">Galpão Comercial</option>
+                                <option value="Garagem">Garagem</option>
+                                <option value="Hotel Residencial">Hotel Residencial</option>
+                                <option value="Kitinet">Kitinet</option>
+                                <option value="Kitnet Residencial">Kitnet Residencial</option>
+                                <option value="Loft">Loft</option>
+                                <option value="Loja">Loja</option>
+                                <option value="Loteamento / Condomínio">Loteamento / Condomínio</option>
+                                <option value="Ponto de Comércio">Ponto de Comércio</option>
+                                <option value="Pousada Temporada">Pousada Temporada</option>
+                                <option value="Prédio Comercial">Prédio Comercial</option>
+                                <option value="Sala Comercial">Sala Comercial</option>
+                                <option value="Sobrado">Sobrado</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Terreno / Lote">Terreno / Lote</option>
+                            </select>
+                        </div>
+                        <div class="jetgrid__col--24">
+                            <label class="form__label" for="address">Endereço do imóvel: <span class="form__asterisk">*</span></label>
+                            <input class="form__input" id="address" placeholder="(DDD) 99999 9999" name="endereco" type="text" required>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <label class="form__label" for="garage">Vagas de garagem: <span class="form__asterisk">*</span></label>
+                            <select class="form__select" id="garage" name="garagem" required>
+                                <option value="">Selecione</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <label class="form__label" for="room">Dormitórios: <span class="form__asterisk">*</span></label>
+                            <select class="form__select" id="room" name="quarto" required>
+                                <option value="">Selecione</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="jetgrid__col--24">
+                            <div class="jetgrid jetgrid--align-center form__input-file-box">
+                                <label class="form__label" for="file">Anexe suas fotos:</label>
+                                <label class="ui__btn ui__btn--white-line form__input-file-label" for="file">
+                                    <div class="ui__btn-label">
+                                        Anexar<br>Anexar
+                                    </div>
+                                </label>
+                                <input class="form__input-file" id="file" name="file[]" type="file" multiple>
+                                <ul class="form__input-file-list"></ul>
+                            </div>
+                        </div>
+                        <div class="jetgrid__col--12 jetgrid__col--xs-24">
+                            <input type="hidden" name="base-url" value="{{$global['base']}}">
+                            <input type="hidden" name="nome-fantasia" value="{{$client['nomeFantasia']}}">
+                            <input type="hidden" name="eCliente" value="{{$config['idCliente']}}">
+                            <input type="hidden" name="eOrigem" value="Anuncie seu imóvel">
+                            <button class="ui__btn" type="submit">
+                                <div class="ui__btn-label">
+                                    Quero anunciar!<br>Quero anunciar!
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form__sending">
+                        <div class="form__sending-content">
+                            <svg class="client__preloader-icon" xmlns="http://www.w3.org/2000/svg" width="32.651" height="33.058" viewBox="0 0 32.651 33.058"><g transform="matrix(0.875, -0.485, 0.485, 0.875, -5.653, 10.027)"><g transform="translate(0.617 0)"><circle cx="3.804" cy="3.804" r="3.804" transform="translate(12.457)" fill="currentColor"/><circle cx="2.282" cy="2.282" r="2.282" transform="translate(13.979 27.957)" fill="currentColor"/><circle cx="3.424" cy="3.424" r="3.424" transform="translate(3.49 4.251)" fill="currentColor"/><circle cx="1.902" cy="1.902" r="1.902" transform="translate(23.705 24.465)" fill="currentColor"/><circle cx="3.042" cy="3.042" r="3.042" transform="translate(0 13.98)" fill="currentColor"/><circle cx="1.521" cy="1.521" r="1.521" transform="translate(27.957 15.5)" fill="currentColor"/><path d="M4.842,19.989a2.662,2.662,0,1,0,3.764,0A2.66,2.66,0,0,0,4.842,19.989Z" transform="translate(0.19 4.498)" fill="currentColor"/><circle cx="1.14" cy="1.14" r="1.14" transform="translate(24.466 6.534)" fill="currentColor"/></g></g></svg>
+                            <div>Aguarde, enviando email</div>
+                        </div>
+                    </div>
+                    <div class="form__success">
+                        <div class="form__success-content">
+                            <svg class="form__success-icon" xmlns="http://www.w3.org/2000/svg" width="34.999" height="34.999" viewBox="0 0 34.999 34.999"><path d="M17.5,0A17.5,17.5,0,1,0,35,17.5,17.5,17.5,0,0,0,17.5,0Zm0,32.5a15,15,0,1,1,15-15A15,15,0,0,1,17.5,32.5Z" fill="#17bea5"/><g transform="translate(7.484 10.015)"><path d="M121.808,137.094a1.25,1.25,0,0,0-1.737,0h0L108.455,148.71l-4.116-4.116a1.25,1.25,0,1,0-1.8,1.737l.031.031,5,5a1.25,1.25,0,0,0,1.767,0l12.5-12.5A1.25,1.25,0,0,0,121.808,137.094Z" transform="translate(-102.19 -136.743)" fill="#17bea5"/></g></svg>
+                            <p class="form__success-title">Anúncio enviado com sucesso!</p>
+                            <p>Não se preocupe. Iremos entrar em contato para confirmar todos os seus dados e lhe dar as informações necessárias.</p>
+                            <button class="form__success-btn" type="button">
+                                <svg class="form__success-btn-icon" xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                                <span class="form__success-text">Voltar</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

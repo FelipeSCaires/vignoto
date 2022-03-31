@@ -1,0 +1,29 @@
+<section class="not-found">
+    <nav class="ui__breadcrumb">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="jetgrid jetgrid--align-center">
+                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                    </a>
+                    Página não encontrada
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+        <div class="jetgrid__col--24">
+            <h1 class="ui__title-line">Página não encontrada</h1>
+        </div>
+        <div class="jetgrid__col--13 jetgrid__col--md-16 jetgrid__col--sm-20 jetgrid__col--xs-24 not-found__content">
+            <img class="not-found__img" src="{{$global['base']}}svg/404.svg" loading="lazy" alt="erro 404" width="266" height="232,88">
+            <h1 class="not-found__title">A página que você esta tentando acessar não foi encontrada</h1>
+            <p class="not-found__text">Ocorreu um erro e infelizmente não conseguimos encontrar essa página. Tente atualizar a página ou <a class="ui__link"  href="{{$config['pageContato']}}">entre em contato</a> para reportar o erro. Obrigado</p>
+            <a class="ui__btn not-found__btn" href="{{$config['pageHome']}}">
+                <div class="ui__btn-label">
+                    Voltar para a página inicial<br>Voltar para a página inicial
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,227 @@
+<section class="print">
+    {php}$card = $card['data'];{/php}
+    <div class="print__header">
+        <div class="print__real-estate">
+            <div class="print__logo">
+                <img class="print__logo-img" src="{{$global['base']}}img/logo-print.png" alt="{{$client['nomeFantasia']}} logo" width="100" height="90" loading="lazy">
+            </div>
+            <div class="print__location">
+                {{$client['endereco']}}, {{$client['bairro']}}<br>{{$client['cidade']}}/{{$client['estado']}}
+            </div>
+        </div>
+        <div class="print__contact">
+            {if}isset($client['telefoneMovelLocacao']) || isset($client['whatsAppLocacao']) || isset($client['telefoneMovelVenda']) || isset($client['whatsAppVenda']){/if}
+                <div class="print__whatsapp">
+                    {if}isset($client['telefoneMovelLocacao']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['telefoneMovelLocacao'], 0, 5) . ' ' . substr($client['telefoneMovelLocacao'], 5)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['whatsAppLocacao']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['whatsAppLocacao'], 0, 5) . ' ' . substr($client['whatsAppLocacao'], 5)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['telefoneMovelVenda']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['telefoneMovelVenda'], 0, 5) . ' ' . substr($client['telefoneMovelVenda'], 5)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['whatsAppVenda']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.608" height="9.618" viewBox="0 0 9.608 9.618"><g transform="translate(-466.302 -28.525)"><path d="M474.49,29.922a4.806,4.806,0,0,0-6.774,0,4.715,4.715,0,0,0-1.414,3.368v0h0a4.746,4.746,0,0,0,.585,2.251l-.572,2.6,2.63-.6a4.8,4.8,0,0,0,2.159.513h0a4.789,4.789,0,0,0,3.389-1.4,4.715,4.715,0,0,0-.005-6.74Zm-3.384,7.385h0a4.045,4.045,0,0,1-1.928-.489l-.125-.068-1.749.4.38-1.726-.073-.126a4.051,4.051,0,1,1,3.5,2.011Z" fill="#040506"/><path d="M469.8,31.19h-.211a.4.4,0,0,0-.293.137,1.226,1.226,0,0,0-.385.913,2.126,2.126,0,0,0,.449,1.133,4.5,4.5,0,0,0,1.877,1.653c.928.365,1.117.293,1.319.274a1.113,1.113,0,0,0,.742-.52.923.923,0,0,0,.064-.521c-.028-.046-.1-.073-.211-.128s-.649-.324-.749-.361-.174-.054-.248.055-.289.363-.353.436-.128.083-.238.028a3.046,3.046,0,0,1-.88-.546,3.354,3.354,0,0,1-.617-.77c-.065-.11-.007-.169.048-.224s.116-.116.171-.18a.744.744,0,0,0,.107-.182.2.2,0,0,0-.009-.192c-.028-.055-.239-.6-.336-.813h0C469.963,31.2,469.877,31.193,469.8,31.19Z" fill="#040506"/></g></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{substr($client['whatsAppVenda'], 0, 5) . ' ' . substr($client['whatsAppVenda'], 5)}}</span>
+                        </div>
+                    {/endif}
+                </div>
+            {/endif}
+            {if}isset($client['telefone']) || isset($client['telefoneVenda']) || isset($client['telefoneLocacao']){/if}
+                <div class="print__phone">
+                    {if}isset($client['telefone']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.199" height="8.504" viewBox="0 0 9.199 8.504"><path d="M358.373,30h-.434a.834.834,0,0,0-.6.282,2.526,2.526,0,0,0-.792,1.882,4.383,4.383,0,0,0,.924,2.333,9.274,9.274,0,0,0,3.866,3.4c1.912.752,2.3.6,2.716.565a2.286,2.286,0,0,0,1.528-1.073,1.87,1.87,0,0,0,.132-1.072c-.056-.094-.207-.151-.434-.263s-1.335-.668-1.543-.744-.358-.112-.509.114-.6.747-.728.9-.264.17-.49.057a6.259,6.259,0,0,1-1.813-1.124,6.949,6.949,0,0,1-1.272-1.586c-.132-.226-.014-.348.1-.461s.239-.239.352-.371a1.516,1.516,0,0,0,.221-.376.417.417,0,0,0-.019-.4c-.057-.113-.491-1.228-.693-1.675h0C358.713,30.022,358.534,30.009,358.373,30Z" transform="translate(-356.544 -30.002)" fill="#040506"/></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{wordwrap($client['telefone'], 4, ' ', true)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['telefoneVenda']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.199" height="8.504" viewBox="0 0 9.199 8.504"><path d="M358.373,30h-.434a.834.834,0,0,0-.6.282,2.526,2.526,0,0,0-.792,1.882,4.383,4.383,0,0,0,.924,2.333,9.274,9.274,0,0,0,3.866,3.4c1.912.752,2.3.6,2.716.565a2.286,2.286,0,0,0,1.528-1.073,1.87,1.87,0,0,0,.132-1.072c-.056-.094-.207-.151-.434-.263s-1.335-.668-1.543-.744-.358-.112-.509.114-.6.747-.728.9-.264.17-.49.057a6.259,6.259,0,0,1-1.813-1.124,6.949,6.949,0,0,1-1.272-1.586c-.132-.226-.014-.348.1-.461s.239-.239.352-.371a1.516,1.516,0,0,0,.221-.376.417.417,0,0,0-.019-.4c-.057-.113-.491-1.228-.693-1.675h0C358.713,30.022,358.534,30.009,358.373,30Z" transform="translate(-356.544 -30.002)" fill="#040506"/></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{wordwrap($client['telefoneVenda'], 4, ' ', true)}}</span>
+                        </div>
+                    {/endif}
+                    {if}isset($client['telefoneLocacao']){/if}
+                        <div class="print__number">
+                            <svg class="print__icon" width="9.199" height="8.504" viewBox="0 0 9.199 8.504"><path d="M358.373,30h-.434a.834.834,0,0,0-.6.282,2.526,2.526,0,0,0-.792,1.882,4.383,4.383,0,0,0,.924,2.333,9.274,9.274,0,0,0,3.866,3.4c1.912.752,2.3.6,2.716.565a2.286,2.286,0,0,0,1.528-1.073,1.87,1.87,0,0,0,.132-1.072c-.056-.094-.207-.151-.434-.263s-1.335-.668-1.543-.744-.358-.112-.509.114-.6.747-.728.9-.264.17-.49.057a6.259,6.259,0,0,1-1.813-1.124,6.949,6.949,0,0,1-1.272-1.586c-.132-.226-.014-.348.1-.461s.239-.239.352-.371a1.516,1.516,0,0,0,.221-.376.417.417,0,0,0-.019-.4c-.057-.113-.491-1.228-.693-1.675h0C358.713,30.022,358.534,30.009,358.373,30Z" transform="translate(-356.544 -30.002)" fill="#040506"/></svg>
+                            <span class="">+ 55 ({{$client['ddd']}}) {{wordwrap($client['telefoneLocacao'], 4, ' ', true)}}</span>
+                        </div>
+                    {/endif}
+                </div>
+            {/endif}
+        </div>
+    </div>
+    <div class="print__content">
+        <div class="print__left">
+            <span class="print__reference">
+                Ref.: {{$card['imovelReferencia']}}
+            </span>
+            <h1 class="print__type">
+                {{$card['tipoImovelDescricao']}}
+            </h1>
+            <span class="print__address">
+                {if}$card['imovelEndereco'] && $card['imovelVenda'] && !$client['naoMostrarEnderecoVenda'] || $card['imovelEndereco'] && $card['imovelLocacao'] && !$client['naoMostrarEnderecoLocacao']{/if}{if}$card['imovelTipoEndereco']{/if}{{$card['imovelTipoEndereco']}}. {/endif}{if}$card['imovelEndereco']{/if}{{$card['imovelEndereco']}}{/endif}{if}$card['imovelEnderecoNumero']{/if}, {{$card['imovelEnderecoNumero']}}{/endif}{if}$card['imovelEnderecoComplemento']{/if} {{$card['imovelEnderecoComplemento']}}{/endif}{if}$card['imovelEnderecoBairro']{/if}, {{$card['imovelEnderecoBairro']}}{/endif}{else}{{$card['imovelEnderecoBairro']}}{/endif}{if}$card['imovelEnderecoCidade']{/if}, {{$card['imovelEnderecoCidade']}}{/endif}{if}$card['imovelEnderecoEstado']{/if}/{{$card['imovelEnderecoEstado']}}{/endif}
+            </span>
+            {if}$card['imovelAreaTotal'] || $card['imovelAreaUtil'] || $card['imovelQuartos'] || isset($card['imovelBanheiros']) || isset($card['imovelSuites']) || $card['imovelVagas']{/if}
+                <div class="print__feature">
+                    {if}$card['imovelAreaTotal']{/if}
+                        <span class="print__item">
+                            {n2}($card['imovelAreaTotal']){/n2}m² total
+                        </span>
+                    {/endif}
+                    {if}$card['imovelAreaUtil']{/if}
+                        <span class="print__item">
+                            {n2}($card['imovelAreaUtil']){/n2}m² útil
+                        </span>
+                    {/endif}
+                    {if}isset($card['imovelBanheiros']){/if}
+                        <span class="print__item">
+                            {if}$card['imovelBanheiros'] > 1{/if}
+                                {{$card['imovelBanheiros']}} banheiros
+                            {else}
+                                {{$card['imovelBanheiros']}} banheiro
+                            {/endif}
+                        </span>
+                    {/endif}
+                    {if}$card['imovelVagas'] > 0{/if}
+                        <span class="print__item">
+                            {if}$card['imovelVagas'] === 1{/if}
+                                Possui vaga
+                            {elseif}$card['imovelVagas'] === 3{/elseif}
+                                {{$card['imovelVagas'] - 2}} vaga
+                            {elseif}$card['imovelVagas'] > 3{/elseif}
+                                {{$card['imovelVagas'] - 2}} vagas
+                            {else}
+                                Sem vaga
+                            {/endif}
+                        </span>
+                    {else}
+                        <span class="print__item">
+                            Sem vaga
+                        </span>
+                    {/endif}
+                    {if}$card['imovelQuartos']{/if}
+                        <span class="print__item">
+                            {if}$card['imovelQuartos'] > 1{/if}
+                                {{$card['imovelQuartos']}} quartos
+                            {else}
+                                {{$card['imovelQuartos']}} quarto
+                            {/endif}
+                        </span>
+                    {/endif}
+                </div>
+            {/endif}
+            {if}$card['imovelVenda'] && $card['imovelValorVenda']{/if}
+                <h2 class="print__price">
+                    Valor de venda:
+                </h2>
+                <span class="">
+                    R$ {n2}$card['imovelValorVenda']{/n2}
+                </span>
+            {/endif}
+            {if}$card['imovelLocacao'] && $card['imovelValorAluguel']{/if}
+                <h2 class="print__price">
+                    Valor de locação:
+                </h2>
+                <span class="">
+                    {if}$card['imovelMultaDesconto'] === "D"{/if}
+                        R$ {n2}$card['imovelValorAluguel'] - $card['imovelValorMultaDesconto']{/n2}
+                    {else}
+                        R$ {n2}$card['imovelValorAluguel']{/n2}
+                    {/endif}
+                </span>
+            {/endif}
+            {php}$valores = false;{/php}
+            {foreach}$card['outrosValores'] as $data{/foreach}
+                {if}$data['divulgado'] === true && $data['descricao'] != "" && $data['valor'] != ""{/if}
+                    {php}$valores = true;{/php}
+                {/endif}
+            {/endforeach}
+            {if}$card['imovelValorCondominio'] || $card['imovelValorIPTU'] || $valores{/if}
+                <h2 class="print__price">
+                    Outros valores:
+                </h2>
+                <div class="print__tax">
+                    {if}$card['imovelValorCondominio']{/if}
+                        <span class="print__cost">
+                            + Condomínio: R$ {n2}$card['imovelValorCondominio']{/n2}
+                        </span>
+                    {/endif}
+                    {if}$card['imovelValorIPTU']{/if}
+                        <span class="print__cost">
+                            + IPTU: R$ {n2}$card['imovelValorIPTU']{/n2}
+                        </span>
+                    {/endif}
+                    {foreach}$card['outrosValores'] as $data{/foreach}
+                        {if}$data['divulgado'] === true && $data['descricao'] != "" && $data['valor'] != ""{/if}
+                            <span class="print__cost">
+                                + {{$data['descricao']}}: R$ {n2}$data['valor']{/n2}
+                            </span>
+                        {/endif}
+                    {/endforeach}
+                </div>
+            {/endif}
+        </div>
+        <div class="print__right">
+            {if}$card['urlFotoPrincipal']{/if}
+                <div class="print__box">
+                    <img class="print__img" src="{{$card['urlFotoPrincipal']}}">
+                </div>
+            {/endif}
+            <span class="card__updated">Imóvel atualizado em: {{substr($card['imovelDataAtualizado'], 0, 10) . ' '}} ás {php}$triggerOn = substr($card['imovelDataAtualizado'], 11, 5);$user_tz = 'GMT';$schedule_date = new DateTime($triggerOn, new DateTimeZone($user_tz));$schedule_date->setTimeZone(new DateTimeZone('America/Sao_Paulo'));$triggerOn = $schedule_date->format('H:i');echo $triggerOn;{/php}</span>
+        </div>
+    </div>
+    {if}$card['imovelPontosFortes']{/if}
+        <h2 class="print__title">
+            Pontos fortes:
+        </h2>
+        <p class="print__text">
+            {{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $card['imovelPontosFortes']))}}
+        </p>
+    {/endif}
+    {if}$card['dependencias']{/if}
+        <h2 class="print__title">
+            Dependências:
+        </h2>
+        <div class="print__room">
+            {foreach}$card['dependencias'] as $data{/foreach}
+                <div class="print__column">
+                    <span class="print__label">
+                        {{$data['label']}}:
+                    </span>
+                    <span class="print__value">
+                        {{$data['valor']}}
+                    </span>
+                </div>
+            {/endforeach}
+        </div>
+    {/endif}
+    {if}$card['caracteristicas']{/if}
+        <h2 class="print__title">
+            Características:
+        </h2>
+        <div class="print__characteristic">
+            {foreach}$card['caracteristicas'] as $data{/foreach}
+                <div class="print__column">
+                    <span class="print__label">
+                        {{$data['label']}}:
+                    </span>
+                    <span class="print__value">
+                        {{$data['valor']}}
+                    </span>
+                </div>
+            {/endforeach}
+        </div>
+    {/endif}
+</section>
