@@ -1,15 +1,358 @@
 <section class="index">
-    <div class="index__search">
-        <div class="jetgrid jetgrid--1200">
-            <div class="jetgrid__col--24">
-                <div class="jetgrid jetgrid--align-center jetgrid--justify-center">
-                    <img src="<?php $global['base'] ?>svg/bg-home.svg" alt="decoração de página">
-                    <h1>Encontre o imovel perfeito para você!</h1>
-                    
+
+        <!--index__search-->
+        <div class="index__search">
+            <div class="jetgrid jetgrid--1200">
+                <div class="jetgrid__col--24">
+                    <div class="jetgrid jetgrid--align-center jetgrid--justify-center">
+                        <img src="<?php $global['base'] ?>svg/bg-home.svg" alt="decoração de página">
+                        <h1>Encontre o imovel perfeito para você!</h1>
+                            <div class="jetgrid jetgrid--align-center search-index__form">
+                                <div class="search-index__field">
+                                    <div class="search-index__buy">Comprar
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15.352"  height="9.317" viewBox="0 0 15.352 9.317"><path d="M-.6-11.661a.844.844,0,0,1,1.193,0L7.429-4.829a.844.844,0,0,1,0,1.193l-.8.8a.844.844,0,0,1-1.192,0L0-8.252-5.44-2.837a.844.844,0,0,1-1.192,0l-.8-.8a.844.844,0,0,1,0-1.193Z" transform="translate(7.676 11.908)" fill="#003865"/></svg>
+                                    </div>
+                                </div>
+                                <div class="search-index__field">
+                                    <div class="search-index__type">Tipo
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15.352"  height="9.317" viewBox="0 0 15.352 9.317"><path d="M-.6-11.661a.844.844,0,0,1,1.193,0L7.429-4.829a.844.844,0,0,1,0,1.193l-.8.8a.844.844,0,0,1-1.192,0L0-8.252-5.44-2.837a.844.844,0,0,1-1.192,0l-.8-.8a.844.844,0,0,1,0-1.193Z" transform="translate(7.676 11.908)" fill="#003865"/></svg>
+                                    </div>
+                                </div>
+                                <div class="search-index__field">
+                                    <div class="search-index__city">Cidade
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15.352"  height="9.317" viewBox="0 0 15.352 9.317"><path d="M-.6-11.661a.844.844,0,0,1,1.193,0L7.429-4.829a.844.844,0,0,1,0,1.193l-.8.8a.844.844,0,0,1-1.192,0L0-8.252-5.44-2.837a.844.844,0,0,1-1.192,0l-.8-.8a.844.844,0,0,1,0-1.193Z" transform="translate(7.676 11.908)" fill="#003865"/></svg>
+                                    </div>
+                                </div>
+                                <div class="search-index__field">
+                                    <button class="search__btn search-index__btn">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <!--index__search-->
     </div>
-
-
+    {if}$offerLaunch['success'] && $offerLaunch['data']['total'] > 1{/if}
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="offer-launch__background">
+                    <h2 class="offer-launch__title">Lançamentos</h2>
+                    <div class="offer-launch">
+                        {foreach}$offerLaunch['data']['resultado'] as $data{/foreach}
+                            <div class="offer-launch__hover">
+                                <a class="offer-launch__link" href="{{$config['pageLancamento']}}/{url}$data['empTipoImovelDescricao']{/url}{if}$data['empBairro']{/if}-{url}$data['empBairro']{/url}{/endif}{if}$data['empCidade']{/if}-{url}$data['empCidade']{/url}{/endif}?cod={{$data['empId']}}&id=0">
+                                    <div class="jetgrid jetgrid--justify-between jetgrid--align-top">
+                                        <div class="offer-launch__box">
+                                            {if}$data['urlFotoPrincipalMedia']{/if}
+                                                <img class="offer-launch__img" loading="lazy" src="{{$data['urlFotoPrincipalMedia']}}" alt="{{$data['empTipoImovelDescricao']}} no {{$data['empBairro']}} em {{$data['empCidade']}} com {n2}($data['maxAreaTotal']){/n2}m²" width="585" height="390">
+                                            {/endif}
+                                        </div>
+                                 
+                                    </div>
+                                </a>
+                            </div>
+                        {/endforeach}
+                    </div>
+                    {if}$offerLaunch['data']['total'] > 1{/if}
+                        <div class="offer-launch__page">
+                            <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                                <button class="offer-launch__prev">
+                                    <img class="offer-launch__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-prev.svg" alt="Ícone anterior" width="29.06" height="29.06">
+                                </button>
+                                <div class="offer-launch__pagination"></div>
+                                <button class="offer-launch__next">
+                                    <img class="offer-launch__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-next.svg" alt="Ícone proximo" width="29.06" height="29.06">
+                                </button>
+                            </div>
+                        </div>
+                    {/endif}
+                </div>
+            </div>
+        </div>
+    {/endif}
+    {if}$offerBuy['success'] && $offerBuy['data']['total'] > 1{/if}
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <h2 class="offer__title">Destaques de venda</h2>
+                <div class="offer-buy">
+                    {foreach}$offerBuy['data']['resultado'] as $data{/foreach}
+                        <div class="offer__hover">
+                            <button class="favorite__btn offer__favorite" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                                <svg class="favorite__check" width="18" height="15.75" viewBox="0 0 18 15.754"><path d="M7.116-13.489A5.3,5.3,0,0,0,0-12.962a5.292,5.292,0,0,0-7.116-.527,5.319,5.319,0,0,0-.373,7.777L-1.322.57A1.843,1.843,0,0,0,0,1.129,1.834,1.834,0,0,0,1.322.573L7.488-5.709A5.323,5.323,0,0,0,7.116-13.489ZM6.286-6.9.12-.615a.145.145,0,0,1-.239,0L-6.286-6.9a3.626,3.626,0,0,1,.257-5.3,3.564,3.564,0,0,1,4.8.369L0-10.571l1.23-1.255a3.562,3.562,0,0,1,4.8-.373A3.641,3.641,0,0,1,6.286-6.9Z" transform="translate(9 14.626)" fill="#707070"/></svg>
+                                <svg class="favorite__check--active" width="18" height="15.75" viewBox="0 0 18 15.75"><path d="M7.253-13.549a4.808,4.808,0,0,0-6.56.478L0-12.357l-.693-.714a4.807,4.807,0,0,0-6.56-.478A5.048,5.048,0,0,0-7.6-6.24L-.8.784a1.1,1.1,0,0,0,1.593,0L7.6-6.24A5.045,5.045,0,0,0,7.253-13.549Z" transform="translate(9 14.626)" fill="#707070"/></svg>
+                            </button>
+                            <a class="offer__link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search={{$offerBuy['data']['buscaImovelId']}}">
+                                <div class="offer__box">
+                                    {if}$data['urlFotoPrincipalMedia']{/if}
+                                        <img class="offer__img" loading="lazy" src="{{$data['urlFotoPrincipalMedia']}}" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal']{/n}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                                    {/endif}
+                                    {if}$data['imovelReservadoVenda']{/if}
+                                        <span class="offer__reserved">RESERVADO</span>
+                                    {/endif}
+                                </div>
+                                <div class="offer__description">
+                                    <span class="offer__reference">Ref.: {{$data['imovelReferencia']}}</span>
+                                    <span class="offer__type">{{$data['tipoImovelDescricao']}}</span>
+                                    <span class="offer__address">
+                                        {{$data['imovelEnderecoBairro']}}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                                    </span>
+                                    {if}$data['imovelValorVenda']{/if}
+                                        <span class="offer__price">
+                                            R$ {n2}$data['imovelValorVenda']{/n2}
+                                        </span>
+                                    {/endif}
+                                    {if}$data['imovelValorAluguel']{/if}
+                                        <span class="offer__price">
+                                            R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}
+                                        </span>
+                                    {/endif}
+                                    <div class="offer__feature jetgrid jetgrid--justify-center jetgrid--align-top">
+                                        {if}$data['imovelAreaTotal']{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="Ícone área" width="21" height="21">
+                                                <span class="">
+                                                    {n2}($data['imovelAreaTotal']){/n2}m²<br>total
+                                                </span>
+                                                <span class="">
+                                                    {n2}($data['imovelAreaTotal']){/n2}m² total
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                        {if}$data['imovelAreaUtil']{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="Ícone área" width="21" height="21">
+                                                <span class="">
+                                                    {n2}($data['imovelAreaUtil']){/n2}m²<br>útil
+                                                </span>
+                                                <span class="">
+                                                    {n2}($data['imovelAreaUtil']){/n2}m² útil
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                        {if}$data['imovelQuartos']{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/bedroom-primary.svg" alt="Ícone quarto" width="30" height="18">
+                                                <span class="">
+                                                    {if}$data['imovelQuartos'] > 1{/if}
+                                                        {{$data['imovelQuartos']}}<br>quartos
+                                                    {else}
+                                                        {{$data['imovelQuartos']}}<br>quarto
+                                                    {/endif}
+                                                </span>
+                                                <span class="">
+                                                    {if}$data['imovelQuartos'] > 1{/if}
+                                                        {{$data['imovelQuartos']}} quartos
+                                                    {else}
+                                                        {{$data['imovelQuartos']}} quarto
+                                                    {/endif}
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                        {if}$data['imovelVagas'] > 0{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="Ícone carro" width="24" height="18">
+                                                <span class="">
+                                                    {if}$data['imovelVagas'] === 1{/if}
+                                                        Possui<br>vaga
+                                                    {elseif}$data['imovelVagas'] === 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}}<br>vaga
+                                                    {elseif}$data['imovelVagas'] > 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}}<br>vagas
+                                                    {else}
+                                                        Sem<br>vaga
+                                                    {/endif}
+                                                </span>
+                                                <span class="">
+                                                    {if}$data['imovelVagas'] === 1{/if}
+                                                        Possui vaga
+                                                    {elseif}$data['imovelVagas'] === 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}} vaga
+                                                    {elseif}$data['imovelVagas'] > 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}} vagas
+                                                    {else}
+                                                        Sem vaga
+                                                    {/endif}
+                                                </span>
+                                            </div>
+                                        {else}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="Ícone carro" width="24" height="18">
+                                                <span class="">
+                                                    Sem<br>vaga
+                                                </span>
+                                                <span class="">
+                                                    Sem vaga
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                    </div>
+                                    <button class="offer__btn">
+                                        VER IMÓVEL
+                                    </button>
+                                </div>
+                            </a>
+                            <button class="compare__check offer__compare ui__display--sm-none" data-id="{{$data['imovelId']}}"></button>
+                        </div>
+                    {/endforeach}
+                </div>
+                {if}$offerBuy['data']['total'] > 3{/if}
+                    <div class="offer-buy__page">
+                        <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                            <button class="offer-buy__prev">
+                                <img class="offer-buy__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-prev.svg" alt="Ícone anterior" width="29.06" height="29.06">
+                            </button>
+                            <div class="offer-buy__pagination"></div>
+                            <button class="offer-buy__next">
+                                <img class="offer-buy__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-next.svg" alt="Ícone proximo" width="29.06" height="29.06">
+                            </button>
+                        </div>
+                    </div>
+                {/endif}
+            </div>
+        </div>
+    {/endif}
+    {if}$offerRent['success'] && $offerRent['data']['total'] > 1{/if}
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <h2 class="offer__title">Destaques de locação</h2>
+                <div class="offer-rent">
+                    {foreach}$offerRent['data']['resultado'] as $data{/foreach}
+                        <div class="offer__hover">
+                            <button class="favorite__btn offer__favorite" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                                <svg class="favorite__check" width="18" height="15.75" viewBox="0 0 18 15.754"><path d="M7.116-13.489A5.3,5.3,0,0,0,0-12.962a5.292,5.292,0,0,0-7.116-.527,5.319,5.319,0,0,0-.373,7.777L-1.322.57A1.843,1.843,0,0,0,0,1.129,1.834,1.834,0,0,0,1.322.573L7.488-5.709A5.323,5.323,0,0,0,7.116-13.489ZM6.286-6.9.12-.615a.145.145,0,0,1-.239,0L-6.286-6.9a3.626,3.626,0,0,1,.257-5.3,3.564,3.564,0,0,1,4.8.369L0-10.571l1.23-1.255a3.562,3.562,0,0,1,4.8-.373A3.641,3.641,0,0,1,6.286-6.9Z" transform="translate(9 14.626)" fill="#707070"/></svg>
+                                <svg class="favorite__check--active" width="18" height="15.75" viewBox="0 0 18 15.75"><path d="M7.253-13.549a4.808,4.808,0,0,0-6.56.478L0-12.357l-.693-.714a4.807,4.807,0,0,0-6.56-.478A5.048,5.048,0,0,0-7.6-6.24L-.8.784a1.1,1.1,0,0,0,1.593,0L7.6-6.24A5.045,5.045,0,0,0,7.253-13.549Z" transform="translate(9 14.626)" fill="#707070"/></svg>
+                            </button>
+                            <a class="offer__link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search={{$offerRent['data']['buscaImovelId']}}">
+                                <div class="offer__box">
+                                    {if}$data['urlFotoPrincipalMedia']{/if}
+                                        <img class="offer__img" loading="lazy" src="{{$data['urlFotoPrincipalMedia']}}" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal']{/n}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                                    {/endif}
+                                    {if}$data['imovelReservadoLocacao']{/if}
+                                        <span class="offer__reserved">RESERVADO</span>
+                                    {/endif}
+                                </div>
+                                <div class="offer__description">
+                                    <span class="offer__reference">Ref.: {{$data['imovelReferencia']}}</span>
+                                    <span class="offer__type">{{$data['tipoImovelDescricao']}}</span>
+                                    <span class="offer__address">
+                                        {{$data['imovelEnderecoBairro']}}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                                    </span>
+                                    {if}$data['imovelValorAluguel']{/if}
+                                        <span class="offer__price">
+                                            R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}
+                                        </span>
+                                    {/endif}
+                                    {if}$data['imovelValorVenda']{/if}
+                                        <span class="offer__price">
+                                            R$ {n2}$data['imovelValorVenda']{/n2}
+                                        </span>
+                                    {/endif}
+                                    <div class="offer__feature jetgrid jetgrid--justify-center jetgrid--align-top">
+                                        {if}$data['imovelAreaTotal']{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="Ícone área" width="21" height="21">
+                                                <span class="">
+                                                    {n2}($data['imovelAreaTotal']){/n2}m²<br>total
+                                                </span>
+                                                <span class="">
+                                                    {n2}($data['imovelAreaTotal']){/n2}m² total
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                        {if}$data['imovelAreaUtil']{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="Ícone área" width="21" height="21">
+                                                <span class="">
+                                                    {n2}($data['imovelAreaUtil']){/n2}m²<br>útil
+                                                </span>
+                                                <span class="">
+                                                    {n2}($data['imovelAreaUtil']){/n2}m² útil
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                        {if}$data['imovelQuartos']{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/bedroom-primary.svg" alt="Ícone quarto" width="30" height="18">
+                                                <span class="">
+                                                    {if}$data['imovelQuartos'] > 1{/if}
+                                                        {{$data['imovelQuartos']}}<br>quartos
+                                                    {else}
+                                                        {{$data['imovelQuartos']}}<br>quarto
+                                                    {/endif}
+                                                </span>
+                                                <span class="">
+                                                    {if}$data['imovelQuartos'] > 1{/if}
+                                                        {{$data['imovelQuartos']}} quartos
+                                                    {else}
+                                                        {{$data['imovelQuartos']}} quarto
+                                                    {/endif}
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                        {if}$data['imovelVagas'] > 0{/if}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="Ícone carro" width="24" height="18">
+                                                <span class="">
+                                                    {if}$data['imovelVagas'] === 1{/if}
+                                                        Possui<br>vaga
+                                                    {elseif}$data['imovelVagas'] === 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}}<br>vaga
+                                                    {elseif}$data['imovelVagas'] > 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}}<br>vagas
+                                                    {else}
+                                                        Sem<br>vaga
+                                                    {/endif}
+                                                </span>
+                                                <span class="">
+                                                    {if}$data['imovelVagas'] === 1{/if}
+                                                        Possui vaga
+                                                    {elseif}$data['imovelVagas'] === 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}} vaga
+                                                    {elseif}$data['imovelVagas'] > 3{/elseif}
+                                                        {{$data['imovelVagas'] - 2}} vagas
+                                                    {else}
+                                                        Sem vaga
+                                                    {/endif}
+                                                </span>
+                                            </div>
+                                        {else}
+                                            <div class="offer__item">
+                                                <img class="offer__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="Ícone carro" width="24" height="18">
+                                                <span class="">
+                                                    Sem<br>vaga
+                                                </span>
+                                                <span class="">
+                                                    Sem vaga
+                                                </span>
+                                            </div>
+                                        {/endif}
+                                    </div>
+                                    <button class="offer__btn">
+                                        VER IMÓVEL
+                                    </button>
+                                </div>
+                            </a>
+                            <button class="compare__check offer__compare ui__display--sm-none" data-id="{{$data['imovelId']}}"></button>
+                        </div>
+                    {/endforeach}
+                </div>
+                {if}$offerRent['data']['total'] > 4{/if}
+                    <div class="offer-rent__page">
+                        <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                            <button class="offer-rent__prev">
+                                <img class="offer-rent__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-prev.svg" alt="Ícone anterior" width="29.06" height="29.06">
+                            </button>
+                            <div class="offer-rent__pagination"></div>
+                            <button class="offer-rent__next">
+                                <img class="offer-rent__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-next.svg" alt="Ícone proximo" width="29.06" height="29.06">
+                            </button>
+                        </div>
+                    </div>
+                {/endif}
+            </div>
+        </div>
+    {/endif}
+  
 </section>

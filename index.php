@@ -8,8 +8,11 @@
     }
 
     $request = [
-        'offerBuy' => ['url' => "{$config['imoveisBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&fotos=true&filtro.tipodivulgacao=v&maximo={$maximo}&pagina=1", 'decode' => true],
-        'offerRent' => ['url' => "{$config['imoveisBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&fotos=true&filtro.tipodivulgacao=l&maximo={$maximo}&pagina=1", 'decode' => true],
+        'offerLaunch' => ['url' => "{$config['lancamentosBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&maximo=3&pagina=1", 'decode' => true],
+        'offerBuy' => ['url' => "{$config['imoveisBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&filtro.tipodivulgacao=v&maximo={$maximo}&pagina=1", 'decode' => true],
+        'offerRent' => ['url' => "{$config['imoveisBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&filtro.tipodivulgacao=l&maximo={$maximo}&pagina=1", 'decode' => true],
+        'offerPopularBuy' => ['url' => "{$config['imoveisBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&filtro.tipodivulgacao=v&maximo={$maximo}&pagina=1", 'decode' => true],
+        'offerPopularRent' => ['url' => "{$config['imoveisBaseUrl']}?filtro.{$config['tipoCliente']}id={$config['id']}&filtro.tipodivulgacao=l&maximo={$maximo}&pagina=1", 'decode' => true],
     ];
 
     $loader = new JetLoader;

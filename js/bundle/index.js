@@ -11,6 +11,31 @@ class Index {
      /**
      * offer slider
      */
+        /**
+	 * create offerLaunch slider
+	 */
+         offerLaunch() {
+            return new JetSlider({
+                element: '.offer-launch',
+                prev: '.offer-launch__prev',
+                next: '.offer-launch__next',
+                slidesToShow: {
+                    0: 1
+                },
+                slidesToScroll: {
+                    0: 1
+                },
+                speed: 650,
+                gap: 30,
+                momentum: true,
+                weight: 100,
+                loop: false,
+                autoplay: false,
+                autoplaySpeed: 5000,
+                stopOnOver: true,
+                pagination: '.offer-launch__pagination'
+            })
+        }
   
 
     offer() {
@@ -54,6 +79,7 @@ class Index {
     init() {
 
         new Search
+        this.offerLaunch()
         this.offer()
     }
 
