@@ -176,6 +176,48 @@ body::-webkit-scrollbar {
     66% {transform: translate(5px, -24px);}
     100% {}
 }
+@keyframes fade{
+	from{
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+    }
+}
+.efect {
+    border: none;
+    color: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    font-size: 24px;
+    line-height: 24px;
+    border-radius: 4px;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 400ms ease;
+  }
+  
+  .efect-1 {
+    background-color: var(--primary-color);
+  }
+  
+  .efect-1::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 1s ease;
+  }
+  .efect-1:hover:before {
+    width: 100%;
+  }
 
 
 /* = lgpd
@@ -1074,35 +1116,7 @@ body::-webkit-scrollbar {
        overflow: hidden;
        cursor: pointer;
    }
-   
-   /* price and area slider */
-   
-   /* .noUi-base { background-color: #4D3C70; }
-   
-   .noUi-connects {
-       border-radius: 0px;
-       cursor: pointer;
-   }
-   
-   .noUi-connect { background-color: #FFF; }
-   
-   .noUi-handle:before,
-   .noUi-handle:after {
-       content: none;
-   }
-   
-   .noUi-handle.noUi-handle-lower,
-   .noUi-handle.noUi-handle-upper {
-       width: 15px;
-       height: 15px;
-       top: -5px;
-       right: -7.5px !important;
-       background-color: #FFF;
-       border: 0px;
-       border-radius: 50%;
-       box-shadow: none;
-       cursor: pointer;
-   } */
+
    
    .jettag__tag {
        width: auto;
@@ -1147,7 +1161,9 @@ body::-webkit-scrollbar {
 
 /* = header
    ========================================================================== */
-
+.header-tablet{
+display: none;
+}
 .header {
     height: 90px;
     position: sticky !important;
@@ -1160,16 +1176,89 @@ body::-webkit-scrollbar {
 a.header__logo {
     margin-left: 10%;
 }
-a.header__client{
+.header__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header__nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+a.header__client {
     padding: 10px 20px;
     border: 2px solid #003865;
     margin-left: 20px;
     border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    width: 240px;
 }
 a.header__client svg{
     margin-right: 10px;
 }
+.header__modal--contact{
+    width: 280px;
+    height: 195px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px var(--primary-color);
+    position: absolute;
+    top: 75%;
+    right: 34%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation-name: fade;
+	animation-duration: 0.7s;
+    flex-direction: column;
+}
+.header__modal--contact span{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.header__modal--contact button{
+    color: #fff;
+    background: #0598E8;
+    padding: 5px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-transform: uppercase;
 
+}
+.header__modal--contact ul li{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: var(--primary-color);
+}
+li.header__modal--li {
+    margin-left: 4px;
+}
+.header__modal--contact ul li svg{
+    margin-right: 10px;
+}
+.rotate {
+    transform: rotate(180deg);
+    transition: all .5s ease;
+}
+.display{
+    display: flex;
+}
 /* = nav
    ========================================================================== */
 
@@ -1253,11 +1342,13 @@ a.header__client svg{
     display: flex;
     justify-content: space-evenly;
 }
-button.search__btn.search-index__btn {
+button.search__btn {
     padding: 10px 70px;
     background: var(--primary-color);
     color: #fff;
     border-radius: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
 }  
 .search {
     margin-bottom: 60px;
@@ -1278,7 +1369,7 @@ button.search__btn.search-index__btn {
 .search-index__buy svg, 
 .search-index__type svg, 
 .search-index__city svg{
-    margin-left: 50px;
+    margin-left: 100px;
     transform: rotate(180deg);
 }
 
@@ -1653,8 +1744,23 @@ button.search__btn.search-index__btn {
 
 
 /* = index
-   ========================================================================== *
-index__background {
+   ========================================================================== */
+
+.search-index__field-item {
+    display: flex;
+    align-items: center;
+}   
+.index__whatsapp--btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: fixed;
+    top: 30%;
+    right: 30px;
+    z-index: 999;
+}
+   
+.index__background {
     width: 100%;
     height: auto;
     margin-top: 60px;
@@ -1778,6 +1884,7 @@ index__background {
     display: flex;
     background: #E4E4DC url(../img/index-about-bg.jpg) bottom right no-repeat;
     border-radius: 10px;
+    flex-wrap: wrap;
 }
 
 .index__about-position {
@@ -1831,11 +1938,11 @@ index__background {
     position: relative;
 }
 
-.index__about-img {
+/* .index__about-img {
     position: absolute;
     right: -15px;
     bottom: 0px;
-}
+} */
 
 .index__financing-background {
     width: 100%;
@@ -1924,6 +2031,14 @@ h2.offer__launck--title {
     height: 30px;
     margin: 0px 12.5px;
     position: relative;
+}
+.offer-launch__box {
+    width: 100%;
+    height: 390px;
+    position: relative;
+    background: #ccc url(../svg/blank-primary.svg) center no-repeat;
+    border-radius: 20px 4px 20px 4px;
+    overflow: hidden;
 }
 
 .offer-launch__pagination-item:first-of-type { margin-left: 0px; }
@@ -3977,6 +4092,7 @@ html.expand {
 
     /* = header
        ========================================================================== */
+     
 
 
     /* = nav
@@ -4097,7 +4213,16 @@ html.expand {
 
     /* = header
        ========================================================================== */
+    .header-tablet{
+    display: block;
+    }   
+    nav.jetnav.nav {
+    display: none;
 
+    }   
+    .jetgrid.jetgrid--justify-end.jetgrid--align-center {
+        flex-wrap: nowrap;
+    }
 
     /* = nav
        ========================================================================== */
@@ -4163,12 +4288,12 @@ html.expand {
     }
 
     .nav__mobile {
-        display: flex;
+        display: flex !important;
         align-items: center;
     }
 
     .nav__open {
-        display: flex;
+        display: none;
         color: #fff;
         cursor: pointer;
     }
@@ -4216,6 +4341,36 @@ html.expand {
     .index-how-rent__title {
         font-size: 20px;
         text-align: center;
+    }
+    .index__about-background {
+        width: 100%;
+        height: 842px;
+        position: relative;
+        display: flex;
+        background: url(../img/index-about-bg-tablet.jpg) bottom right no-repeat;
+        border-radius: 10px;
+        flex-wrap: wrap;
+        background-position: center;
+        background-size: cover;
+    }
+    .index__about-position {
+        width: 100%;
+        height: auto;
+        max-width: 485px;
+        margin: auto 100px;
+        position: relative;
+        z-index: 1;
+        top: -105px;
+    }
+    .background {
+        width: 100%;
+        height: 1013px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        padding-left: 10px;
+        margin-top: 55px;
+        margin-bottom: -100px;
     }
 
 
@@ -4372,6 +4527,21 @@ html.expand {
     /* = header
        ========================================================================== */
 
+    a.header__logo{
+        margin-left: 0;
+    }
+    .av__mobile{
+        display: flex;
+    }
+    a.header__client {
+        padding: 10px 20px;
+        border: 2px solid #003865;
+        margin-left: -4px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-around;
+        width: 240px;
+    }
 
     /* = nav
        ========================================================================== */
@@ -4433,9 +4603,28 @@ html.expand {
         right: 10px;
     }
 
+    .search-index__buy, .search-index__city, .search-index__type {
+        display: flex;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 0px;
+    }
+
 
     /* = index
        ========================================================================== */
+    .index__whatsapp--btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        position: fixed;
+        top: 160px;
+        right: 30px;
+        z-index: 999;
+    }
 
     .index-how-rent {
         flex-direction: column;
@@ -4445,7 +4634,30 @@ html.expand {
         margin: 0 30px 15px;
     }
 
-
+    .index__about-img {
+        position: absolute !important;
+        right: -115px !important;
+        bottom: -89px !important;
+    }
+    .index__search h1 {
+        font-size: 30px;
+        color: #fff;
+        position: absolute;
+        top: 22%;
+    }
+    .search-index__buy svg, .search-index__city svg, .search-index__type svg {
+        margin-left: 49px;
+        transform: rotate(180deg);
+    }
+    button.search__btn {
+        padding: 10px 35px;
+        background: var(--primary-color);
+        color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+   
     /* = about
        ========================================================================== */
 
@@ -4684,6 +4896,9 @@ html.expand {
 
     /* = header
        ========================================================================== */
+       .header-tablet{
+        display: none;
+    }
 
 
     /* = nav

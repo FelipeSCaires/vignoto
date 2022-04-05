@@ -21,7 +21,7 @@
     $config['creci'] = '0000-0';
     $config['color'] = '#5700C9';
     $config['tipoCliente'] = 'cliente';
-    $config['idCliente'] = 78800;
+    $config['idCliente'] = 360;
     $config['idParceria'] = 706;
     $config['id'] = $config['tipoCliente'] === 'cliente' ? $config['idCliente'] : $config['idParceria'];
     $config['weekdayHours'] = 'Segunda à Sexta das 08h30 às 18h00';
