@@ -1,4 +1,4 @@
-class List2 {
+class List {
 
     /**
      * create a list
@@ -359,7 +359,7 @@ class List2 {
 	 */
     init() {
         router.updateLinks()
-        new Search
+        new SearchList
         this.closeSearch()
         this.pagination()
         this.updateMap()
