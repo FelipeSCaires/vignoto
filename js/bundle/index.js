@@ -1,3 +1,4 @@
+
 class Index {
 
     /**
@@ -8,15 +9,14 @@ class Index {
     constructor() {
         this.init()
     }
-     /**
-     * offer slider
-     */
-        /**
+    
+    /**
 	 * create offerLaunch slider
 	 */
          offerLaunch() {
             return new JetSlider({
-                element: '.offer-launch',
+                element: '.offer-launch__box',
+                       
                 prev: '.offer-launch__prev',
                 next: '.offer-launch__next',
                 slidesToShow: {
@@ -33,7 +33,7 @@ class Index {
                 autoplay: false,
                 autoplaySpeed: 5000,
                 stopOnOver: true,
-                pagination: '.offer-launch__pagination'
+                pagination: '.offer-launch__box__pagination'
             })
         }
   
@@ -72,6 +72,21 @@ class Index {
         })
     }
 
+     /**
+     * header modal
+     */
+    openModal(){
+        var modal = document.querySelector('.header__modal--contact')
+        var buttonArrow = document.querySelector('#teste')
+        buttonArrow.addEventListener('click', ()=>{
+            modal.classList.toggle('display')
+            buttonArrow.classList.toggle('rotate')
+        })
+    }
+
+   
+       
+
     /**
 	 * initialize instance
 	 */
@@ -81,6 +96,8 @@ class Index {
         new Search
         this.offerLaunch()
         this.offer()
+        this.openModal()
+       
     }
 
 }

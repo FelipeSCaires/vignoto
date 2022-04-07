@@ -63,12 +63,20 @@
 <!-- footer -->
 <footer class="footer">
     <div class="jetgrid jetgrid--1200 footer__top">
-        <div class="jetgrid__col--7 jetgrid__col--md-9 jetgrid__col--sm-24">
-            <a class="footer__logo" href="{{$config['pageHome']}}">
-                <img src="svg/logo-color.svg" loading="lazy" alt="{{$client['nomeFantasia']}} logo" width="199.4" height="47.06">
-            </a>
+        <div class="jetgrid__col--7 jetgrid__col--sm-12">
+            <div class="jetgrid__col--12 jetgrid__col--sm-24">
+                <a class="footer__logo" href="{{$config['pageHome']}}">
+                    <img src="svg/logo-color.svg" loading="lazy" alt="{{$client['nomeFantasia']}} logo" width="199.4" height="47.06">
+                </a>
+            </div>
+            <div class="jetgrid__col--12 jetgrid__col--sm-24">
+                <a class="footer__logo" href="{{$config['pageHome']}}">
+                    <img src="svg/logos-footer.svg" loading="lazy" alt="{{$client['nomeFantasia']}} logo" width="197" height="113">
+                </a>
+            </div>
         </div>
-        <nav class="jetgrid__col--3 jetgrid__col--md-5 jetgrid__col--sm-7 jetgrid__col--xs-12">
+        
+        <nav class="jetgrid__col--3 etgrid__col--lg-4 jetgrid__col--md-5 jetgrid__col--sm-7 jetgrid__col--xs-12 jetgrid__col--xs-no-gap-right">
             <ul class="footer__nav">
                 <li class="footer__item">
                     <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageImoveis']}}/comprar">
@@ -81,51 +89,36 @@
                     </a>
                 </li>
                 <li class="footer__item">
-                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageLancamentos']}}">
-                        <span class="ui__btn--transparent-line-text">Lançamentos</span>
-                    </a>
-                </li>
-                <li class="footer__item">
-                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageComoAlugar']}}">
-                        <span class="ui__btn--transparent-line-text">Como alugar?</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <nav class="jetgrid__col--3 jetgrid__col--lg-4 jetgrid__col--md-5 jetgrid__col--sm-7 jetgrid__col--xs-12 jetgrid__col--xs-no-gap-right">
-            <ul class="footer__nav">
-                <li class="footer__item">
-                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageSobre']}}">
-                        <span class="ui__btn--transparent-line-text">Sobre nós</span>
-                    </a>
-                </li>
-                <li class="footer__item">
-                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageTrabalheConosco']}}">
-                        <span class="ui__btn--transparent-line-text">Trabalhe Conosco</span>
-                    </a>
-                </li>
-                <li class="footer__item">
                     <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageContato']}}">
                         <span class="ui__btn--transparent-line-text">Contato</span>
                     </a>
                 </li>
-            </ul>
-        </nav>
-        <nav class="jetgrid__col--4 jetgrid__col--lg-3 jetgrid__col--md-5 jetgrid__col--sm-7 jetgrid__col--xs-12">
-            <ul class="footer__nav">
                 <li class="footer__item">
-                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageAnuncieImovel']}}">
-                        <span class="ui__btn--transparent-line-text">Anuncie</span>
-                    </a>
-                </li>
-                <li class="footer__item">
-                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="{{$config['pageSouCliente']}}">
-                        <span class="ui__btn--transparent-line-text">Sou Cliente</span>
+                    <a class="ui__btn ui__btn--transparent-line footer__btn" href="#">
+                        <span class="ui__btn--transparent-line-text">blog</span>
                     </a>
                 </li>
             </ul>
         </nav>
-        <div class="jetgrid__col--7 jetgrid__col--md-auto jetgrid--md-push-left-9 jetgrid--sm-push-left-0">
+ 
+        <nav class="jetgrid__col--5 jetgrid__col--lg-3 jetgrid__col--md-24 jetgrid--sm-push-left-12">
+            <ul class="footer__nav ">
+                <li class="footer__item">
+                    <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="13.5" height="18" viewBox="0 0 13.5 18"><path d="M-.694,1.887a.844.844,0,0,0,1.387,0C5.8-5.518,6.75-6.278,6.75-9A6.75,6.75,0,0,0,0-15.75,6.75,6.75,0,0,0-6.75-9C-6.75-6.278-5.8-5.518-.694,1.887ZM0-6.187A2.813,2.813,0,0,1-2.812-9,2.813,2.813,0,0,1,0-11.812,2.813,2.813,0,0,1,2.813-9,2.813,2.813,0,0,1,0-6.187Z" transform="translate(6.75 15.75)" fill="#fff"/></svg>
+                        <span class="ui__btn--transparent-line-text" style="font-size: 30px; font-weight: bold;">Localização</span>
+                </li>
+
+                <li class="footer__item">
+                       <br> <span class="ui__btn--transparent-line-text">Av. Brasil, 388 <br> Jd. Independência - Sarandi/PR</span>
+                </li>
+
+                <li class="footer__item">
+                       <br> <span class="ui__btn--transparent-line-text"><strong>Horário de atendimento:</strong><br>  De Segunda a Sexta das 08:00hrs às 18hrs <br> e Sábados das 08:30hrs às 12:00hrs</span>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="jetgrid__col--5 jetgrid__col--md-auto jetgrid__sm--order-2">
             <div class="footer__social">
                 <h3 class="footer__title">Siga-nos</h3>
                 <div class="jetgrid">
