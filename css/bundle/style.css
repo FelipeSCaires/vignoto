@@ -1164,6 +1164,9 @@ body::-webkit-scrollbar {
 .header-tablet{
 display: none;
 }
+.header__mobile {
+    display: none;
+}
 .header {
     height: 90px;
     position: sticky !important;
@@ -4679,6 +4682,13 @@ html.expand {
         font-size: 14px;
         text-transform: uppercase;
     }
+    .index__about-img {
+        position: absolute!important;
+        right: -70px!important;
+        bottom: -74px!important;
+        width: calc(100% + -103px);
+        display: none;
+    }
    
     /* = about
        ========================================================================== */
@@ -5032,7 +5042,43 @@ html.expand {
     .index-about__link {
         margin-top: 5px;
     }
-
+    .search-index__form {
+        width: 100%;
+        height: auto;
+        background: #fff;
+        position: absolute;
+        top: 44%;
+        border-radius: 30px 0 30px 0;
+        display: flex;
+        padding: 20px 0;
+        justify-content: space-evenly;
+    }
+    .search-index__buy, .search-index__city, .search-index__type {
+        display: flex;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10px;
+        width: 80%;
+    }
+    .search__index--button {
+        width: 80%;
+        margin-left: -20px;
+    }
+    button.search__btn {
+        padding: 10px 35px;
+        background: var(--primary-color);
+        color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        text-transform: uppercase;
+        width: 100%;
+    }
+    .search-index__type svg{
+        margin-left: 65px;
+    }
 
     /* = about
        ========================================================================== */
