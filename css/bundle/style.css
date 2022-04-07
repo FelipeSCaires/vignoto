@@ -4922,6 +4922,13 @@ html.expand {
 
     /* = header
        ========================================================================== */
+    .header__mobile{
+        display: flex;
+    }
+    .header__mobile ul{
+        display: flex;
+        justify-content: space-around;
+    }   
     .header-tablet{
         display: none;
     }
