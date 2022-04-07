@@ -1755,9 +1755,9 @@ button.search__btn {
     height: 60px;
     border-radius: 100%;
     position: fixed;
-    top: 30%;
     right: 30px;
     z-index: 999;
+    bottom: 30px;
 }
    
 .index__background {
@@ -3949,7 +3949,15 @@ html.expand {
 .footer__link + .footer__link {
     margin-left: 40px
 }
-
+.footer__logo--grid{
+    display: flex;
+    width: 30%;
+}
+.footer__logo--container{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+} 
 
 
 /* ==========================================================================
@@ -4491,9 +4499,21 @@ html.expand {
         padding-bottom: 60px;
     }
 
-    .footer__social {
-        margin-top: 40px;
+   
+    .footer__logo--grid {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
     }
+    .footer__social {
+        margin-top: -379px;
+        margin-left: 397px;
+    }
+    .footer_location{
+        margin-left: 400px;
+    }
+    
 
 }
 
@@ -4616,14 +4636,15 @@ html.expand {
 
     /* = index
        ========================================================================== */
-    .index__whatsapp--btn {
+       .index__whatsapp--btn {
         width: 60px;
         height: 60px;
         border-radius: 100%;
         position: fixed;
-        top: 160px;
+        top: 85%;
         right: 30px;
         z-index: 999;
+        margin-bottom: 30px;
     }
 
     .index-how-rent {
@@ -4635,9 +4656,10 @@ html.expand {
     }
 
     .index__about-img {
-        position: absolute !important;
-        right: -115px !important;
-        bottom: -89px !important;
+        position: absolute!important;
+        right: -66px!important;
+        bottom: -74px!important;
+        width: calc(100% + -103px);
     }
     .index__search h1 {
         font-size: 30px;
@@ -4808,9 +4830,13 @@ html.expand {
     .footer__copyright {
         margin-bottom: 20px;
     }
+    .footer__social {
+        top: -405px;
+        margin-left: 486px;
+        position: relative;
+    }
 
 }
-
 
 
 /* ==========================================================================
@@ -4896,8 +4922,11 @@ html.expand {
 
     /* = header
        ========================================================================== */
-       .header-tablet{
+    .header-tablet{
         display: none;
+    }
+    img.header__logo-img {
+        width: 136px;
     }
 
 
