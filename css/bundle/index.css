@@ -242,7 +242,7 @@ main {
 
 .jetradio__radio { display: none; }
 
-.jetselect {
+/* .jetselect {
     width: 100%;
     height: auto;
 }
@@ -357,7 +357,7 @@ main {
     line-height: 45px;
     overflow: hidden;
     cursor: pointer;
-}
+} */
 
 /* price and area slider */
 
@@ -1646,11 +1646,7 @@ main {
     border-radius: 0px;
 }
 
-.list__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 .list__reserved {
     width: auto;
@@ -1667,32 +1663,9 @@ main {
     line-height: 30px;
 }
 
-.list__description {
-    width: 100%;
-    height: auto;
-    min-height: 325px;
-    margin-top: 15px;
-    padding: 30px;
-    position: relative;
-    background-color: #FFF;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, .25);
-    border-radius: 10px 10px 50px 10px;
-    text-align: center;
-}
 
-.list__card.active .list__description {
-    width: 66.66%;
-    height: 255px;
-    min-height: 100%;
-    margin-top: 0px;
-    display: flex;
-    background-color: transparent;
-    box-shadow: none;
-    border-radius: 0px;
-    text-align: left;
-    justify-content: space-between;
-    align-items: flex-start;
-}
+
+
 
 .list__content {
     width: 100%;
@@ -6223,7 +6196,7 @@ main {
     .search-index__reference,
     .search-index__building {
         max-width: calc(100% - 30px);
-        margin: 35px 15px 0px;
+        margin: 35px 15px 0px; 
     }
 
     .search-index__building-input,
@@ -6231,11 +6204,7 @@ main {
         border-radius: 25px;
     }
 
-    .search-index__btn {
-        max-width: calc(50% - 30px);
-        margin: 30px 15px 0px;
-        border-radius: 25px;
-    }
+
 
     /* search-list */
 
@@ -6691,7 +6660,13 @@ main {
         line-height: 48px;
     }
 
-    .search-index__type { margin: 30px auto 0px; }
+    .jetselect__btn {
+        padding: 0 15px;
+        border-radius: 5px;
+        z-index: 1;
+        width: 160px;
+        border: 1px solid #ccc;
+    }
 
     /* search-list */
 
@@ -7119,81 +7094,6 @@ main {
     /* = search
        ========================================================================== */
 
-    /* search-index */
-
-    .search-index__background { margin-top: 5px; }
-    .search-index__field { max-width: 100%; }
-
-    .search-index__field:nth-of-type(2),
-     .search-index__field:nth-of-type(3),
-     .search-index__field:nth-of-type(4) {
-        margin-top: 15px;
-    }
-
-    .search-index__btn {
-        max-width: 100%;
-        margin: 15px 15px 0px;
-    }
-
-    .search-index__construction { margin: 30px auto 0px; }
-    .search-index__code { margin: 30px auto 0px; }
-
-    /* search-list */
-
-    .search-list__open {
-        max-width: 100%;
-        border-radius: 25px;
-    }
-
-    .search-list__content {
-        height: calc(100% - 45px);
-        padding: 70px 15px 60px;
-        overflow: auto;
-    }
-
-    .search-list__type { margin: 30px 0px 0px 0px; }
-
-    .search-list__city,
-    .search-list__neighborhood {
-        margin-top: 15px;
-    }
-
-    .search-list__min-price-input,
-    .search-list__max-price-input,
-    .search-list__min-area-input,
-    .search-list__max-area-input {
-        margin-top: 15px;
-    }
-
-    .search-list__bedroom { margin: 15px auto 0px; }
-
-    .search-list__garage {
-        max-width: 195px;
-        margin: 0px auto;
-    }
-
-    .search-list__garage-list { display: block; }
-    .search-list__garage-option { display: inline-block; }
-
-    .search-list__garage-option:nth-of-type(1) {
-        width: 50%;
-        margin-top: 15px;
-    }
-
-    .search-list__garage-option:nth-of-type(2) {
-        width: 50%;
-        margin-top: 15px;
-    }
-
-    .search-list__garage-option:nth-of-type(3) { margin: 15px 15px 0px 0px; }
-    .search-list__garage-option:nth-of-type(4) { margin: 15px 15px 0px; }
-    .search-list__garage-option:nth-of-type(5) { margin: 15px 0px 0px 15px; }
-    .search-list__garage-option:nth-of-type(2) .search-list__garage-item { margin-left: auto; }
-
-    .search-list__btn {
-        margin-top: 0px;
-        border-radius: 0px;
-    }
 
 
     /* = index
