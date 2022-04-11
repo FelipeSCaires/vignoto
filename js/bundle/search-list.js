@@ -1,4 +1,4 @@
-class Search extends Filters {
+class SearchList extends Filters {
 
     /**
      * create search

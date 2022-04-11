@@ -93,7 +93,7 @@ class Index {
 
     init() {
 
-        new Search
+        new SearchIndex
         this.offerLaunch()
         this.offer()
         this.openModal()
