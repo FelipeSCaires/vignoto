@@ -983,6 +983,12 @@ body::-webkit-scrollbar {
 }
 /* = search
    ========================================================================== */
+   .search-index__btn p{
+        font-size: 14;
+        font-weight: bold;
+        margin-top: 5px; 
+        text-transform: uppercase;   
+   }
 
    .jetradio__btn { display: none; }
 
@@ -1177,14 +1183,15 @@ display: none;
     background-color: #fff;
     z-index: 9;
 }
-a.header__logo {
-    margin-left: 10%;
+.jetgrid.header-container {
+    justify-content: space-around;
 }
-.header__content{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
+.search-index__btn{
+    color: #fff;
+    padding: 5px 10px;
+    background: var(--primary-color);
+    border-radius: 4px;
+    text-align: center;
 }
 
 .header__nav{
@@ -1228,6 +1235,13 @@ a.header__client svg{
 	animation-duration: 0.7s;
     flex-direction: column;
 }
+.header__nav span{
+    color: var(--primary-color);
+}
+li.jetnav__item {
+    margin: 0 20px;
+}
+
 .header__modal--contact span{
     font-size: 14px;
     margin-bottom: 10px;
@@ -1267,7 +1281,6 @@ li.header__modal--li {
    ========================================================================== */
 
 .nav__window {
-    margin-left: 70px;
     flex: 1;
 }
 
@@ -1697,9 +1710,19 @@ button.search__btn {
   
     position: relative;
 }
+button.banner__prev, button.banner__next {
+    margin: 0 20px;
+}
+.banner__box__pagination__prev,
+.banner__box__pagination__next {
+  
+    position: relative;
+}
 
 .offer-buy__prev { margin-right: 70px; }
 .offer-buy__next { margin-left: 70px }
+.banner__box__pagination__prev { margin-right: 70px; }
+.banner__box__pagination__next { margin-left: 70px }
 
 .offer-buy__icon {
     position: absolute;
@@ -1708,7 +1731,7 @@ button.search__btn {
     transform: translate(-50%, -50%);
 }
 
-.offer-buy__pagination {
+.offer-buy__pagination, .banner__box__pagination {
     width: auto;
     height: 30px;
     display: flex;
@@ -1716,7 +1739,7 @@ button.search__btn {
     align-items: center;
 }
 
-.offer-buy__pagination-item {
+.offer-buy__pagination-item, .banner__box__pagination {
     width: 30px;
     height: 30px;
     margin: 0px 12.5px;
@@ -1725,8 +1748,10 @@ button.search__btn {
 
 .offer-buy__pagination-item:first-of-type { margin-left: 0px; }
 .offer-buy__pagination-item:last-of-type { margin-right: 0px; }
+.banner__box__pagination:first-of-type { margin-left: 0px; }
+.banner__box__pagination:last-of-type { margin-right: 0px; }
 
-.offer-buy__bullet {
+.offer-buy__bullet, .banner__box__pagination {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -1746,11 +1771,30 @@ button.search__btn {
     background-color: var(--secondary-color);
     box-shadow: none;
 }
+.banner__box__pagination:hover,
+.banner__box__pagination--active {
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary-color);
+    box-shadow: none;
+}
+.banner-pagination__bullets li{
+    margin: 20px !important;
+}
+
 
 
 /* = index
    ========================================================================== */
 
+.banner__title {
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+} 
 .search-index__field-item {
     display: flex;
     align-items: center;
@@ -3392,27 +3436,12 @@ html.expand {
 
 /* = contact
    ========================================================================== */
-
-.contact__text {
-    text-align: center;
+.contact-title h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
-.contact__text--margin-top {
-    margin-top: 20px;
-}
-
-.contact__whatsapp {
-    margin-bottom: 30px;
-}
-
-.contact__phone-label {
-    margin-bottom: 4px;
-    text-align: center;
-}
-
-.contact__phone {
-    margin-bottom: 10px;
-}
 
 
 /* = client
@@ -5148,16 +5177,7 @@ html.expand {
 
     /* = header
        ========================================================================== */
-    .header__mobile{
-        display: flex;
-    }
-    .header__mobile ul{
-        display: flex;
-        justify-content: space-around;
-    }   
-    .header-tablet{
-        display: none;
-    }
+ 
     img.header__logo-img {
         width: 136px;
     }
@@ -5232,6 +5252,10 @@ html.expand {
     /* = index
        ========================================================================== */
 
+    .banner__background{
+        display: none;
+    }   
+
     .index__title {
         font-size: 24px;
     }
@@ -5286,6 +5310,7 @@ html.expand {
         text-align: center;
         margin-left: 25px;
         margin-top: 10px;
+        height: 45px;
     }
     .search-index__form.jetgrid {
         padding-top: 0px;
@@ -5498,6 +5523,7 @@ html.expand {
 
     /* = contact
        ========================================================================== */
+
 
 
     /* = client
