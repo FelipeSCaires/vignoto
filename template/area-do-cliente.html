@@ -1,0 +1,54 @@
+<section class="client">
+    <div class="breadcrumb__background">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <div class="breadcrumb__position jetgrid jetgrid--justify-between jetgrid--align-center">
+                    <div class="breadcrumb__current jetgrid jetgrid--justify-left jetgrid--align-center">
+                        <a class="breadcrumb__title ui__display--xs-none" href="{{$config['pageHome']}}">Home</a>
+                        <img class="breadcrumb__pagination ui__display--xs-none" loading="lazy" src="{{$global['base']}}svg/arrow-grey-right.svg" alt="Ícone paginação" width="7.26" height="11.25">
+                        <span class="">Área do cliente</span>
+                    </div>
+                    <a class="breadcrumb__previous" href="javascript:history.back()">
+                        <div class="jetgrid jetgrid--justify-left jetgrid--align-center">
+                            <img class="ui__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-left.svg" alt="Ícone voltar" width="7.27" height="11.25">
+                            <span class="">Voltar</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="client__background">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <form class="client__login">
+                    <div class="client__box">
+                        <h1 class="client__title">Acesse a 2ª via de boletos e o  extrato do proprietário</h1>
+                        <label class="client__label" for="login">Identificação: <span class="ui__text--red">*</span></label>
+                        <input class="client__user" name="login" id="login" type="text" placeholder="Digite sua identificação" value="{php}echo isset($username) ? $username : '';{/php}" autocomplete required>
+                        <label class="client__label" for="senha">Senha: <span class="ui__text--red">*</span></label>                        
+                        <input class="client__password" name="senha" id="senha" type="password" placeholder="Digite sua senha" value="{php}echo isset($password) ? $password : '';{/php}" autocomplete required>
+                        <div class="jetgrid jetgrid--justify-center">
+                            <input class="client__btn" type="submit" value="ACESSAR ÁREA DO CLIENTE">
+                        </div>
+                        <div class="jetgrid jetgrid--justify-center">
+                            <button class="client__recover" type="button">
+                                Esqueci minha senha
+                            </button>
+                        </div>
+                    </div>
+                    <div class="client__preloader jetgrid jetgrid--justify-center jetgrid--align-center jetgrid__col--no-gap">
+                        <svg class="client__preloader-icon" width="40" height="40" viewBox="0 0 50 50"><path d="M43.9 25.1c0-10.3-8.4-18.7-18.7-18.7 -10.3 0-18.7 8.4-18.7 18.7h4.1c0-8.1 6.5-14.6 14.6-14.6 8.1 0 14.6 6.5 14.6 14.6H43.9z"></path></svg>
+                        <div class="client__preloader-text">Aguarde, carregando seus dados</div>
+                    </div>
+                </form>
+                <span class="client__text">
+                    Todos os proprietários e inquilinos recebem mensalmente um e-mail com seus dados de acesso.<br>
+                    Basta preencher os campos com as informações do seu e-mail e clicar em <strong>"Acessar área do cliente"</strong> para ter acesso aos seus extratos ou boletos.
+                    <br><br>
+                    Caso não tenha essa informação <label class="client__highlight" for="jetwindow-access">entre em contato conosco</label> e solicite seus dados de acesso.
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

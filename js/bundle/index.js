@@ -16,15 +16,8 @@ class Index {
          banner() {
             return new JetSlider({
                 element: '.banner__box',
-                       
                 prev: '.banner__prev',
                 next: '.banner__next',
-                slidesToShow: {
-                    0: 1
-                },
-                slidesToScroll: {
-                    0: 1
-                },
                 speed: 650,
                 gap: 30,
                 momentum: true,
@@ -33,7 +26,7 @@ class Index {
                 autoplay: false,
                 autoplaySpeed: 5000,
                 stopOnOver: true,
-                pagination: '.banner__pagination'
+                pagination: '.banner__box__pagination'
             })
         }
   
@@ -85,7 +78,6 @@ class Index {
     }
 
    
-       
 
     /**
 	 * initialize instance
@@ -97,7 +89,7 @@ class Index {
         this.banner()
         this.offer()
         this.openModal()
-       
+    
     }
 
 }
