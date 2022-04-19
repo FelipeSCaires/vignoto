@@ -52,8 +52,8 @@
     <meta name="msapplication-config" content="xml/browserconfig.xml">
 
     <!-- preconnect -->
-    <link rel="preload" href="font/OpenSans-Regular.woff2" as="font" crossorigin>
-    <link rel="preload" href="font/OpenSans-Bold.woff2" as="font" crossorigin>
+    <!-- <link rel="preload" href="font/OpenSans-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="font/OpenSans-Bold.woff2" as="font" crossorigin> -->
 
     <!-- css -->
     <link rel="stylesheet" href="css/bundle.min.css">

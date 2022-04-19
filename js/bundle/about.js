@@ -13,7 +13,7 @@ class About {
 
     image() {
         return new JetSlider({
-            element: '.about-box',
+            element: '.about-content',
             prev: '.about__prev',
             next: '.about__next',
             slidesToShow: 1,
@@ -27,7 +27,6 @@ class About {
             autoplaySpeed: 5000,
             stopOnOver: true,
             pagination: '.about__pagination'
-            // onChange: () => new Scroll().intersection()
         })
     }
 
