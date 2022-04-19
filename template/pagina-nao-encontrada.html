@@ -1,28 +1,35 @@
-<section class="not-found">
-    <nav class="ui__breadcrumb">
+<section class="error">
+    <div class="breadcrumb__background">
         <div class="jetgrid jetgrid--1200">
             <div class="jetgrid__col--24">
-                <div class="jetgrid jetgrid--align-center">
-                    <a class="ui__breadcrumb__back-btn" href="javascript:history.back()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="8.125" height="15.009" viewBox="0 0 8.125 15.009"><g transform="translate(8.125) rotate(90)"><path d="M14.825.183a.625.625,0,0,0-.884,0L7.5,6.616,1.068.183a.625.625,0,0,0-.884.884L7.062,7.942a.625.625,0,0,0,.884,0l6.879-6.875A.624.624,0,0,0,14.825.183Z" fill="currentColor"/></g></svg>
+                <div class="breadcrumb__position jetgrid jetgrid--justify-between jetgrid--align-center">
+                    <div class="breadcrumb__current jetgrid jetgrid--justify-left jetgrid--align-center">
+                        <a class="breadcrumb__title ui__display--xs-none" href="{{$config['pageHome']}}">Home</a>
+                        <img class="breadcrumb__pagination ui__display--xs-none" loading="lazy" src="{{$global['base']}}svg/arrow-grey-right.svg" alt="Ícone paginação" width="7.26" height="11.25">
+                        <span class="">Página não encontrada</span>
+                    </div>
+                    <a class="breadcrumb__previous" href="javascript:history.back()">
+                        <div class="jetgrid jetgrid--justify-left jetgrid--align-center">
+                            <img class="ui__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-left.svg" alt="Ícone voltar" width="7.27" height="11.25">
+                            <span class="">Voltar</span>
+                        </div>
                     </a>
-                    Página não encontrada
                 </div>
             </div>
         </div>
-    </nav>
-    <div class="jetgrid jetgrid--1200 jetgrid--justify-center">
+    </div>
+    <div class="jetgrid jetgrid--1200">
         <div class="jetgrid__col--24">
-            <h1 class="ui__title-line">Página não encontrada</h1>
-        </div>
-        <div class="jetgrid__col--13 jetgrid__col--md-16 jetgrid__col--sm-20 jetgrid__col--xs-24 not-found__content">
-            <img class="not-found__img" src="{{$global['base']}}svg/404.svg" loading="lazy" alt="erro 404" width="266" height="232,88">
-            <h1 class="not-found__title">A página que você esta tentando acessar não foi encontrada</h1>
-            <p class="not-found__text">Ocorreu um erro e infelizmente não conseguimos encontrar essa página. Tente atualizar a página ou <a class="ui__link"  href="{{$config['pageContato']}}">entre em contato</a> para reportar o erro. Obrigado</p>
-            <a class="ui__btn not-found__btn" href="{{$config['pageHome']}}">
-                <div class="ui__btn-label">
-                    Voltar para a página inicial<br>Voltar para a página inicial
-                </div>
+            <div class="error__box">
+                <img class="error__img" loading="lazy" src="{{$global['base']}}img/404-bg.png" alt="Background da página 404">
+            </div>
+            <h1 class="error__title">Página não encontrada</h1>
+            <span class="error__subtitle">A página que você esta tentando acessar não foi encontrada</span>
+            <span class="error__text">
+                Ocorreu um e, infelizmente, não conseguimos encontrar essa página.<br>Tente atualizar a página ou entre em contato para reportar o erro. Obrigado.
+            </span>
+            <a class="error__btn" href="{{$config['pageHome']}}">
+                VOLTAR PARA A PÁGINA INICIAL
             </a>
         </div>
     </div>
