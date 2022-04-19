@@ -11,20 +11,13 @@ class Index {
     }
     
     /**
-	 * create offerLaunch slider
+	 * create banner slider
 	 */
-         offerLaunch() {
+         banner() {
             return new JetSlider({
-                element: '.offer-launch__box',
-                       
-                prev: '.offer-launch__prev',
-                next: '.offer-launch__next',
-                slidesToShow: {
-                    0: 1
-                },
-                slidesToScroll: {
-                    0: 1
-                },
+                element: '.banner__box',
+                prev: '.banner__prev',
+                next: '.banner__next',
                 speed: 650,
                 gap: 30,
                 momentum: true,
@@ -33,7 +26,7 @@ class Index {
                 autoplay: false,
                 autoplaySpeed: 5000,
                 stopOnOver: true,
-                pagination: '.offer-launch__box__pagination'
+                pagination: '.banner__box__pagination'
             })
         }
   
@@ -76,8 +69,8 @@ class Index {
      * header modal
      */
     openModal(){
-        var modal = document.querySelector('.header__modal--contact')
-        var buttonArrow = document.querySelector('#teste')
+        let modal = document.querySelector('.header__modal--contact')
+        let buttonArrow = document.querySelector('#teste')
         buttonArrow.addEventListener('click', ()=>{
             modal.classList.toggle('display')
             buttonArrow.classList.toggle('rotate')
@@ -85,7 +78,6 @@ class Index {
     }
 
    
-       
 
     /**
 	 * initialize instance
@@ -94,10 +86,10 @@ class Index {
     init() {
 
         new SearchIndex
-        this.offerLaunch()
+        this.banner()
         this.offer()
         this.openModal()
-       
+    
     }
 
 }

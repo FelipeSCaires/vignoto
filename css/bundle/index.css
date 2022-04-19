@@ -5486,7 +5486,7 @@ main {
 .form__announce,
 .form__contact {
     width: 100%;
-    height: auto;
+    height: 622px;
     margin-top: 30px;
     padding: 30px 15px;
     position: relative;
@@ -5544,9 +5544,10 @@ main {
 .form__text {
     width: 100%;
     height: auto;
+    margin-top: 30px;
 }
 
-.form__access .form__text { margin-top: 15px; }
+.form__access  { margin-top: 15px; }
 
 .form__required {
     width: 100%;
@@ -5565,7 +5566,6 @@ main {
 .form__label {
     width: 100%;
     height: 18px;
-    margin-top: 15px;
     font-weight: bold;
     overflow: hidden;
 }
@@ -5620,11 +5620,11 @@ main {
 .form__select:hover ~ .form__arrow { transform: translateY(50%) rotate(180deg); }
 
 .form__btn {
-    width: 100%;
+    width: 322px;
     height: 45px;
     margin-top: 15px;
     color: #FFF;
-    background: var(--secondary-color) linear-gradient(90deg, rgba(0, 0, 0, .35), rgba(255, 255, 255, 0));
+    background: orange;
     border-radius: 25px;
     line-height: 45px;
     font-weight: bold;

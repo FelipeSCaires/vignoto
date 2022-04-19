@@ -981,8 +981,21 @@ body::-webkit-scrollbar {
     pointer-events: none;
     z-index: 10;
 }
+
+
+.client__background {
+    width: 100%;
+    height: 870px;
+    background: url(../img/client-bg.jpg) top center no-repeat;
+}
 /* = search
    ========================================================================== */
+   .search-index__btn p{
+        font-size: 14;
+        font-weight: bold;
+        margin-top: 5px; 
+        text-transform: uppercase;   
+   }
 
    .jetradio__btn { display: none; }
 
@@ -1177,14 +1190,19 @@ display: none;
     background-color: #fff;
     z-index: 9;
 }
-a.header__logo {
-    margin-left: 10%;
+.jetgrid.header-container {
+    justify-content: space-around;
 }
-.header__content{
+.search-index__btn{
+    color: #fff;
+    padding: 5px 10px;
+    background: var(--primary-color);
+    border-radius: 4px;
+    text-align: center;
+}
+.header-nav__container{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
+    flex-wrap: nowrap;
 }
 
 .header__nav{
@@ -1206,7 +1224,7 @@ a.header__client {
     border-radius: 6px;
     display: flex;
     justify-content: space-around;
-    width: 240px;
+    width: 190px;
 }
 a.header__client svg{
     margin-right: 10px;
@@ -1228,6 +1246,13 @@ a.header__client svg{
 	animation-duration: 0.7s;
     flex-direction: column;
 }
+.header__nav span{
+    color: var(--primary-color);
+}
+li.jetnav__item {
+    margin: 0 20px;
+}
+
 .header__modal--contact span{
     font-size: 14px;
     margin-bottom: 10px;
@@ -1267,7 +1292,6 @@ li.header__modal--li {
    ========================================================================== */
 
 .nav__window {
-    margin-left: 70px;
     flex: 1;
 }
 
@@ -1697,9 +1721,19 @@ button.search__btn {
   
     position: relative;
 }
+button.banner__prev, button.banner__next {
+    margin: 0 20px;
+}
+.banner__box__pagination__prev,
+.banner__box__pagination__next {
+  
+    position: relative;
+}
 
 .offer-buy__prev { margin-right: 70px; }
 .offer-buy__next { margin-left: 70px }
+.banner__box__pagination__prev { margin-right: 70px; }
+.banner__box__pagination__next { margin-left: 70px }
 
 .offer-buy__icon {
     position: absolute;
@@ -1708,7 +1742,7 @@ button.search__btn {
     transform: translate(-50%, -50%);
 }
 
-.offer-buy__pagination {
+.offer-buy__pagination, .banner__box__pagination {
     width: auto;
     height: 30px;
     display: flex;
@@ -1716,7 +1750,7 @@ button.search__btn {
     align-items: center;
 }
 
-.offer-buy__pagination-item {
+.offer-buy__pagination-item, .banner__box__pagination {
     width: 30px;
     height: 30px;
     margin: 0px 12.5px;
@@ -1725,8 +1759,10 @@ button.search__btn {
 
 .offer-buy__pagination-item:first-of-type { margin-left: 0px; }
 .offer-buy__pagination-item:last-of-type { margin-right: 0px; }
+.banner__box__pagination:first-of-type { margin-left: 0px; }
+.banner__box__pagination:last-of-type { margin-right: 0px; }
 
-.offer-buy__bullet {
+.offer-buy__bullet, .banner__box__pagination {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -1746,11 +1782,30 @@ button.search__btn {
     background-color: var(--secondary-color);
     box-shadow: none;
 }
+.banner__box__pagination:hover,
+.banner__box__pagination--active {
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary-color);
+    box-shadow: none;
+}
+.banner-pagination__bullets li{
+    margin: 20px !important;
+}
+
 
 
 /* = index
    ========================================================================== */
 
+.banner__title {
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+} 
 .search-index__field-item {
     display: flex;
     align-items: center;
@@ -2172,7 +2227,9 @@ h2.offer__launck--title {
 .index-about__link:hover {
     color: var(--primary-color);
 }
-
+.about__title{
+    color: var(--primary-color);
+}
 
 /* = location
    ========================================================================== */
@@ -2212,8 +2269,7 @@ h2.offer__launck--title {
 
 .about__title,
 .about__subtitle {
-    color: #fff;
-    text-align: center;
+    color: var(--primary-color);
 }
 
 .about__title {
@@ -2232,14 +2288,39 @@ h2.offer__launck--title {
     top: 0;
     left: 0;
     object-fit: cover;
-    z-index: -1;
+}
+
+li.jetslider__pagination-item.about-content__pagination-item {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 100%;
+}
+.about-box__bullet {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+    border-radius: 50%;
+    transition: width .3s,height .3s,background-color .3s,box-shadow .3s;
+    transform: translate(-50%,-50%);
 }
 
 .about__content-title {
     margin-bottom: 20px;
     font-size: 18px;
 }
-
+.about__content{
+    width: 100%; 
+    height: auto;
+}
+.about__box{
+    width: 100%;
+    height: 400px;
+}
 /* = list
    ========================================================================== */
 
@@ -3392,26 +3473,23 @@ html.expand {
 
 /* = contact
    ========================================================================== */
-
-.contact__text {
-    text-align: center;
+.contact-title h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 50px 0;
 }
-
-.contact__text--margin-top {
-    margin-top: 20px;
+.contact-location__title svg{
+    margin-right: 10px;
 }
-
-.contact__whatsapp {
-    margin-bottom: 30px;
+.contact--title svg{
+    margin-right: 10px;
 }
-
-.contact__phone-label {
-    margin-bottom: 4px;
-    text-align: center;
+.contact--phone svg{
+    margin-right: 10px;
 }
-
-.contact__phone {
-    margin-bottom: 10px;
+.contact--whats svg{
+    margin-right: 10px;
 }
 
 
@@ -3778,26 +3856,23 @@ html.expand {
    ========================================================================== */
 
 .form__label {
-    margin-bottom: 10px;
     display: inline-block;
     font-weight: 700;
+    margin-top: 15px;
 }
 
 .form__asterisk {
     color: #ff0000; 
 }
 
-.form__input,
-.form__select,
-.form__textarea {
+.form__input, .form__select, .form__textarea {
     width: 100%;
     height: 40px;
-    margin-bottom: 15px;
     padding: 0 15px;
     background-color: #fff;
     color: #000;
-    border: 1px solid #000;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 32px;
 }
 
 .form__select {
@@ -3845,6 +3920,10 @@ html.expand {
 
 .form__content {
     transition: opacity .4s;
+    padding: 0px 15px;
+}
+.form__contact{
+    padding: 0 15px;
 }
 
 .form__content--hidden {
@@ -4422,7 +4501,7 @@ html.expand {
     }
 
     .nav__list {
-        align-items: start;
+        align-items: center;
     }
 
     .nav__list:not(:first-child) {
@@ -4711,7 +4790,7 @@ html.expand {
         border-radius: 6px;
         display: flex;
         justify-content: space-around;
-        width: 240px;
+        width: 190px;
     }
 
     /* = nav
@@ -5148,18 +5227,27 @@ html.expand {
 
     /* = header
        ========================================================================== */
-    .header__mobile{
-        display: flex;
-    }
-    .header__mobile ul{
-        display: flex;
-        justify-content: space-around;
-    }   
-    .header-tablet{
-        display: none;
-    }
+ 
     img.header__logo-img {
         width: 136px;
+    }
+    a.header__client {
+        padding: 10px 20px;
+        border: 2px solid #003865;
+        margin-left: 10px;
+        border-radius: 6px;
+        justify-content: space-around;
+        width: 35px;
+        height: 45px;
+    }
+   
+    a.header__client svg {
+        margin-right: 0px;
+        position: absolute;
+        margin-top: 18px;
+    }
+    .nav__list{
+        display: none;
     }
 
 
@@ -5232,6 +5320,10 @@ html.expand {
     /* = index
        ========================================================================== */
 
+    .banner__background{
+        display: none;
+    }   
+
     .index__title {
         font-size: 24px;
     }
@@ -5274,7 +5366,7 @@ html.expand {
         padding: 0 15px;
         border-radius: 5px;
         z-index: 1;
-        width: 260px;
+        width: 90%;
         margin-left: 10px;
         border: 1px solid #ccc;
         flex-wrap: wrap;
@@ -5282,10 +5374,11 @@ html.expand {
     }
 
     .search-index__btn {
-        width: 260px!important;
+        width: 80%!important;
         text-align: center;
         margin-left: 25px;
         margin-top: 10px;
+        height: 45px;
     }
     .search-index__form.jetgrid {
         padding-top: 0px;
@@ -5310,7 +5403,7 @@ html.expand {
         display: none;
     }
     .index__search h1 {
-        font-size: 30px;
+        font-size: 29px;
         color: #fff;
         position: absolute;
         top: 7%;
@@ -5498,6 +5591,7 @@ html.expand {
 
     /* = contact
        ========================================================================== */
+
 
 
     /* = client

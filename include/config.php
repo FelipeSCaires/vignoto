@@ -67,6 +67,8 @@
         ['como-alugar'],
         ['sobre'],
         ['contato'],
+        ['area-do-cliente'],
+        ['a-imobiliaria', 'About'],
         ['trabalhe-conosco'],
         ['sou-cliente', 'Client'],
         ['alterar-senha', 'Client'],
