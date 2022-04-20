@@ -18,6 +18,8 @@ class Index {
                 element: '.banner__box',
                 prev: '.banner__prev',
                 next: '.banner__next',
+                slidesToShow: 1,
+                slidesToScroll: 1,
                 speed: 650,
                 gap: 30,
                 momentum: true,

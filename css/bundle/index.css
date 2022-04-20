@@ -33,13 +33,7 @@
       /* overflow-x: hidden; */
       /* overflow-y: scroll; */
    }
-   
-   .body__index {
-       width: 100%;
-       height: auto;
-       background: #E4E4DC url(../img/index-bg.jpg) top center no-repeat;
-   }
-   
+
    
    /* = text
       ========================================================================== */

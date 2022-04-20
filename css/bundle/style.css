@@ -1190,7 +1190,7 @@ display: none;
     background-color: #fff;
     z-index: 9;
 }
-.jetgrid.header-container {
+.jetgrid.header__container {
     justify-content: space-around;
 }
 .search-index__btn{
@@ -3479,9 +3479,7 @@ html.expand {
     color: var(--primary-color);
     padding: 50px 0;
 }
-.contact-location__title svg{
-    margin-right: 10px;
-}
+
 .contact--title svg{
     margin-right: 10px;
 }
@@ -4450,9 +4448,7 @@ html.expand {
 
     /* = header
        ========================================================================== */
-    .header-tablet{
-    display: block;
-    }   
+    
     nav.jetnav.nav {
     display: none;
 
