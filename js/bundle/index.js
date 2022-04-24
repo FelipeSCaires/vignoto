@@ -15,7 +15,7 @@ class Index {
 	 */
          banner() {
             return new JetSlider({
-                element: '.banner__box',
+                element: '.banner-content',
                 prev: '.banner__prev',
                 next: '.banner__next',
                 slidesToShow: 1,
@@ -28,7 +28,7 @@ class Index {
                 autoplay: false,
                 autoplaySpeed: 5000,
                 stopOnOver: true,
-                pagination: '.banner__box__pagination'
+                pagination: '.banner__pagination'
             })
         }
   
