@@ -911,10 +911,6 @@ body::-webkit-scrollbar {
 
 .ui__return { margin-right: 10px; }
 
-/* display */
-
-.ui__display--none { display: none !important; }
-.ui__display--block { display: block !important; }
 
 /* = breadcrumb
    ========================================================================== */
@@ -1026,24 +1022,36 @@ body::-webkit-scrollbar {
    ========================================================================== */
 
 .header {
-    height: 92px;
-    align-items: center;
-    display: flex;
+    width: 100%;
+    height: auto;
     background: #fff;
 }
-.jetnav__item {
-    margin: 20px;
+
+.header__background {
+    width: 100%;
+    height: 90px;
 }
-.header__client {
-    margin-top: 10px;
-    margin-left: 20px;
-    border: 2px solid #003865;
-    padding: 10px;
-    border-radius: 4px;
+
+.header__logo {
+    width: 100%;
+    height: auto;
+    max-width: 220px;
 }
-.header__right{
-    margin-left: 20%;
+
+.header__logo-img {
+    width: 100%;
+    height: auto;
 }
+
+.header__right {
+    width: 100%;
+    height: auto;
+    max-width: 465px;
+    margin-left: auto;
+}
+
+
+
 .display{
     display: flex;
 }
@@ -1065,15 +1073,34 @@ body::-webkit-scrollbar {
     margin-top: 41%;
     margin-left: 195%;
 }
+
+
 /* = nav
    ========================================================================== */
+
+.nav__list {
+    width: 100%;
+    height: auto;
+    max-width: 210px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__client {
+    width: 100%;
+    height: 45px;
+    max-width: 175px;
+    border: 2px solid #003865;
+    border-radius: 5px;
+}
+
+.nav__icon { margin-right: 10px; }
+
+
+
 .nav__close{
     display: none;
 }   
-
-.nav__window {
-    flex: 1;
-}
 
 .nav__content {
     height: inherit;
@@ -1083,32 +1110,28 @@ body::-webkit-scrollbar {
     border-radius: 0;
 }
 
-.nav__menu {
+/* .nav__menu {
     justify-content: space-between;
-}
+} */
 
-.nav__menu,
+/* .nav__menu,
 .nav__list {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.nav__item {
+/* .nav__item {
     display: inline-flex;
-}
+} */
 
-.nav__item:not(:last-child) {
+/* .nav__item:not(:last-child) {
     margin-right: 30px;
-}
+} */
 
-.nav__btn {
+/* .nav__btn {
     color: #fff;
-}
-
-.nav__mobile {
-    display: none;
-}
+} */
 
 
 /* = main
@@ -4151,9 +4174,6 @@ html.expand {
     /* = nav
        ========================================================================== */
 
-    .nav__window {
-        margin-left: 30px;
-    }
 
 
     /* = main
@@ -4281,19 +4301,12 @@ html.expand {
        ========================================================================== */
     
     nav.jetnav.nav {
-    display: none;
-
-    }   
-    .jetgrid.jetgrid--justify-end.jetgrid--align-center {
-        flex-wrap: nowrap;
+        display: none;
     }
+
 
     /* = nav
        ========================================================================== */
-
-    .nav__window {
-        margin-left: 0;
-    }
 
     .nav__box {
         width: 308px;
@@ -4305,13 +4318,6 @@ html.expand {
         height: auto;
     }
 
-    .nav__menu {
-        padding: 40px 35px 60px 60px;
-        display: flex;
-        align-items: start;
-        flex-direction: column;
-        background-color: #000;
-    }
 
     .nav__close {
         height: 21px;
@@ -4327,40 +4333,24 @@ html.expand {
         transform: rotate(90deg);
     }
 
-    .nav__list {
-        align-items: center;
-    }
-
-    .nav__list:not(:first-child) {
-        width: 100%;
-    }
-
-    .nav__list:not(:first-child) .nav__item:not(:last-child) {
+    /* .nav__list:not(:first-child) .nav__item:not(:last-child) {
         margin-right: 0;
-    }
+    } */
 
-    .nav__list .nav__btn {
+    /* .nav__list .nav__btn {
         margin-bottom: 12px;
-    }
+    } */
 
-    .nav__btn--pill {
-        width: 130px;
-    }
 
     .nav__overlay {
         background-color: rgba(255, 255, 255, .6) !important;
     }
 
-    .nav__mobile {
-        display: flex !important;
-        align-items: center;
-    }
-
-    .nav__open {
+    /* .nav__open {
         display: none;
         color: #fff;
         cursor: pointer;
-    }
+    } */
 
 
     /* = main
@@ -4604,7 +4594,9 @@ html.expand {
     /* = header
        ========================================================================== */
 
-    a.header__logo{
+    .header__right { max-width: 250px; }
+
+    /* a.header__logo{
         margin-left: 0;
     }
     .av__mobile{
@@ -4616,18 +4608,30 @@ html.expand {
     }
     .header__client{
         margin-left: 35px;
-    }
+    } */
 
     /* = nav
        ========================================================================== */
 
-    .nav__list:not(:first-child) {
-        margin-top: 30px;
+    .nav__open {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        border: 2px solid #003865;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
     }
 
-    .nav__list:not(:first-child) .nav__item  {
+    
+
+    /* .nav__list:not(:first-child) {
+        margin-top: 30px;
+    } */
+
+    /* .nav__list:not(:first-child) .nav__item  {
         margin-bottom: 15px;
-    }
+    } */
 
 
     /* = main
@@ -5045,7 +5049,10 @@ html.expand {
 
     /* = header
        ========================================================================== */
-    .header__client {
+
+    .header__right { max-width: 120px; }
+
+    /* .header__client {
         margin-left: 106px;
         margin-bottom: 30px;
     }
@@ -5054,24 +5061,26 @@ html.expand {
     }
     .nav__header{
         display: none;
-    }
+    } */
    
 
 
     /* = nav
        ========================================================================== */
 
+       .nav__client { max-width: 45px; }
+       .nav__icon { margin-right: 0px; }
+
+    /* .nav__icon { margin-right: 0px; }
+
     .nav__box {
         width: 241px;
-    }
+    } */
 
-    .nav__list:not(:first-child) .ui__btn:not(.nav__btn--pill)  {
-        margin: 0;
-    }
 
-    .nav__item:not(:last-child) {
+    /* .nav__item:not(:last-child) {nav__btn
         margin-right: 0px;
-    }
+    } */
     
   
     /* = main
