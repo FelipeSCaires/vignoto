@@ -67,20 +67,6 @@ class Index {
         })
     }
 
-     /**
-     * header modal
-     */
-    openModal(){
-        let modal = document.querySelector('.header__modal--contact')
-        let buttonArrow = document.querySelector('#teste')
-        buttonArrow.addEventListener('click', ()=>{
-            modal.classList.toggle('display')
-            buttonArrow.classList.toggle('rotate')
-        })
-    }
-
-   
-
     /**
 	 * initialize instance
 	 */
@@ -90,7 +76,7 @@ class Index {
         new SearchIndex
         this.banner()
         this.offer()
-        this.openModal()
+
     
     }
 
