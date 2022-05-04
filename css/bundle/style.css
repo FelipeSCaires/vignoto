@@ -52,6 +52,7 @@ body {
     background-color: #efefef;
     font-family: 'Ubuntu', sans-serif;
     font-size: 14px;
+    line-height: 22px;
 }
 
 
@@ -1171,38 +1172,46 @@ body::-webkit-scrollbar {
    ========================================================================== */
 
   /* search-index */
-.search__container{
+
+.search-index__position{
+    margin: auto 0;
+}
+.search-index__container{
     background-color: var(--primary-color);
     height: auto;
     min-height: 400px;
+    width: 100%;
 }
-.search__bg{
+.search__bg {
     position: absolute;
     top: 0;
-}  
+    left: 50%;
+    transform: translateX(-50%);
+}
 .index__search{
     background: var(--primary-color);
     width: 100%;
     height: 300px;
 }   
 
-.search-index__form {
+.search-index__field {
     width: 100%;
     background: #fff;
     border-radius: 30px 0 30px 0;
-    padding: 30px 0px;
+    padding: 30px 15px;
+    z-index: 1;
 }
 .search__btn {
+    width: 100%;
     background: var(--primary-color);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
     line-height: 40px;
-    margin-right: 15px;
-    margin-left: 15px;
+
 } 
 .search {
     margin-bottom: 60px;
@@ -1211,6 +1220,14 @@ body::-webkit-scrollbar {
     background-color: #fff;
 }
 
+.search-index__title{
+    font-size: 40px;
+    line-height: 46px;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 30px;
+}
 
 
 .search__type-tag {
@@ -2663,14 +2680,6 @@ h2.offer__launck--title {
 }
 
 
-.index__search h1{
-    font-size: 40px;
-    color: #fff;
-    margin-top: 90px;
-    z-index: 999;
-}
-
-
 .index__title {
     font-size: 35px;
     font-weight: 700;
@@ -2773,18 +2782,10 @@ h2.offer__launck--title {
 .search-list__open{
     width: 200px;
 }
-.list__order{
-    width: 200px;
-    margin-top: 0px;
-}
-/* .list__order .jetselect__btn {
-    border: 1px solid #ccc;
-    border-radius: 0 10px 10px 0;
-    height: 44px;
-} */
+
 .list__grid {
     left: -3px;
-    display: none;
+    display: block;
 }   
 .list__img {
     width: 100%;
@@ -2925,6 +2926,18 @@ h2.offer__launck--title {
 /* = list
    ========================================================================== */
 
+.list__order {
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom: none;
+    width: 190px;
+    border-right: none;
+}
+
+.list__filter--text {
+    margin-bottom: 0;
+    margin-right: 10px;
+}
    .list__toolbar {
     width: 100%;
     height: 45px;
@@ -2934,32 +2947,49 @@ h2.offer__launck--title {
     border-radius: 10px;
 }
 
-.list__option {
-    width: 100%;
-    height: auto;
-    max-width: 280px;
+.list__options {
+    display: flex;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
 }
 
-.list__list,
-.list__grid {
+.list__list {
     width: 45px;
-    height: 45px;
+    height: 46px;
     position: relative;
-    top: -1px;
+    left: -21px;
     background-color: #FFF;
     border: 1px solid #CCC;
+    border-top: none;
+    border-bottom: none;
+    transition: background-color .3s, border .3s;
+}
+.list__grid{
+    width: 45px;
+    height: 46px;
+    position: relative;
+    left: -22px;
+    background-color: var(--primary-color);
+    border: 1px solid #CCC;
+    border-top: none;
+    border-bottom: none;
     transition: background-color .3s, border .3s;
 }
 
-.list__list { left: -2px; }
-.list__grid { left: -3px; }
+
 
 .list__list:hover,
-.list__list.active,
-.list__grid:hover,
-.list__grid.active {
+.list__list.active {
     background-color: var(--primary-color);
     border-right: 1px solid var(--primary-color);
+}
+.list__grid:hover,
+.list__grid.active{
+    background-color: #fff;
+    border-right: 1px solid #fff;
 }
 
 .list__symbol {
@@ -2972,23 +3002,19 @@ h2.offer__launck--title {
 .list__symbol path { transition: fill .3s; }
 
 .list__list:hover .list__symbol path,
-.list__list.active .list__symbol path,
-.list__grid:hover .list__symbol path,
-.list__grid.active .list__symbol path {
+.list__list.active .list__symbol path
+{
     fill: #FFF;
 }
-
-.list__order {
-    max-width: 190px;
-    position: relative;
-    top: -1px;
-    right: -1px;
+.list__grid:hover .list__symbol path,
+.list__grid.active .list__symbol path {
+    fill: #003865;
 }
-/* 
-.list__order .jetselect__btn {
-    border: 1px solid #CCC;
-    border-radius: 0px 10px 10px 0px;
-} */
+
+.list__order-btn{
+    border: none;
+}
+
 
 .list__amount {
     width: 100%;
@@ -3063,9 +3089,11 @@ h2.offer__launck--title {
     border-radius: 0px;
 }
 
-.list__container{
-    display: flex;
-    width: 100%;
+.list__container {
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .list__reserved {
@@ -4709,6 +4737,7 @@ html.expand {
     width: 100%;
     height: auto;
     margin-top: 30px;
+    margin-bottom: 25px;
 }
 
 .form__access  { margin-top: 15px; }
@@ -4956,78 +4985,125 @@ html.expand {
 /* = footer
    ========================================================================== */
  
-.footer-content {
-    display: flex;
-    flex-direction: row;
-    margin-right: 44px;
-}   
-
-.footer {
+   footer {
+    width: 100%;
+    height: auto;
+    color: #FFF;
     background-color: var(--primary-color);
 }
 
 .footer__top {
-    padding-top: 60px;
-    padding-bottom: 120px;
+    width: 100%;
+    height: auto;
+    padding: 90px 0px;
 }
 
-.footer__btn {
-    color: #000;
+.footer__logo {
+    width: 100%;
+    height: auto;
+    max-width: 230px;
 }
 
+.footer__logo.nav__btn--active { padding: 0px; }
+
+.footer__logo-img {
+    width: 100%;
+    height: auto;
+}
+
+.footer__contact,
+.footer__place,
 .footer__social {
-    margin-bottom: 30px;
-}
-
-.footer__social-link {
-    margin-top: 15px;
-}
-
-.footer__social-link:not(:last-child) {
-    margin-right: 15px;
-}
-
-.footer__social-icon {
-    margin: auto;
-}
-
-.footer__address {
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
 }
 
 .footer__title {
-    display: inline-block;
+    width: auto;
+    height: auto;
     font-size: 30px;
-    color: #fff;
-    font-weight: bold;
+    line-height: 38px;
 }
 
-.footer__title:not(:first-child) {
-    margin-top: 20px;
+.footer__phone,
+.footer__whatsapp {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    display: block;
 }
+
+.footer__phone:first-of-type { margin-top: 20px; }
+
+.footer__address {
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.footer__headline {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    display: block;
+}
+
+.footer__schedule {
+    width: 100%;
+    height: auto;
+    max-width: 295px;
+    display: block;
+}
+
+.footer__follow {
+    width: 100%;
+    height: auto;
+    margin-top: 45px;
+}
+
+.footer__facebook,
+.footer__twitter,
+.footer__youtube,
+.footer__instagram,
+.footer__linkedin {
+    width: auto;
+    height: auto;
+    margin: 20px 15px 0px 0px;
+}
+
+.footer__social a:last-of-type { margin: 20px 0px 0px 0px; }
 
 .footer__bottom {
-    padding: 20px 0;
-    background-color: var(--primary-color);
-    color: #fff;
+    width: 100%;
+    height: auto;
+    border-top: 1px solid #FFF;
 }
 
-.footer__copyright {
+.footer__position {
+    width: 100%;
+    height: auto;
+    padding: 15px 0px;
+}
+
+.footer__left {
+    width: 55%;
+    height: auto;
     font-size: 12px;
+    line-height: 16px;
 }
 
-.footer__link + .footer__link {
-    margin-left: 40px
+.footer__line {
+    width: auto;
+    height: auto;
+    margin: 0px 10px;
 }
-.footer__logo--grid{
-    display: flex;
-    width: 30%;
+
+.footer__right {
+    width: 45%;
+    height: auto;
+    max-width: 300px;
 }
-.footer__logo--container{
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-} 
 
 
 /* ==========================================================================
@@ -5523,6 +5599,20 @@ html.expand {
 
     /* = contact
        ========================================================================== */
+       .contact__address { text-align: center; }
+       .contact__btn { margin: 30px auto 0px; }
+       .contact__hours { text-align: center; }
+   
+       .contact__schedule {
+           margin: 0px auto;
+           text-align: center;
+       }
+   
+       .contact__text {
+           margin: 15px auto 0px;
+           text-align: center;
+       }
+   
 
 
     /* = client
@@ -5543,26 +5633,18 @@ html.expand {
 
     /* = footer
        ========================================================================== */
-
-    .footer__top {
-        padding-bottom: 60px;
-    }
-
+       .footer__place { margin: 35px 0px 0px 0px; }
+       .footer__position { padding: 20px 0px; }
    
-    .footer__logo--grid {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        width: 30%;
-    }
-    .footer__social {
-        margin-top: -379px;
-        margin-left: 397px;
-    }
-    .footer_location{
-        margin-left: 400px;
-    }
-    
+       .footer__left,
+       .footer__right {
+           width: 100%;
+       }
+   
+       .footer__right { margin-top: 15px; }
+   
+   
+   
 
 }
 
@@ -5876,41 +5958,27 @@ html.expand {
 
     /* = footer
        ========================================================================== */
-    .footer-content {
-        display: flex;
-        flex-direction: column ;
-        margin-right: 44px;
-    }      
 
-    .footer__logo {
-        margin-bottom: 30px;
+    .footer__logo { margin: 0px auto; }
+
+    .footer__contact {
+        max-width: 215px;
+        margin: 35px auto 0px;
+    }
+
+    .footer__place {
+        max-width: 295px;
+        margin: 35px auto 0px;
     }
 
     .footer__social {
-        margin-top: 30px;
+        max-width: 200px;
+        margin: 35px auto 0px;
     }
 
-    .footer__bottom {
-        padding: 25px 0 30px;
-    }
+    .footer__title { text-align: center; }
 
-    .footer__copyright {
-        margin-bottom: 20px;
     }
-    .footer__social {
-        top: -405px;
-        margin-left: 484px;
-        position: relative;
-    }
-    .ui__btn--transparent-line {
-        height: 30px;
-        line-height: 30px;
-        overflow: initial;
-        display: flex;
-    }
-  
-
-}
 
 
 /* ==========================================================================
@@ -6076,7 +6144,7 @@ html.expand {
     .search__btn {
         background: var(--primary-color);
         color: #fff;
-        border-radius: 4px;
+        border-radius: 5px;
         font-size: 14px;
         text-transform: uppercase;
         font-weight: 700;
@@ -6084,7 +6152,6 @@ html.expand {
         line-height: 40px;
         margin-right: 15px;
         margin-left: 15px;
-        width: 93%;
     }
     .search {
         margin-bottom: 30px;
@@ -6300,10 +6367,7 @@ html.expand {
     /* = list
        ========================================================================== */
 
-    .list__order-title {
-        margin: 0 0 10px 0;
-        line-height: 19px;
-    }
+   
 
     .list__pagination-box {
         margin-top: 15px;
@@ -6502,23 +6566,42 @@ html.expand {
     /* = footer
        ========================================================================== */
 
-    .footer__logo {
-        margin: 0 auto 30px;
-    }
-    ul.footer__nav {
-        margin-left: -154px;
-    }
-    ul.footer__nav-mobile {
-        margin-left: 19px;
-        margin-bottom: 30px;
-    }
-    .footer__social {
-        margin-left: 16px;
-        top: 40px;
+       .footer__top { padding: 60px 0px; }
+       .footer__logo { margin: 0px; }
    
-    }
-    .body__index {
-        padding-bottom: 0;
-    }
-
-}
+       .footer__contact,
+       .footer__place,
+       .footer__social {
+           max-width: 100%;
+       }
+   
+       .footer__title { text-align: left; }
+       .footer__position { padding: 30px 0px; }
+   
+       .footer__copyright {
+           width: 100%;
+           height: auto;
+       }
+   
+       .footer__webmail {
+           width: auto;
+           height: auto;
+           margin-top: 20px;
+       }
+   
+       .footer__right {
+           max-width: 100%;
+           margin: 0px;
+       }
+   
+       .footer__developer {
+           width: 100%;
+           margin-top: 20px;
+       }
+   
+       .footer__paperplane,
+       .footer__casasoft {
+           width: auto;
+           height: auto;
+       }
+} 
