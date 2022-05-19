@@ -15,9 +15,11 @@ class Index {
 	 */
          banner() {
             return new JetSlider({
-                element: '.banner__box',
+                element: '.banner-content',
                 prev: '.banner__prev',
                 next: '.banner__next',
+                slidesToShow: 1,
+                slidesToScroll: 1,
                 speed: 650,
                 gap: 30,
                 momentum: true,
@@ -26,7 +28,7 @@ class Index {
                 autoplay: false,
                 autoplaySpeed: 5000,
                 stopOnOver: true,
-                pagination: '.banner__box__pagination'
+                pagination: '.banner__pagination'
             })
         }
   
@@ -65,20 +67,6 @@ class Index {
         })
     }
 
-     /**
-     * header modal
-     */
-    openModal(){
-        let modal = document.querySelector('.header__modal--contact')
-        let buttonArrow = document.querySelector('#teste')
-        buttonArrow.addEventListener('click', ()=>{
-            modal.classList.toggle('display')
-            buttonArrow.classList.toggle('rotate')
-        })
-    }
-
-   
-
     /**
 	 * initialize instance
 	 */
@@ -88,7 +76,7 @@ class Index {
         new SearchIndex
         this.banner()
         this.offer()
-        this.openModal()
+
     
     }
 

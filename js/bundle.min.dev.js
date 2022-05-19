@@ -40,6 +40,45 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+var About =
+/*#__PURE__*/
+function () {
+  function About() {
+    _classCallCheck(this, About);
+
+    this.init();
+  }
+
+  _createClass(About, [{
+    key: "image",
+    value: function image() {
+      return new JetSlider({
+        element: ".about-content",
+        prev: ".about__prev",
+        next: ".about__next",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 650,
+        gap: 30,
+        momentum: !0,
+        weight: 100,
+        loop: !1,
+        autoplay: !1,
+        autoplaySpeed: 5e3,
+        stopOnOver: !0,
+        pagination: ".about__pagination"
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      this.image();
+    }
+  }]);
+
+  return About;
+}();
+
 var router;
 
 var App =
@@ -1062,9 +1101,69 @@ function () {
   }
 
   _createClass(Index, [{
+    key: "banner",
+    value: function banner() {
+      return new JetSlider({
+        element: ".banner__box",
+        prev: ".banner__prev",
+        next: ".banner__next",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 650,
+        gap: 30,
+        momentum: !0,
+        weight: 100,
+        loop: !1,
+        autoplay: !1,
+        autoplaySpeed: 5e3,
+        stopOnOver: !0,
+        pagination: ".banner__box__pagination"
+      });
+    }
+  }, {
+    key: "offer",
+    value: function offer() {
+      var e = [".offer-buy", ".offer-rent"];
+      e.forEach(function (e) {
+        return new JetSlider({
+          element: e,
+          prev: "".concat(e, "__prev"),
+          next: "".concat(e, "__next"),
+          slidesToShow: {
+            0: 1,
+            568: 2,
+            821: 3
+          },
+          slidesToScroll: {
+            0: 1,
+            568: 2,
+            821: 3
+          },
+          speed: 650,
+          gap: 30,
+          momentum: !0,
+          weight: 100,
+          loop: !1,
+          autoplay: !1,
+          autoplaySpeed: 5e3,
+          stopOnOver: !0,
+          pagination: "".concat(e, "__pagination")
+        });
+      });
+    }
+  }, {
+    key: "openModal",
+    value: function openModal() {
+      var e = document.querySelector(".header__modal--contact"),
+          t = document.querySelector("#teste");
+      t.addEventListener("click", function () {
+        e.classList.toggle("display"), t.classList.toggle("rotate");
+      });
+    }
+  }, {
     key: "init",
     value: function init() {
-      new Search();
+      new SearchIndex(), this.banner(), this.offer(), this.openModal();
     }
   }]);
 
@@ -5063,232 +5162,14 @@ function () {
   }, {
     key: "mapButtonHandler",
     value: function mapButtonHandler() {
-      var e = document.querySelector(".list"),
-          t = ["css/leaflet.min.css", "js/leaflet.min.js"];
-      this.map ? (e.classList.toggle("list--map-opened"), this.checkMapButton(e)) : this.loadScript(t, this.createMap.bind(this));
-    }
-  }, {
-    key: "checkMapButton",
-    value: function checkMapButton(e) {
-      setTimeout(function () {
-        var t = document.querySelectorAll(".list__map-btn-text");
-        t.forEach(function (t) {
-          e.classList.contains("list--map-opened") ? t.innerHTML = "Fechar mapa" : t.innerHTML = "Imóveis no mapa";
-        });
-      }, 100);
-    }
-  }, {
-    key: "loadScript",
-    value: function loadScript(e, t) {
       var _this148 = this;
-
-      var i = e.map(function (e) {
-        return _this148.createTag(e);
-      });
-      Promise.all(i).then(t);
-    }
-  }, {
-    key: "createTag",
-    value: function createTag(e) {
-      return new Promise(function (t) {
-        var i = e.split(".").pop(),
-            s = "js" === i ? "script" : "link",
-            o = "js" === i ? "src" : "href",
-            n = document.createElement(s),
-            a = document.querySelector("".concat(s, "[").concat(o, "=\"").concat(e, "\"]"));
-        a && a.remove(), n[o] = e, "css" === i && (n.rel = "stylesheet"), document.body.appendChild(n), n.onload = function () {
-          return t(e);
-        };
-      });
-    }
-  }, {
-    key: "createMap",
-    value: function createMap() {
-      var _this149 = this;
-
-      var e = document.querySelector(".list"),
-          t = this.data.map(function (e) {
-        return [e.lat, e.lng];
-      });
-      this.map = L.map("map"), this.createTile(), this.data.forEach(function (e) {
-        return _this149.createMarker(e, _this149.createIcon());
-      }), e.classList.add("list--map-opened"), this.checkMapButton(e), this.removeHashLink(), setTimeout(function () {
-        return _this149.map.fitBounds(t);
-      }, 1e3), router.updateLinks();
-    }
-  }, {
-    key: "updateMap",
-    value: function updateMap() {
-      var e = document.querySelector(".list");
-      this.checkMapButton(e), e.classList.contains("list--map-opened") && this.createMap();
-    }
-  }, {
-    key: "getMapData",
-    value: function getMapData() {
-      var e = document.querySelectorAll(".list__map-infos");
-      this.data = _toConsumableArray(e).map(function (e) {
-        return JSON.parse(e.value);
-      });
-    }
-  }, {
-    key: "createTile",
-    value: function createTile() {
-      var e = "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
-      L.tileLayer(e, {
-        id: "mapbox/streets-v11",
-        tileSize: 512,
-        zoomOffset: -1
-      }).addTo(this.map);
-    }
-  }, {
-    key: "createMarker",
-    value: function createMarker(e, t) {
-      var _this150 = this;
-
-      L.marker([e.lat, e.lng], {
-        icon: t
-      }).addTo(this.map).bindPopup(this.createPopUp(e)).on("click", function () {
-        setTimeout(function () {
-          _this150.removeHashLink(), router.updateLinks();
-        });
-      });
-    }
-  }, {
-    key: "createIcon",
-    value: function createIcon() {
-      return L.icon({
-        iconUrl: "svg/marker.svg",
-        iconSize: [40, 40],
-        iconAnchor: [20, 20]
-      });
-    }
-  }, {
-    key: "createPopUp",
-    value: function createPopUp(e) {
-      return "<a href=\"".concat(e.url, "\">\n            <img class=\"list__map-img\" src=\"").concat(e.img, "\" width=\"150\" height=\"50\">\n            <div class=\"list__map-content\">\n                ").concat(e.referencia, "\n                <strong class=\"list__map-type\">").concat(e.tipoimovel, "</strong>\n                ").concat(e.tipoendereco, ". ").concat(e.endereco, "<br>\n                ").concat(e.bairro, " - ").concat(e.cidade, "/").concat(e.estado, "\n                <div class=\"list__map-price\">\n                    ").concat(e.valorVenda ? "Venda: <strong>R$ ".concat(e.valorVenda.toLocaleString("pt-BR", {
-        minimumFractionDigits: 2
-      }), "</strong>") : "", "\n                    ").concat(e.valorLocacao ? "Loca\xE7\xE3o: <strong>R$ ".concat(e.valorLocacao.toLocaleString("pt-BR", {
-        minimumFractionDigits: 2
-      }), "</strong>") : "", "\n                </div>\n                ").concat(e.areaTotal > 0 ? "<div class=\"list__map-feature\">\n                        <span class=\"list__map-feature-icon\"><img src=\"svg/area.svg\"></span>\n                        ".concat(e.areaTotal.toLocaleString("pt-BR"), "m\xB2 total\n                    </div>") : "", "\n                ").concat(e.areaUtil > 0 ? "<div class=\"list__map-feature\">\n                        <span class=\"list__map-feature-icon\"><img src=\"svg/area.svg\"></span>\n                        ".concat(e.areaUtil.toLocaleString("pt-BR"), "m\xB2 \xFAtil\n                    </div>") : "", "\n                ").concat(e.banheiro > 0 ? "<div class=\"list__map-feature\">\n                        <span class=\"list__map-feature-icon\"><img src=\"svg/bathroom.svg\"></span>\n                        ".concat(e.banheiro, " banheiro(s)\n                    </div>") : "", "\n                ").concat(e.vaga > 0 ? "<div class=\"list__map-feature\">\n                        <span class=\"list__map-feature-icon\"><img src=\"svg/garage.svg\"></span>\n                        ".concat(e.vaga, " vaga(s)\n                    </div>") : "", "\n                ").concat(e.quarto > 0 ? "<div class=\"list__map-feature\">\n                        <span class=\"list__map-feature-icon\"><img src=\"svg/bedroom.svg\"></span>\n                        ".concat(e.quarto, " quarto(s)\n                    </div>") : "", "\n            </div>\n        </a>");
-    }
-  }, {
-    key: "removeHashLink",
-    value: function removeHashLink() {
-      var e = document.querySelectorAll(".list__map a[href]");
-      e.forEach(function (e) {
-        e.href.includes("#") && e.removeAttribute("href");
-      });
-    }
-  }, {
-    key: "closeMap",
-    value: function closeMap() {
-      var _this151 = this;
-
-      var e = document.querySelector(".list__map-close"),
-          t = document.querySelector(".list");
-      e.addEventListener("click", function () {
-        t.classList.remove("list--map-opened"), _this151.checkMapButton(t);
-      });
-    }
-  }, {
-    key: "noResult",
-    value: function noResult() {
-      var e = document.querySelector(".list__no-result");
-
-      if (e) {
-        new JetSlider({
-          element: ".list__no-result",
-          prev: ".list__no-result-prev",
-          next: ".list__no-result-next",
-          slidesToShow: {
-            0: 1,
-            568: 2,
-            821: 3,
-            1081: 4
-          },
-          slidesToScroll: {
-            0: 1,
-            568: 2,
-            821: 3,
-            1081: 4
-          },
-          speed: 650,
-          gap: 30,
-          pagination: ".list__no-result-pagination"
-        });
-      }
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      router.updateLinks(), new Search(), this.closeSearch(), this.pagination(), this.getMapData(), this.updateMap(), this.mapButton(), this.closeMap(), this.noResult();
-    }
-  }]);
-
-  return List;
-}();
-
-var List2 =
-/*#__PURE__*/
-function () {
-  function List2() {
-    _classCallCheck(this, List2);
-
-    this.init();
-  }
-
-  _createClass(List2, [{
-    key: "closeSearch",
-    value: function closeSearch() {
-      var e = document.querySelector("#jetwindow-search"),
-          t = document.querySelector(".search__btn");
-      t.addEventListener("click", function () {
-        e.checked = !1;
-      });
-    }
-  }, {
-    key: "pagination",
-    value: function pagination() {
-      var e = document.querySelector(".ui__pagination-box");
-
-      if (e) {
-        new JetPagination({
-          container: ".ui__pagination",
-          previous: ".ui__pagination-previous",
-          next: ".ui__pagination-next",
-          active: sessionStorage.getItem("pagina"),
-          total: e.dataset.total,
-          left: {
-            568: 2,
-            0: 1
-          },
-          right: {
-            568: 2,
-            0: 1
-          },
-          onComplete: function onComplete() {
-            return router.updateLinks();
-          }
-        });
-      }
-    }
-  }, {
-    key: "mapButton",
-    value: function mapButton() {
-      var e = document.querySelector(".list__map-btn");
-      e && e.addEventListener("click", this.mapButtonHandler.bind(this));
-    }
-  }, {
-    key: "mapButtonHandler",
-    value: function mapButtonHandler() {
-      var _this152 = this;
 
       var e = document.querySelector(".list"),
           t = ["css/leaflet.min.css", "js/leaflet.min.js"];
       this.map ? (e.classList.toggle("list--map-opened"), this.checkMapButton(e)) : this.loadScript(t, function () {
         var t = sessionStorage.getItem("filtro.tipodivulgacao"),
             i = sessionStorage.getItem("map-".concat(t));
-        e.classList.add("list--map-opened"), i ? (_this152.data = JSON.parse(i), _this152.createMap()) : _this152.loadData();
+        e.classList.add("list--map-opened"), i ? (_this148.data = JSON.parse(i), _this148.createMap()) : _this148.loadData();
       });
     }
   }, {
@@ -5304,10 +5185,10 @@ function () {
   }, {
     key: "loadScript",
     value: function loadScript(e, t) {
-      var _this153 = this;
+      var _this149 = this;
 
       var i = e.map(function (e) {
-        return _this153.createTag(e);
+        return _this149.createTag(e);
       });
       Promise.all(i).then(t);
     }
@@ -5328,7 +5209,7 @@ function () {
   }, {
     key: "createMap",
     value: function createMap() {
-      var _this154 = this;
+      var _this150 = this;
 
       var e = document.querySelector(".list"),
           t = this.data.map(function (e) {
@@ -5337,12 +5218,12 @@ function () {
       this.map = L.map("map");
       var i = ["js/leaflet.markercluster.min.js"];
       this.loadScript(i, function () {
-        _this154.clusters = L.markerClusterGroup({
+        _this150.clusters = L.markerClusterGroup({
           chunkedLoading: !0
-        }), _this154.createTile(), _this154.data.forEach(function (e) {
-          return _this154.createMarker(e, _this154.createIcon(e.tipoImovelPadrao));
-        }), _this154.map.addLayer(_this154.clusters), _this154.checkMapButton(e), _this154.removeHashLink(), setTimeout(function () {
-          return _this154.map.fitBounds(t);
+        }), _this150.createTile(), _this150.data.forEach(function (e) {
+          return _this150.createMarker(e, _this150.createIcon(e.tipoImovelPadrao));
+        }), _this150.map.addLayer(_this150.clusters), _this150.checkMapButton(e), _this150.removeHashLink(), setTimeout(function () {
+          return _this150.map.fitBounds(t);
         }, 1e3), router.updateLinks();
       });
     }
@@ -5355,13 +5236,13 @@ function () {
   }, {
     key: "loadData",
     value: function loadData() {
-      var _this155 = this;
+      var _this151 = this;
 
       new JetLoader({
         url: "".concat(config.imoveisBaseUrl, "?filtro.").concat(config.tipoCliente, "id=").concat(config.id, "&filtro.tipodivulgacao=").concat(sessionStorage.getItem("filtro.tipodivulgacao"), "&pagina=1&maximo=999999"),
         onSuccess: function onSuccess(e) {
           var t = sessionStorage.getItem("filtro.tipodivulgacao");
-          _this155.getMapData(e), sessionStorage.setItem("map-".concat(t), JSON.stringify(_this155.data)), _this155.createMap();
+          _this151.getMapData(e), sessionStorage.setItem("map-".concat(t), JSON.stringify(_this151.data)), _this151.createMap();
         }
       });
     }
@@ -5427,13 +5308,13 @@ function () {
   }, {
     key: "createMarker",
     value: function createMarker(e, t) {
-      var _this156 = this;
+      var _this152 = this;
 
       this.clusters.addLayer(L.marker([e.lat, e.lng], {
         icon: t
       }).bindPopup(this.createPopUp(e)).on("click", function () {
         setTimeout(function () {
-          _this156.removeHashLink(), router.updateLinks();
+          _this152.removeHashLink(), router.updateLinks();
         });
       }));
     }
@@ -5466,12 +5347,12 @@ function () {
   }, {
     key: "closeMap",
     value: function closeMap() {
-      var _this157 = this;
+      var _this153 = this;
 
       var e = document.querySelector(".list__map-close"),
           t = document.querySelector(".list");
       e.addEventListener("click", function () {
-        t.classList.remove("list--map-opened"), _this157.checkMapButton(t);
+        t.classList.remove("list--map-opened"), _this153.checkMapButton(t);
       });
     }
   }, {
@@ -5505,11 +5386,11 @@ function () {
   }, {
     key: "init",
     value: function init() {
-      router.updateLinks(), new Search(), this.closeSearch(), this.pagination(), this.updateMap(), this.mapButton(), this.closeMap(), this.noResult();
+      router.updateLinks(), new SearchList(), this.closeSearch(), this.pagination(), this.updateMap(), this.mapButton(), this.closeMap(), this.noResult();
     }
   }]);
 
-  return List2;
+  return List;
 }();
 
 var Main =
@@ -5541,7 +5422,7 @@ function () {
   }, {
     key: "asideAnimation",
     value: function asideAnimation() {
-      var _this158 = this;
+      var _this154 = this;
 
       var e = document.querySelector("html");
 
@@ -5549,7 +5430,7 @@ function () {
         var _e34 = document.querySelectorAll("[data-depth]");
 
         _e34.forEach(function (e) {
-          window.addEventListener("mousemove", _this158.mouseMoveHandler.bind(_this158, e), {
+          window.addEventListener("mousemove", _this154.mouseMoveHandler.bind(_this154, e), {
             passive: !0
           });
         });
@@ -5683,21 +5564,21 @@ function () {
   }, {
     key: "addPreloader",
     value: function addPreloader(e) {
-      var _this159 = this;
+      var _this155 = this;
 
       var t = document.querySelector(".ui__preloader");
       this.finishAnimation = !1, t.classList.add("ui__preloader--in"), e(), setTimeout(function () {
-        _this159.finishAnimation = !0;
+        _this155.finishAnimation = !0;
       }, 700);
     }
   }, {
     key: "removePreloader",
     value: function removePreloader(e) {
-      var _this160 = this;
+      var _this156 = this;
 
       var t = document.querySelector(".ui__preloader"),
           i = setInterval(function () {
-        _this160.finishAnimation && (_this160.finishAnimation = !1, t.classList.add("ui__preloader--out"), clearInterval(i), e(), setTimeout(function () {
+        _this156.finishAnimation && (_this156.finishAnimation = !1, t.classList.add("ui__preloader--out"), clearInterval(i), e(), setTimeout(function () {
           t.classList.remove("ui__preloader--in", "ui__preloader--out");
         }, 700));
       }, 10);
@@ -5710,7 +5591,7 @@ function () {
   }, {
     key: "ajaxLoad",
     value: function ajaxLoad(e, t, i) {
-      var _this161 = this;
+      var _this157 = this;
 
       var s = new FormData();
       s.append("url", t);
@@ -5722,7 +5603,7 @@ function () {
         },
         body: s,
         onSuccess: function onSuccess(s) {
-          s = JSON.parse(s), config = s.config, parameters = s.parameters, _this161.setMetas(s.seo), _this161.removePreloader(_this161.render.bind(_this161, e, t, s.content, i));
+          s = JSON.parse(s), config = s.config, parameters = s.parameters, _this157.setMetas(s.seo), _this157.removePreloader(_this157.render.bind(_this157, e, t, s.content, i));
         }
       });
     }
@@ -5818,21 +5699,113 @@ function () {
   return Release;
 }();
 
-var Search =
+var SearchIndex =
 /*#__PURE__*/
 function (_Filters) {
-  _inherits(Search, _Filters);
+  _inherits(SearchIndex, _Filters);
 
-  function Search(e) {
+  function SearchIndex(e) {
+    var _this158;
+
+    _classCallCheck(this, SearchIndex);
+
+    _this158 = _possibleConstructorReturn(this, _getPrototypeOf(SearchIndex).call(this, config.pageImoveis)), _this158.init();
+    return _this158;
+  }
+
+  _createClass(SearchIndex, [{
+    key: "imovelpara",
+    value: function imovelpara() {
+      var _this159 = this;
+
+      new JetSelect({
+        element: ".search-index__type",
+        name: ["filtro.tipodivulgacao"],
+        optionsText: ["Comprar", "Alugar"],
+        optionsValue: ["v", "l"],
+        label: "Selecione",
+        tags: !0,
+        tagsTarget: ".list__tags",
+        onClickTag: function onClickTag() {
+          return _get(_getPrototypeOf(SearchIndex.prototype), "search", _this159).call(_this159);
+        },
+        onChange: function onChange() {
+          _get(_getPrototypeOf(SearchIndex.prototype), "removeStorage", _this159).call(_this159), _get(_getPrototypeOf(SearchIndex.prototype), "createFilters", _this159).call(_this159, _this159.filters.bind(_this159)), _get(_getPrototypeOf(SearchIndex.prototype), "createPath", _this159).call(_this159);
+        }
+      });
+    }
+  }, {
+    key: "tipoimovel",
+    value: function tipoimovel(e) {
+      var _this160 = this;
+
+      new JetSelect({
+        element: ".search-index__property",
+        name: "filtro.tiposimoveis",
+        optionsText: e.tipoImovelDescricao,
+        optionsValue: e.tipoImovelDescricao,
+        label: "Tipo",
+        tags: !0,
+        tagsTarget: ".list__tags",
+        onClickTag: function onClickTag() {
+          return _get(_getPrototypeOf(SearchIndex.prototype), "search", _this160).call(_this160);
+        },
+        onChange: function onChange() {
+          return _get(_getPrototypeOf(SearchIndex.prototype), "createPath", _this160).call(_this160);
+        }
+      });
+    }
+  }, {
+    key: "cidade",
+    value: function cidade(e) {
+      var _this161 = this;
+
+      new JetSelect({
+        element: ".search-index__city",
+        name: "filtro.cidade",
+        optionsText: e.cidadeNome,
+        optionsValue: e.cidadeNome,
+        label: "Cidade",
+        tags: !0,
+        tagsTarget: ".list__tags",
+        onClickTag: function onClickTag() {
+          return _get(_getPrototypeOf(SearchIndex.prototype), "search", _this161).call(_this161);
+        },
+        onChange: function onChange() {
+          return _get(_getPrototypeOf(SearchIndex.prototype), "createPath", _this161).call(_this161);
+        }
+      });
+    }
+  }, {
+    key: "filters",
+    value: function filters(e) {
+      this.imovelpara(), this.tipoimovel(e.searchtipoimoveis), this.cidade(e.searchcidades);
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      _get(_getPrototypeOf(SearchIndex.prototype), "createFilters", this).call(this, this.filters.bind(this)), _get(_getPrototypeOf(SearchIndex.prototype), "createPath", this).call(this);
+    }
+  }]);
+
+  return SearchIndex;
+}(Filters);
+
+var SearchList =
+/*#__PURE__*/
+function (_Filters2) {
+  _inherits(SearchList, _Filters2);
+
+  function SearchList(e) {
     var _this162;
 
-    _classCallCheck(this, Search);
+    _classCallCheck(this, SearchList);
 
-    _this162 = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, config.pageImoveis)), _this162.init();
+    _this162 = _possibleConstructorReturn(this, _getPrototypeOf(SearchList).call(this, config.pageImoveis)), _this162.init();
     return _this162;
   }
 
-  _createClass(Search, [{
+  _createClass(SearchList, [{
     key: "imovelpara",
     value: function imovelpara() {
       var _this163 = this;
@@ -5846,10 +5819,10 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this163).call(_this163);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this163).call(_this163);
         },
         onChange: function onChange() {
-          _get(_getPrototypeOf(Search.prototype), "removeStorage", _this163).call(_this163), _get(_getPrototypeOf(Search.prototype), "createFilters", _this163).call(_this163, _this163.filters.bind(_this163)), _this163.referenciaFilter.empty(), _this163.enderecoFilter.empty(), _get(_getPrototypeOf(Search.prototype), "createPath", _this163).call(_this163);
+          _get(_getPrototypeOf(SearchList.prototype), "removeStorage", _this163).call(_this163), _get(_getPrototypeOf(SearchList.prototype), "createFilters", _this163).call(_this163, _this163.filters.bind(_this163)), _this163.referenciaFilter.empty(), _this163.enderecoFilter.empty(), _get(_getPrototypeOf(SearchList.prototype), "createPath", _this163).call(_this163);
         }
       });
     }
@@ -5869,13 +5842,13 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this164).call(_this164);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this164).call(_this164);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this164).call(_this164);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this164).call(_this164);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this164).call(_this164);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this164).call(_this164);
         }
       });
     }
@@ -5894,13 +5867,13 @@ function (_Filters) {
         deselectAll: "Limpar seleção",
         label: "Selecione",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this165).call(_this165);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this165).call(_this165);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this165).call(_this165);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this165).call(_this165);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this165).call(_this165);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this165).call(_this165);
         }
       });
     }
@@ -5919,13 +5892,13 @@ function (_Filters) {
         deselectAll: "Limpar seleção",
         label: "Selecione",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this166).call(_this166);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this166).call(_this166);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this166).call(_this166);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this166).call(_this166);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this166).call(_this166);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this166).call(_this166);
         }
       });
     }
@@ -5945,13 +5918,13 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          _get(_getPrototypeOf(Search.prototype), "createFilters", _this167).call(_this167, _this167.filters.bind(_this167)), _get(_getPrototypeOf(Search.prototype), "createPath", _this167).call(_this167);
+          _get(_getPrototypeOf(SearchList.prototype), "createFilters", _this167).call(_this167, _this167.filters.bind(_this167)), _get(_getPrototypeOf(SearchList.prototype), "createPath", _this167).call(_this167);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this167).call(_this167);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this167).call(_this167);
         },
         onChange: function onChange() {
-          _this167.bairroFilter.removeStorage(), _get(_getPrototypeOf(Search.prototype), "createFilters", _this167).call(_this167, _this167.filters.bind(_this167)), _get(_getPrototypeOf(Search.prototype), "createPath", _this167).call(_this167);
+          _this167.bairroFilter.removeStorage(), _get(_getPrototypeOf(SearchList.prototype), "createFilters", _this167).call(_this167, _this167.filters.bind(_this167)), _get(_getPrototypeOf(SearchList.prototype), "createPath", _this167).call(_this167);
         }
       });
     }
@@ -5970,15 +5943,15 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this168).call(_this168);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this168).call(_this168);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this168).call(_this168);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this168).call(_this168);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this168).call(_this168);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this168).call(_this168);
         }
-      })), _get(_getPrototypeOf(Search.prototype), "addData", this).call(this, {
+      })), _get(_getPrototypeOf(SearchList.prototype), "addData", this).call(this, {
         filter: this.bairroFilter,
         text: e.bairroNome,
         value: e.bairroNome,
@@ -6000,13 +5973,13 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this169).call(_this169);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this169).call(_this169);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this169).call(_this169);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this169).call(_this169);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this169).call(_this169);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this169).call(_this169);
         }
       });
     }
@@ -6026,13 +5999,13 @@ function (_Filters) {
         tagsOnChange: !1,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this170).call(_this170);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this170).call(_this170);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this170).call(_this170);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this170).call(_this170);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this170).call(_this170);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this170).call(_this170);
         }
       });
     }
@@ -6052,13 +6025,13 @@ function (_Filters) {
         tagsOnChange: !1,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this171).call(_this171);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this171).call(_this171);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this171).call(_this171);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this171).call(_this171);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this171).call(_this171);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this171).call(_this171);
         }
       });
     }
@@ -6077,13 +6050,13 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this172).call(_this172);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this172).call(_this172);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this172).call(_this172);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this172).call(_this172);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this172).call(_this172);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this172).call(_this172);
         }
       });
     }
@@ -6102,13 +6075,13 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this173).call(_this173);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this173).call(_this173);
         },
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this173).call(_this173);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this173).call(_this173);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this173).call(_this173);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this173).call(_this173);
         }
       });
     }
@@ -6126,10 +6099,10 @@ function (_Filters) {
         tagsOnChange: !1,
         tagsTarget: ".list__tags",
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this174).call(_this174);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this174).call(_this174);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this174).call(_this174);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this174).call(_this174);
         }
       });
     }
@@ -6147,10 +6120,10 @@ function (_Filters) {
         tagsOnChange: !1,
         tagsTarget: ".list__tags",
         onClickTag: function onClickTag() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this175).call(_this175);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this175).call(_this175);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this175).call(_this175);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this175).call(_this175);
         }
       });
     }
@@ -6166,16 +6139,16 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onClickTag: function onClickTag() {
-          sessionStorage.setItem("filtro.tipodivulgacao", config.imovelpara), _get(_getPrototypeOf(Search.prototype), "search", _this176).call(_this176);
+          sessionStorage.setItem("filtro.tipodivulgacao", config.imovelpara), _get(_getPrototypeOf(SearchList.prototype), "search", _this176).call(_this176);
         },
         onKeyUp: function onKeyUp() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this176).call(_this176);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this176).call(_this176);
         },
         onPaste: function onPaste() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this176).call(_this176);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this176).call(_this176);
         },
         onEmpty: function onEmpty() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this176).call(_this176);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this176).call(_this176);
         }
       });
     }
@@ -6191,16 +6164,16 @@ function (_Filters) {
         tags: !0,
         tagsTarget: ".list__tags",
         onClickTag: function onClickTag() {
-          sessionStorage.setItem("filtro.tipodivulgacao", config.imovelpara), _get(_getPrototypeOf(Search.prototype), "search", _this177).call(_this177);
+          sessionStorage.setItem("filtro.tipodivulgacao", config.imovelpara), _get(_getPrototypeOf(SearchList.prototype), "search", _this177).call(_this177);
         },
         onKeyUp: function onKeyUp() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this177).call(_this177);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this177).call(_this177);
         },
         onPaste: function onPaste() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this177).call(_this177);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this177).call(_this177);
         },
         onEmpty: function onEmpty() {
-          return _get(_getPrototypeOf(Search.prototype), "createPath", _this177).call(_this177);
+          return _get(_getPrototypeOf(SearchList.prototype), "createPath", _this177).call(_this177);
         }
       });
     }
@@ -6217,10 +6190,10 @@ function (_Filters) {
         deselectAll: "Limpar seleção",
         label: "Selecione",
         onDeselectAll: function onDeselectAll() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this178).call(_this178);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this178).call(_this178);
         },
         onChange: function onChange() {
-          return _get(_getPrototypeOf(Search.prototype), "search", _this178).call(_this178);
+          return _get(_getPrototypeOf(SearchList.prototype), "search", _this178).call(_this178);
         }
       });
     }
@@ -6232,9 +6205,9 @@ function (_Filters) {
   }, {
     key: "init",
     value: function init() {
-      _get(_getPrototypeOf(Search.prototype), "createFilters", this).call(this, this.filters.bind(this)), _get(_getPrototypeOf(Search.prototype), "createPath", this).call(this);
+      _get(_getPrototypeOf(SearchList.prototype), "createFilters", this).call(this, this.filters.bind(this)), _get(_getPrototypeOf(SearchList.prototype), "createPath", this).call(this);
     }
   }]);
 
-  return Search;
+  return SearchList;
 }(Filters);

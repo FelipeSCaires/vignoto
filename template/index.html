@@ -1,80 +1,65 @@
 <section class="index">
-
-    <!--index__search-->
-        <div class="index__search">
-            <div class="jetgrid jetgrid--1200">
-                <div class="jetgrid__col--24">
-                    <div class="jetgrid jetgrid--align-center jetgrid--justify-center">
-                        <img src="<?php $global['base'] ?>svg/bg-home.svg" alt="decoração de página">
-
-                        <h1>Encontre o imovel perfeito para você!</h1>
-
-                        <div class=" search-index__form">
-                    
-                            <div class="search-index__type jetgrid__col--6 jetgrid__col--xs-24"></div>
-                            <div class="search-index__property jetgrid__col--6 jetgrid__col--xs-24"></div>
-                            <div class="search-index__city jetgrid__col--6 jetgrid__col--xs-24"></div>
-                         
-                            <a class="search__btn search-index__btn jetgrid__col--4"><p>Buscar</p></a>
-                         
+    <div class="search-index__container jetgrid jetgrid--align-center">
+        <div class="jetgrid jetgrid--1200">
+            <div class="jetgrid__col--24">
+                <h1 class="search-index__title">Encontre o imovel perfeito para você!</h1>
+            </div>
+            <div class="jetgrid jetgrid--justify-center">
+                <div class="jetgrid__col--22">
+                    <div class="search-index__field">
+                        <div class="jetgrid jetgrid--align-center jetgrid--justify-center">
+                            <div class="search-index__type jetgrid__col--6 jetgrid__col--md-5 jetgrid__col--xs-24"></div>
+                            <div class="search-index__property jetgrid__col--6 jetgrid__col--md-5 jetgrid__col--xs-24"></div>
+                            <div class="search-index__city jetgrid__col--6 jetgrid__col--md-5 jetgrid__col--xs-24"></div>
+                            <a class="search__btn jetgrid__col--6 jetgrid__col--sx-24">
+                                <span class=" search__index--btn">
+                                    Buscar
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <!--index__search-->
-   <!--banner__launch-->
+        <img class="search__bg" src="{{$global['base']}}img/search-bg.png" alt="">
+    </div>
    <div class="jetgrid jetgrid--1200">
        <div class="jetgrid__col--24">
-           <div class="banner__background">
+           <div class="banner__background">     
                <h2 class="banner__title ">Lançamentos</h2>
                <div class="banner">
-                       <div class="banner__hover">
-                           <a class="banner__link" href="#">
-                               <div class="jetgrid jetgrid--justify-between jetgrid--align-top">
-                                  <div class="banner__box">
-
-                                      <div class="banner__box-content'">
-                                           <picture>
-                                               <source srcset="<?php $global['base']?>img/offer-banner-tablet.jpg" style="width: 100%; height: 100vh; margin-top:94px;" media="(max-width:820px)">
-                                               <source media="(min-width: 375px)" srcset="<?php $global['base']?>img/offer-banner.jpg" style="width: 100%; height: 100vh; margin-top:94px;" sizes="">
-                                               <img class="banner__img" loading="lazy" src="<?php $global['base']?>img/offer-banner.jpg" alt="" width="100%" height="390">
-                                           </picture>    
-                                           
-                                      </div>
-                                      <div class="banner__box-content">
-                                           <picture>
-                                               <source srcset="<?php $global['base']?>img/offer-banner-tablet.jpg" style="width: 100%; height: 100vh; margin-top:94px;" media="(max-width:820px)">
-                                               <source media="(min-width: 375px)" srcset="<?php $global['base']?>img/offer-banner.jpg" style="width: 100%; height: 100vh; margin-top:94px;" sizes="">
-                                               <img class="banner__img" loading="lazy" src="<?php $global['base']?>img/offer-banner.jpg" alt="" width="100%" height="390">
-                                           </picture>    
-                                           
-                                      </div>
-                                      <div class="banner__box-content">
-                                           <picture>
-                                               <source srcset="<?php $global['base']?>img/offer-banner-tablet.jpg" style="width: 100%; height: 100vh; margin-top:94px;" media="(max-width:820px)">
-                                               <source media="(min-width: 375px)" srcset="<?php $global['base']?>img/offer-banner.jpg" style="width: 100%; height: 100vh; margin-top:94px;" sizes="">
-                                               <img class="banner__img" loading="lazy" src="<?php $global['base']?>img/offer-banner.jpg" alt="" width="100%" height="390">
-                                           </picture>    
-                                            
-                                      </div>
-                                  </div> 
-                               </div>
-                           </a>
-                       </div>
+                <div class="banner-content">
+                    <picture>
+                        <source srcset="{{$global['base']}}img/offer-banner-tablet.jpg"  media="(min-width:820px)">
+                        <source media="(min-width: 567px)" srcset="{{$global['base']}}img/offer-banner.jpg"  sizes="">
+                        <img class="banner__img" loading="lazy" src="{{$global['base']}}img/offer-banner.jpg" alt="" width="100%" height="390">
+                    </picture>    
+               
+                    <picture>
+                        <source srcset="{{$global['base']}}img/offer-banner-tablet.jpg"  media="(min-width:820px)">
+                        <source media="(min-width: 567px)" srcset="{{$global['base']}}img/offer-banner.jpg"  sizes="">
+                        <img class="banner__img" loading="lazy" src="{{$global['base']}}img/offer-banner.jpg" alt="" width="100%" height="390">
+                    </picture>    
+             
+                    <picture>
+                        <source srcset="{{$global['base']}}img/offer-banner-tablet.jpg"  media="(min-width:820px)">
+                        <source media="(min-width: 567px)" srcset="{{$global['base']}}img/offer-banner.jpg"  sizes="">
+                        <img class="banner__img" loading="lazy" src="{{$global['base']}}img/offer-banner.jpg" alt="" width="100%" height="390">
+                    </picture>  
+                </div>
+           
+            
+                <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                    <button class="banner__prev">
+                        <img class="banner__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-prev.svg" alt="Ícone anterior" width="29.06" height="29.06">
+                    </button>
+                    <div class="banner__pagination"></div>
+                    <button class="banner__next">
+                        <img class="banner__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-next.svg" alt="Ícone proximo" width="29.06" height="29.06">
+                    </button>
+                </div>
                </div>
              
-                   <div class="banner__page">
-                       <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
-                           <button class="banner__prev">
-                               <img class="banner__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-prev.svg" alt="Ícone anterior" width="29.06" height="29.06">
-                           </button>
-                           <div class="banner__pagination"></div>
-                           <button class="banner__next">
-                               <img class="banner__icon" loading="lazy" src="{{$global['base']}}svg/arrow-primary-next.svg" alt="Ícone proximo" width="29.06" height="29.06">
-                           </button>
-                       </div>
-                   </div>
                  
            </div>
        </div>

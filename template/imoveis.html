@@ -28,14 +28,14 @@
 
     <div class="jetgrid jetgrid--1200">
         <div class="jetgrid__col--24">
-            <div class="list__toolbar">
-                <div class="jetgrid jetgrid--justify-between ">
-                    <div class="list__option">
+            <div class="list__container">
+                <div class="jetgrid jetgrid--justify--between jetgrid--align--center">
+                     <div class="list__options">
                         <div class="jetgrid jetgrid--justify-between jetgrid--align-center">
                             <label class="jetwindow__label search-list__open" for="jetwindow-search">
                                 <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
-                                    <img class="ui__icon" loading="lazy" src="{{$global['base']}}svg/filter-primary.svg" alt="ícone filtro" width="18" height="15.75">
-                                    <p class="">Filtre sua busca</p>
+                                    <svg class="ui__icon"  width="18" height="15.75" viewBox="0 0 18 15.75"><path d="M8.438-2.25H-3.375v-.562a.564.564,0,0,0-.562-.562H-5.062a.564.564,0,0,0-.562.563v.563H-8.437A.564.564,0,0,0-9-1.687V-.562A.564.564,0,0,0-8.437,0h2.813V.563a.564.564,0,0,0,.563.563h1.125A.564.564,0,0,0-3.375.563V0H8.438A.564.564,0,0,0,9-.562V-1.687A.564.564,0,0,0,8.438-2.25Zm0-5.625H5.625v-.562A.564.564,0,0,0,5.063-9H3.938a.564.564,0,0,0-.562.563v.563H-8.437A.564.564,0,0,0-9-7.312v1.125a.564.564,0,0,0,.563.563H3.375v.563a.564.564,0,0,0,.563.563H5.063a.564.564,0,0,0,.563-.562v-.562H8.438A.564.564,0,0,0,9-6.187V-7.312A.564.564,0,0,0,8.438-7.875Zm0-5.625H1.125v-.562a.564.564,0,0,0-.562-.562H-.562a.564.564,0,0,0-.562.563v.563H-8.437A.564.564,0,0,0-9-12.937v1.125a.564.564,0,0,0,.563.563h7.313v.563a.564.564,0,0,0,.563.563H.563a.564.564,0,0,0,.563-.562v-.562H8.438A.564.564,0,0,0,9-11.812v-1.125A.564.564,0,0,0,8.438-13.5Z" transform="translate(9 14.625)" fill="#003865"/></svg>
+                                    <p class="list__filter--text">Filtre sua busca</p>
                                 </div>
                             </label>
                             <input class="jetwindow__input search-list__input" id="jetwindow-search" type="checkbox" autocomplete="off">
@@ -43,7 +43,7 @@
                                 <div class="jetwindow__box search-list__box" data-jetwindow-effect="fade">
                                     <div class="jetwindow__content search-list__content">    
                                         <label class="jetwindow__close search-list__close" for="jetwindow-search">
-                                            <img class="search-list__icon" loading="lazy" src="{{$global['base']}}svg/close-white-large.svg" alt="Ícone fechar" width="29.06" height="29.06">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="29.063" height="29.063" viewBox="0 0 29.063 29.063"><path d="M0-25.781A14.529,14.529,0,0,0-14.531-11.25,14.529,14.529,0,0,0,0,3.281,14.529,14.529,0,0,0,14.531-11.25,14.529,14.529,0,0,0,0-25.781ZM0,.469A11.716,11.716,0,0,1-11.719-11.25,11.716,11.716,0,0,1,0-22.969,11.716,11.716,0,0,1,11.719-11.25,11.716,11.716,0,0,1,0,.469ZM5.965-14.895a.7.7,0,0,0,0-1L4.641-17.215a.7.7,0,0,0-1,0L0-13.57l-3.645-3.645a.7.7,0,0,0-1,0l-1.324,1.324a.7.7,0,0,0,0,1L-2.32-11.25-5.965-7.605a.7.7,0,0,0,0,1l1.324,1.324a.7.7,0,0,0,1,0L0-8.93,3.645-5.285a.7.7,0,0,0,1,0L5.965-6.609a.7.7,0,0,0,0-1L2.32-11.25Z" transform="translate(14.531 25.781)" fill="var(--primary-color)"/></svg>
                                         </label>
                                         <div class="jetgrid__col--24">
                                             <h1 class="search-list__title">
@@ -74,12 +74,7 @@
                                                         </div>
                                                         <div class="jetgrid__col--12 jetgrid__col--xs-24">
                                                             <span class="search-list__headline">
-                                                                Valor de 
-                                                                {if}$imovelPara === 'v'{/if}
-                                                                    compra:
-                                                                {else}
-                                                                    locação:
-                                                                {/endif}
+                                                            
                                                             </span>
                                                             <div class="search-list__price"></div>
                                                             <div class="jetgrid jetgrid--justify-between jetgrid--align-top">
@@ -170,201 +165,220 @@
                                 <label class="jetwindow__close-bg" for="jetwindow-search"></label>
                             </section>
                             <div class="jetwindow__overlay search-list__overlay" data-jetwindow="on" data-jetwindow-effect="fade"></div>
-                            <button class="list__list ui__display--md-none">
-                                <svg class="list__symbol" width="18" height="14.625" viewBox="0 0 18 14.625"><path d="M-7.312-14.062A1.688,1.688,0,0,0-9-12.375a1.688,1.688,0,0,0,1.688,1.688,1.688,1.688,0,0,0,1.688-1.687,1.688,1.688,0,0,0-1.688-1.688Zm0,5.625A1.688,1.688,0,0,0-9-6.75,1.688,1.688,0,0,0-7.312-5.062,1.688,1.688,0,0,0-5.625-6.75,1.688,1.688,0,0,0-7.312-8.437Zm0,5.625A1.688,1.688,0,0,0-9-1.125,1.688,1.688,0,0,0-7.312.563,1.688,1.688,0,0,0-5.625-1.125,1.688,1.688,0,0,0-7.312-2.812Zm15.75.563H-2.812a.563.563,0,0,0-.562.563V-.562A.563.563,0,0,0-2.812,0H8.438A.563.563,0,0,0,9-.562V-1.687a.563.563,0,0,0-.562-.563Zm0-11.25H-2.812a.563.563,0,0,0-.562.563v1.125a.563.563,0,0,0,.563.563H8.438A.563.563,0,0,0,9-11.812v-1.125a.563.563,0,0,0-.562-.563Zm0,5.625H-2.812a.563.563,0,0,0-.562.563v1.125a.563.563,0,0,0,.563.563H8.438A.563.563,0,0,0,9-6.187V-7.312a.563.563,0,0,0-.562-.563Z" transform="translate(9 14.063)" fill="#685199"/></svg>
-                            </button>
-                            <button class="list__grid ui__display--md-none">
-                                <svg class="list__symbol" width="18.003" height="15.754" viewBox="0 0 18.003 15.754"><path d="M-3.75-13.781a.844.844,0,0,0-.844-.844H-8.156A.844.844,0,0,0-9-13.781v2.813a.844.844,0,0,0,.844.844h3.562a.844.844,0,0,0,.844-.844ZM2.625-5.344V-8.156A.844.844,0,0,0,1.781-9H-1.781a.844.844,0,0,0-.844.844v2.813a.844.844,0,0,0,.844.844H1.781a.844.844,0,0,0,.6-.248.844.844,0,0,0,.244-.6ZM3.75-13.781v2.813a.844.844,0,0,0,.844.844H8.156a.844.844,0,0,0,.6-.248.844.844,0,0,0,.247-.6v-2.812a.844.844,0,0,0-.844-.844H4.594a.844.844,0,0,0-.844.844ZM2.625-10.969v-2.812a.844.844,0,0,0-.844-.844H-1.781a.844.844,0,0,0-.844.844v2.813a.844.844,0,0,0,.844.844H1.781a.844.844,0,0,0,.6-.248A.844.844,0,0,0,2.625-10.969ZM-4.594-9H-8.156A.844.844,0,0,0-9-8.156v2.813a.844.844,0,0,0,.844.844h3.562a.844.844,0,0,0,.844-.844V-8.156A.844.844,0,0,0-4.594-9ZM-9-2.531V.281a.844.844,0,0,0,.844.844h3.562A.844.844,0,0,0-3.75.281V-2.531a.844.844,0,0,0-.844-.844H-8.156A.844.844,0,0,0-9-2.531ZM4.594-4.5H8.156A.844.844,0,0,0,9-5.344V-8.156A.844.844,0,0,0,8.156-9H4.594a.844.844,0,0,0-.844.844v2.813A.844.844,0,0,0,4.594-4.5Zm0,5.625H8.156A.844.844,0,0,0,9,.281V-2.531a.844.844,0,0,0-.844-.844H4.594a.844.844,0,0,0-.844.844V.281a.844.844,0,0,0,.844.844ZM-2.625-2.531V.281a.844.844,0,0,0,.844.844H1.781A.844.844,0,0,0,2.625.281V-2.531a.844.844,0,0,0-.844-.844H-1.781a.844.844,0,0,0-.844.844Z" transform="translate(9 14.629)" fill="#685199"/></svg>
-                            </button>
+                          
+                        </div>
+                     </div>
+                     <div class="list__options">
+                        <div class="jetgrid ">
+                            <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                                <svg class="ui__icon" width="20.25" height="15.75" viewBox="0 0 20.25 15.75"><path d="M9.563-14.625a.565.565,0,0,0-.21.041L3.375-12.375h0L-2.672-14.51a2.257,2.257,0,0,0-.712-.115,2.255,2.255,0,0,0-.7.11l-5.338,1.857a1.125,1.125,0,0,0-.707,1.044V.562a.563.563,0,0,0,.562.563.566.566,0,0,0,.21-.041l5.978-2.209L2.672,1.009a2.244,2.244,0,0,0,.712.115,2.248,2.248,0,0,0,.7-.11L9.418-.842a1.125,1.125,0,0,0,.707-1.044V-14.062A.563.563,0,0,0,9.563-14.625ZM-2.25-12.571l4.5,1.589V-.929l-4.5-1.589ZM-8.437-1.053V-11.212l4.5-1.566V-2.716l-.022.008ZM8.438-2.288,3.938-.722V-10.784l.022-.008,4.478-1.655Z" transform="translate(10.125 14.625)" fill="#003865"/></svg>
+                                <p class="list__filter--text">Ver mapa</p>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="list__list-grid">
+                        <div class="jetgrid">
+                            <div class="jetgrid jetgrid--justify-center jetgrid--align-center">
+                                <button class="list__list ui__display--md-none">
+                                    <svg class="list__symbol" width="18" height="14.625" viewBox="0 0 18 14.625"><path d="M-7.312-14.062A1.688,1.688,0,0,0-9-12.375a1.688,1.688,0,0,0,1.688,1.688,1.688,1.688,0,0,0,1.688-1.687,1.688,1.688,0,0,0-1.688-1.688Zm0,5.625A1.688,1.688,0,0,0-9-6.75,1.688,1.688,0,0,0-7.312-5.062,1.688,1.688,0,0,0-5.625-6.75,1.688,1.688,0,0,0-7.312-8.437Zm0,5.625A1.688,1.688,0,0,0-9-1.125,1.688,1.688,0,0,0-7.312.563,1.688,1.688,0,0,0-5.625-1.125,1.688,1.688,0,0,0-7.312-2.812Zm15.75.563H-2.812a.563.563,0,0,0-.562.563V-.562A.563.563,0,0,0-2.812,0H8.438A.563.563,0,0,0,9-.562V-1.687a.563.563,0,0,0-.562-.563Zm0-11.25H-2.812a.563.563,0,0,0-.562.563v1.125a.563.563,0,0,0,.563.563H8.438A.563.563,0,0,0,9-11.812v-1.125a.563.563,0,0,0-.562-.563Zm0,5.625H-2.812a.563.563,0,0,0-.562.563v1.125a.563.563,0,0,0,.563.563H8.438A.563.563,0,0,0,9-6.187V-7.312a.563.563,0,0,0-.562-.563Z" transform="translate(9 14.063)" fill="#003865"/></svg>
+                                </button>
+                                <button class="list__grid ui__display--md-none">
+                                    <svg class="list__symbol"  width="18" height="15.75" viewBox="0 0 18 15.75"><path d="M-3.75-13.781a.844.844,0,0,0-.844-.844H-8.156A.844.844,0,0,0-9-13.781v2.813a.844.844,0,0,0,.844.844h3.562a.844.844,0,0,0,.844-.844ZM2.625-5.344V-8.156A.844.844,0,0,0,1.781-9H-1.781a.844.844,0,0,0-.844.844v2.813a.844.844,0,0,0,.844.844H1.781A.844.844,0,0,0,2.625-5.344ZM3.75-13.781v2.813a.844.844,0,0,0,.844.844H8.156A.844.844,0,0,0,9-10.969v-2.812a.844.844,0,0,0-.844-.844H4.594A.844.844,0,0,0,3.75-13.781ZM2.625-10.969v-2.812a.844.844,0,0,0-.844-.844H-1.781a.844.844,0,0,0-.844.844v2.813a.844.844,0,0,0,.844.844H1.781A.844.844,0,0,0,2.625-10.969ZM-4.594-9H-8.156A.844.844,0,0,0-9-8.156v2.813a.844.844,0,0,0,.844.844h3.562a.844.844,0,0,0,.844-.844V-8.156A.844.844,0,0,0-4.594-9ZM-9-2.531V.281a.844.844,0,0,0,.844.844h3.562A.844.844,0,0,0-3.75.281V-2.531a.844.844,0,0,0-.844-.844H-8.156A.844.844,0,0,0-9-2.531ZM4.594-4.5H8.156A.844.844,0,0,0,9-5.344V-8.156A.844.844,0,0,0,8.156-9H4.594a.844.844,0,0,0-.844.844v2.813A.844.844,0,0,0,4.594-4.5Zm0,5.625H8.156A.844.844,0,0,0,9,.281V-2.531a.844.844,0,0,0-.844-.844H4.594a.844.844,0,0,0-.844.844V.281A.844.844,0,0,0,4.594,1.125ZM-2.625-2.531V.281a.844.844,0,0,0,.844.844H1.781A.844.844,0,0,0,2.625.281V-2.531a.844.844,0,0,0-.844-.844H-1.781A.844.844,0,0,0-2.625-2.531Z" transform="translate(9 14.625)" fill="#003865"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                     </div>
+                    
+                         <div class="list__order"></div>
+                    
                         </div>
                     </div>
-                    <div class="list__order"></div>
                 </div>
+                <div class="search-list__tag"></div>
+                    <span class="list__amount">
+                        {if}$list['data']['total'] > 1{/if}
+                            Foram encontrados <strong class="list__highlight">{{$list['data']['total']}} imóveis
+                        {else}
+                            Foram encontrados <strong class="list__highlight">{{$list['data']['total']}} imóvel
+                        {/endif}
+                        {if}$imovelPara === 'l'{/if}
+                            para locação</strong>
+                        {elseif}$imovelPara === 'v'{/elseif}
+                            para venda</strong>
+                        {else}
+                            para locação e venda</strong>
+                        {/endif}
+                    </span>
+                    <div class="list__line"></div>
             </div>
-            <div class="search-list__tag"></div>
-            <span class="list__amount">
-                {if}$list['data']['total'] > 1{/if}
-                    Foram encontrados <strong class="list__highlight">{{$list['data']['total']}} imóveis
-                {else}
-                    Foram encontrados <strong class="list__highlight">{{$list['data']['total']}} imóvel
-                {/endif}
-                {if}$imovelPara === 'l'{/if}
-                    para locação</strong>
-                {elseif}$imovelPara === 'v'{/elseif}
-                    para venda</strong>
-                {else}
-                    para locação e venda</strong>
-                {/endif}
-            </span>
-            <div class="list__line"></div>
-        </div>
-    </div>
 
-    <div class="jetgrid jetgrid--1200">
+  <div class="jetgrid jetgrid--1200">
         <div class="jetgrid jetgrid--justify-left jetgrid--align-top">
             {if}$list['data']['total'] > 0{/if}
                 {foreach}$list['data']['resultado'] as $data{/foreach}
-             <!--list__container-->   
-             <div class="list__container">
-                 
-                 <div class="list__box">
-                     {if}$data['urlFotoPrincipalMedia']{/if}
-                         <img class="list__img" loading="lazy" src="{{$data['urlFotoPrincipalMedia']}}" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal']{/n}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
-                     {/endif}
-                     {if}$data['imovelReservadoLocacao'] || $data['imovelReservadoVenda']{/if}
-                         <span class="list__reserved">RESERVADO</span>
-                     {/endif}                    
-                 </div>
-                 
-                 <div class="list__description">
-                     <div class="list__content">
-                         <span class="list__reference">Ref.: {{$data['imovelReferencia']}}</span>
-                         <span class="list__type">{{$data['tipoImovelDescricao']}}</span>
-                         <span class="list__address">
-                             {{$data['imovelEnderecoBairro']}}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
-                         </span>
-                         {if}$data['imovelValorVenda']{/if}
-                             <div class="list__value">
-                                 <span class="">
-                                     Valor de venda:
-                                 </span>
-                                 <span class="list__price">
-                                     R$ {n2}$data['imovelValorVenda']{/n2}
-                                 </span>
-                             </div>
-                         {/endif}
-                         {if}$data['imovelValorAluguel']{/if}
-                             <div class="list__value">
-                                 <span class="">
-                                     Valor de locação:
-                                 </span>
-                                 <span class="list__price">
-                                     R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}
-                                 </span>
-                             </div>
-                         {/endif}
-                         {if}$data['imovelPontosFortes']{/if}
-                             <p class="list__text">
-                                 {{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $data['imovelPontosFortes']))}}
-                             </p>
-                         {/endif}
-                     </div>
-                     <div class="list__border"></div>
-                     <div class="list__feature jetgrid jetgrid--justify-center jetgrid--align-top">
-                         {if}$data['imovelAreaTotal']{/if}
-                             <div class="list__item">
-                                 <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="ícone área" width="21" height="21">
-                                 <span class="">
-                                     {n2}($data['imovelAreaTotal']){/n2}m² total
-                                 </span>
-                                 <span class="">
-                                     {n2}($data['imovelAreaTotal']){/n2}m² total
-                                 </span>
-                             </div>
-                         {/endif}
-                         {if}$data['imovelAreaUtil']{/if}
-                             <div class="list__item">
-                                 <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="ícone área" width="21" height="21">
-                                 <span class="">
-                                     {n2}($data['imovelAreaUtil']){/n2}m² útil
-                                 </span>
-                                 <span class="">
-                                     {n2}($data['imovelAreaUtil']){/n2}m² útil
-                                 </span>
-                             </div>
-                         {/endif}
-                         {if}$data['imovelQuartos']{/if}
-                             <div class="list__item">
-                                 <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/bedroom-primary.svg" alt="ícone quarto" width="30" height="18">
-                                 <span class="">
-                                     {if}$data['imovelQuartos'] > 1{/if}
-                                         {{$data['imovelQuartos']}} quartos
-                                     {else}
-                                         {{$data['imovelQuartos']}} quarto
-                                     {/endif}
-                                 </span>
-                                 <span class="">
-                                     {if}$data['imovelQuartos'] > 1{/if}
-                                         {{$data['imovelQuartos']}} quartos
-                                     {else}
-                                         {{$data['imovelQuartos']}} quarto
-                                     {/endif}
-                                 </span>
-                             </div>
-                         {/endif}
-                         {if}$data['imovelVagas'] > 0{/if}
-                             <div class="list__item">
-                                 <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="ícone carro" width="24" height="18">
-                                 <span class="">
-                                     {if}$data['imovelVagas'] === 1{/if}
-                                         Possui vaga
-                                     {elseif}$data['imovelVagas'] === 3{/elseif}
-                                         {{$data['imovelVagas'] - 2}} vaga
-                                     {elseif}$data['imovelVagas'] > 3{/elseif}
-                                         {{$data['imovelVagas'] - 2}} vagas
-                                     {else}
-                                         Sem vaga
-                                     {/endif}
-                                 </span>
-                                 <span class="">
-                                     {if}$data['imovelVagas'] === 1{/if}
-                                         Possui vaga
-                                     {elseif}$data['imovelVagas'] === 3{/elseif}
-                                         {{$data['imovelVagas'] - 2}} vaga
-                                     {elseif}$data['imovelVagas'] > 3{/elseif}
-                                         {{$data['imovelVagas'] - 2}} vagas
-                                     {else}
-                                         Sem vaga
-                                     {/endif}
-                                 </span>
-                             </div>
-                         {else}
-                             <div class="list__item">
-                                 <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="ícone carro" width="24" height="18">
-                                 <span class="">
-                                     Sem vaga
-                                 </span>
-                                 <span class="">
-                                     Sem vaga
-                                 </span>
-                             </div>
-                         {/endif}
-                     </div>
-                     <div class="list__border"></div>
-                     <div class="list__information">
-                         <button class="list__btn">
-                             VER IMÓVEL
+                    <div class="list__card jetgrid__col--8 jetgrid__col--sm-12 jetgrid__col--xs-24">
+                        <div class="list__hover">
+                            <button class="favorite__btn list__favorite" data-jetfavorite='{"clienteId": "{{$data['clienteId']}}", "imovelId": "{{$data['imovelId']}}", "imovelPara": "{{$data['imovelTipoDivulgacao']}}"}'>
+                                <svg class="favorite__check" width="18" height="15.75" viewBox="0 0 18 15.754"><path d="M7.116-13.489A5.3,5.3,0,0,0,0-12.962a5.292,5.292,0,0,0-7.116-.527,5.319,5.319,0,0,0-.373,7.777L-1.322.57A1.843,1.843,0,0,0,0,1.129,1.834,1.834,0,0,0,1.322.573L7.488-5.709A5.323,5.323,0,0,0,7.116-13.489ZM6.286-6.9.12-.615a.145.145,0,0,1-.239,0L-6.286-6.9a3.626,3.626,0,0,1,.257-5.3,3.564,3.564,0,0,1,4.8.369L0-10.571l1.23-1.255a3.562,3.562,0,0,1,4.8-.373A3.641,3.641,0,0,1,6.286-6.9Z" transform="translate(9 14.626)" fill="#707070"/></svg>
+                                <svg class="favorite__check--active" width="18" height="15.75" viewBox="0 0 18 15.75"><path d="M7.253-13.549a4.808,4.808,0,0,0-6.56.478L0-12.357l-.693-.714a4.807,4.807,0,0,0-6.56-.478A5.048,5.048,0,0,0-7.6-6.24L-.8.784a1.1,1.1,0,0,0,1.593,0L7.6-6.24A5.045,5.045,0,0,0,7.253-13.549Z" transform="translate(9 14.626)" fill="#707070"/></svg>
                             </button>
-                            {if}$data['imovelValorVenda']{/if}
-                                <div class="list__value">
-                                    <span class="">
-                                        Valor de venda:
-                                    </span>
-                                    <span class="list__price">
-                                        R$ {n2}$data['imovelValorVenda']{/n2}
-                                    </span>
+                            <a class="list__link" href="{{$config['pageImovel']}}/{url}$data['tipoImovelDescricao']{/url}{if}$data['imovelQuartos'] == 1{/if}-{{$data['imovelQuartos']}}-quarto{elseif}$data['imovelQuartos'] > 1{/elseif}-{{$data['imovelQuartos']}}-quartos{/endif}{if}$data['imovelEnderecoBairro']{/if}-{url}$data['imovelEnderecoBairro']{/url}{/endif}{if}$data['imovelEnderecoCidade']{/if}-{url}$data['imovelEnderecoCidade']{/url}{/endif}{if}$data['imovelVagas'] > 0 && $data['imovelVagas'] != 2{/if}-com-garagem{/endif}{if}$data['imovelAreaTotal']{/if}-{{floor($data['imovelAreaTotal'])}}m2{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}-venda-locacao-rs-{{floor($data['imovelValorVenda'])}}-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{elseif}$data['imovelVenda'] && !$data['imovelLocacao']{/elseif}-venda-rs-{{floor($data['imovelValorVenda'])}}{else}-locacao-rs-{{floor($data['imovelValorAluguel'] - $data['imovelValorMultaDesconto'])}}{/endif}?id={{$data['clienteId']}}&ref={{$data['imovelReferencia']}}&search={{$list['data']['buscaImovelId']}}">
+                                <div class="jetgrid jetgrid--justify-left jetgrid--align-top">
+                                    <div class="list__box">
+                                        {if}$data['urlFotoPrincipalMedia']{/if}
+                                            <img class="list__img" loading="lazy" src="{{$data['urlFotoPrincipalMedia']}}" alt="{{$data['tipoImovelDescricao']}} para {if}$data['imovelVenda']{/if}venda{/endif}{if}$data['imovelLocacao']{/if}locacao{/endif}{if}$data['imovelVenda'] && $data['imovelLocacao']{/if}venda e locacao{/endif} no {{$data['imovelEnderecoBairro']}} em {{$data['imovelEnderecoCidade']}} com {n}$data['imovelAreaTotal']{/n}m² por R$ {if}$data['imovelVenda']{/if}{n2}$data['imovelValorVenda']{/n2}{/endif}{if}$data['imovelLocacao']{/if}{n2}$data['imovelValorAluguel']{/n2}{/endif}">
+                                        {/endif}
+                                        {if}$data['imovelReservadoLocacao'] || $data['imovelReservadoVenda']{/if}
+                                            <span class="list__reserved">RESERVADO</span>
+                                        {/endif}
+                                    </div>
+                                    <div class="list__description">
+                                        <div class="list__content">
+                                            <span class="list__reference">Ref.: {{$data['imovelReferencia']}}</span>
+                                            <span class="list__type">{{$data['tipoImovelDescricao']}}</span>
+                                            <span class="list__address">
+                                                {{$data['imovelEnderecoBairro']}}{if}$data['imovelEnderecoCidade']{/if} - {{$data['imovelEnderecoCidade']}}{/endif}{if}$data['imovelEnderecoEstado']{/if}/{{$data['imovelEnderecoEstado']}}{/endif}
+                                            </span>
+                                            {if}$data['imovelValorVenda']{/if}
+                                                <div class="list__value">
+                                                    <span class="">
+                                                        Valor de venda:
+                                                    </span>
+                                                    <span class="list__price">
+                                                        R$ {n2}$data['imovelValorVenda']{/n2}
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelValorAluguel']{/if}
+                                                <div class="list__value">
+                                                    <span class="">
+                                                        Valor de locação:
+                                                    </span>
+                                                    <span class="list__price">
+                                                        R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelPontosFortes']{/if}
+                                                <p class="list__text">
+                                                    {{preg_replace('/^( |<br>)*(.*?)( |<br>)*$/', '$2', str_replace('#13', '<br>', $data['imovelPontosFortes']))}}
+                                                </p>
+                                            {/endif}
+                                        </div>
+                                        <div class="list__border"></div>
+                                        <div class="list__feature jetgrid jetgrid--justify-center jetgrid--align-top">
+                                            {if}$data['imovelAreaTotal']{/if}
+                                                <div class="list__item">
+                                                    <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="ícone área" width="21" height="21">
+                                                    <span class="">
+                                                        {n2}($data['imovelAreaTotal']){/n2}m²<br>total
+                                                    </span>
+                                                    <span class="">
+                                                        {n2}($data['imovelAreaTotal']){/n2}m² total
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelAreaUtil']{/if}
+                                                <div class="list__item">
+                                                    <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/area-primary.svg" alt="ícone área" width="21" height="21">
+                                                    <span class="">
+                                                        {n2}($data['imovelAreaUtil']){/n2}m²<br>útil
+                                                    </span>
+                                                    <span class="">
+                                                        {n2}($data['imovelAreaUtil']){/n2}m² útil
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelQuartos']{/if}
+                                                <div class="list__item">
+                                                    <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/bedroom-primary.svg" alt="ícone quarto" width="30" height="18">
+                                                    <span class="">
+                                                        {if}$data['imovelQuartos'] > 1{/if}
+                                                            {{$data['imovelQuartos']}}<br>quartos
+                                                        {else}
+                                                            {{$data['imovelQuartos']}}<br>quarto
+                                                        {/endif}
+                                                    </span>
+                                                    <span class="">
+                                                        {if}$data['imovelQuartos'] > 1{/if}
+                                                            {{$data['imovelQuartos']}} quartos
+                                                        {else}
+                                                            {{$data['imovelQuartos']}} quarto
+                                                        {/endif}
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelVagas'] > 0{/if}
+                                                <div class="list__item">
+                                                    <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="ícone carro" width="24" height="18">
+                                                    <span class="">
+                                                        {if}$data['imovelVagas'] === 1{/if}
+                                                            Possui<br>vaga
+                                                        {elseif}$data['imovelVagas'] === 3{/elseif}
+                                                            {{$data['imovelVagas'] - 2}}<br>vaga
+                                                        {elseif}$data['imovelVagas'] > 3{/elseif}
+                                                            {{$data['imovelVagas'] - 2}}<br>vagas
+                                                        {else}
+                                                            Sem<br>vaga
+                                                        {/endif}
+                                                    </span>
+                                                    <span class="">
+                                                        {if}$data['imovelVagas'] === 1{/if}
+                                                            Possui vaga
+                                                        {elseif}$data['imovelVagas'] === 3{/elseif}
+                                                            {{$data['imovelVagas'] - 2}} vaga
+                                                        {elseif}$data['imovelVagas'] > 3{/elseif}
+                                                            {{$data['imovelVagas'] - 2}} vagas
+                                                        {else}
+                                                            Sem vaga
+                                                        {/endif}
+                                                    </span>
+                                                </div>
+                                            {else}
+                                                <div class="list__item">
+                                                    <img class="list__icon" loading="lazy" src="{{$global['base']}}svg/car-primary.svg" alt="ícone carro" width="24" height="18">
+                                                    <span class="">
+                                                        Sem<br>vaga
+                                                    </span>
+                                                    <span class="">
+                                                        Sem vaga
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                        </div>
+                                        <div class="list__border"></div>
+                                        <div class="list__information">
+                                            {if}$data['imovelValorVenda']{/if}
+                                                <div class="list__value">
+                                                    <span class="">
+                                                        Valor de venda:
+                                                    </span>
+                                                    <span class="list__price">
+                                                        R$ {n2}$data['imovelValorVenda']{/n2}
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            {if}$data['imovelValorAluguel']{/if}
+                                                <div class="list__value">
+                                                    <span class="">
+                                                        Valor de locação:
+                                                    </span>
+                                                    <span class="list__price">
+                                                        R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}
+                                                    </span>
+                                                </div>
+                                            {/endif}
+                                            <button class="list__btn">
+                                                VER IMÓVEL
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            {/endif}
-                            {if}$data['imovelValorAluguel']{/if}
-                                <div class="list__value">
-                                    <span class="">
-                                        Valor de locação:
-                                    </span>
-                                    <span class="list__price">
-                                        R$ {n2}$data['imovelValorAluguel'] - $data['imovelValorMultaDesconto']{/n2}
-                                    </span>
-                                </div>
-                            {/endif}
-                     </div>
-                 </div> 
-
-                </div>
+                            </a>
+                            <button class="compare__check list__compare ui__display--sm-none" data-id="{{$data['imovelId']}}"></button>
+                        </div>
+                    </div>
                 {/endforeach}
-             
-             <!--list__container-->
-
-            </div>
-        </a>
             {else}
                 <div class="result__content">
                     <div class="jetgrid__col--24">
